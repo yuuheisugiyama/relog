@@ -18,7 +18,7 @@ jp.xii.relog.customlibrary<br>
 ├ jp.xii.relog.customlibrary.view<br>
 │ 　├ OriginalPreferenceActivity.java<br>
 │ 　└ OriginalView.java<br>
-└ jp.xii.relog.customlibrary.widget
+└ jp.xii.relog.customlibrary.widget<br>
 　 　├ BreadCrumbList.java<br>
 　 　├ HorizontalAutoScrollTextView.java<br>
 　 　├ HorizontalAutoScrollView.java<br>
