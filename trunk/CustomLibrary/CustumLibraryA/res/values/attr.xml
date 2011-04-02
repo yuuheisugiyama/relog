@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- BreadCrumbListのXMLパラメータ定義 -->
+	<declare-styleable name="BreadCrumbList">
+		<attr name="separater_src" format="reference|color" />
+	</declare-styleable>
+	
+	
+</resources>
