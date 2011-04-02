@@ -1,0 +1,26 @@
+CustomLibraryプロジェクトの説明
+
+
+= プロジェクト構造 =
+jp.xii.relog.customlibrary
+│├ DoSuCommand.java
+│├ FileListDialog.java
+│└ NotifyControl.java
+├ jp.xii.relog.customlibrary.mediastore
+│ 　├ MediaScannerNotifier.java
+│ 　├ MediaStoreAccess.java
+│ 　└ MediaStoreAccessAudio.java
+├ jp.xii.relog.customlibrary.preference
+│ 　├ FileSelectPreference.java
+│ 　├ IpAddressPreference.java
+│ 　├ OriginalDialogPreference.java
+│ 　└ TimePickerPreference.java
+├ jp.xii.relog.customlibrary.view
+│ 　├ OriginalPreferenceActivity.java
+│ 　└ OriginalView.java
+└ jp.xii.relog.customlibrary.
+　 　├ BreadCrumbList.java
+　 　├ HorizontalAutoScrollTextView.java
+　 　├ HorizontalAutoScrollView.java
+　 　├ ProgressBar.java
+　 　└ ProgressCircle.java
