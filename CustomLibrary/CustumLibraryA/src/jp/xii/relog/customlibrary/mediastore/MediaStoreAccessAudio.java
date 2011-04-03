@@ -21,6 +21,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 		private int _playOrder = -1;
 
 		private String _title = "";
+		private String _name = "";
 		private String _artist = "";
 		private String _album = "";
 		private String _year = "";
@@ -76,6 +77,18 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 		}
 		public void setTitle(String _title) {
 			this._title = _title;
+		}
+		/**
+		 * @param _name the _name to set
+		 */
+		public void setName(String _name) {
+			this._name = _name;
+		}
+		/**
+		 * @return the _name
+		 */
+		public String getName() {
+			return _name;
 		}
 		public String getArtist() {
 			return _artist;
@@ -162,7 +175,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 	
 	
 	public static final int INVALID_USER_PLAYLIST_ID = -1;	//不正なプレイリストID
-	
+	public static final int INVALID_AUDIO_ID = -1;			//不正なオーディオID
 	
 	ContentResolver _contentResolver = null;
 	
@@ -216,6 +229,8 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 						info.setModifiedDate(new Date(cursor.getInt(i)));
 					}else if(name.compareTo("title") == 0){
 						info.setTitle(cursor.getString(i));
+					}else if(name.compareTo("name") == 0){
+						info.setName(cursor.getString(i));
 					}else if(name.compareTo("artist_id") == 0){
 						info.setAlbumId(cursor.getInt(i));
 					}else if(name.compareTo("album_id") == 0){
@@ -595,6 +610,36 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 		return ret;
 	}
 
+	/**
+	 * audio_idを取得する
+	 * @param path フルパス
+	 * @return
+	 */
+	public int getAudioId(String path){
+		int ret = INVALID_AUDIO_ID;
+		if(_contentResolver == null){
+		}else{
+			Uri music_uri = getMediaContentsUri(StoragePlaceType.External);
+			String as[] = new String[1];
+			as[0] = "_id";
+			String where = "_data = ?";
+			String as1[] = new String[1];
+			as1[0] = path;
+			Cursor cursor = null;
+			try{
+				cursor = _contentResolver.query(music_uri, as, where, as1, null);
+			}catch(Exception e){
+			}
+			if(cursor == null){
+				Log("fail query music : " + path );
+			}else{
+				cursor.moveToFirst();
+				ret = cursor.getInt(0);
+				cursor.close();
+			}
+		}
+		return ret;
+	}
 
 	/**
 	 * プレイリストの最大のplay_orderを取得する
