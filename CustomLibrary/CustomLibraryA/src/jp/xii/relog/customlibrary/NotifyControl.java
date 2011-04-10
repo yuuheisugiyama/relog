@@ -91,6 +91,9 @@ public class NotifyControl {
 							System.currentTimeMillis());
 			_notifyIntent = activity.getIntent();
 			_contentIntent = PendingIntent.getActivity(activity, 0, _notifyIntent, 0);
+			
+			//“o˜^‚µ‚½‚çƒNƒŠƒA
+			_lastUpdateTime = System.currentTimeMillis();
 		}
 	}
 	
