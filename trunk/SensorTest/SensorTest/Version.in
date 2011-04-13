@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+<string name="version_code">1</string>
+<string name="version_name">1.0.$WCREV$$WCMODS?a:$</string>
+<string name="copyright">(C) 2010 IoriAYANE</string>
+</resources>
+
