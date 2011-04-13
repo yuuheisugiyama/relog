@@ -1,0 +1,1 @@
+"C:\Program Files\TortoiseSVN\bin\SubWcRev" ".." ".\version.in" ".\res\values\version.xml"
