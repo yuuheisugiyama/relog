@@ -109,12 +109,25 @@ public class NotifyControl {
 	
 	/**
 	 * Notifyを表示する
+	 * @param activity 呼び出し元アクティビティ
+	 * @param title タイトル
+	 * @param message 下にでるメッセージ
+	 * @param app_name アプリ名（タスクバー的なところにでるやつだったかな）
+	 */
+	public void viewNotify(Activity activity, String title, String message, int app_name){
+		viewNotify(activity, title, message, app_name, _contentIntent);
+	}
+
+	/**
+	 * Notifyを表示する
 	 * @param activity
 	 * @param title
 	 * @param message
 	 * @param app_name
+	 * @param pending_intent
 	 */
-	public void viewNotify(Activity activity, String title, String message, int app_name){
+	public void viewNotify(Activity activity, String title, String message, int app_name
+							,PendingIntent pending_intent){
 		long now = System.currentTimeMillis();
 		
 		if((_notification == null) || (_notificationManager == null)
@@ -127,7 +140,7 @@ public class NotifyControl {
 					activity,
 					title,
 					message,
-					_contentIntent);
+					pending_intent);
 			
 			_notificationManager.notify(app_name, _notification);
 
@@ -135,7 +148,8 @@ public class NotifyControl {
 			_lastUpdateTime = now;
 		}
 	}
-
+	
+	
 	/**
 	 * Notifyを消す
 	 */
