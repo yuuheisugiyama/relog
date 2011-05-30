@@ -39,7 +39,7 @@ CustomLibraryプロジェクトの説明
 - HorizontalAutoScrollTextView.java<br>
 　　横に自動スクロールするテキストビュー<br>
 - HorizontalAutoScrollView.java<br>
-　　横に自動スクロールするビュー
+　　横に自動スクロールするビュー<br>
 - ProgressBar.java<br>
 - ProgressCircle.java<br>
 　　円形のプログレスバー<br>
