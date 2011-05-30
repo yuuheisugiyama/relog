@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="eula_is_agreed_key">end_user_license_agreement_is_agreed</string>
+	<string name="eula_title">License agreement</string>
+	<string name="eula_agree">Agree</string>
+	<string name="eula_disagree">Disagree</string>
+
+	<!-- Developer's infomation -->
+	<string name="eula_developer_name">IoriAYANE</string><!-- assigned to %2$s -->
+	<string name="eula_cout">the Nagoya District Court</string><!-- assigned to %3$s -->
+
+<!--  http://www.developer-resource.com/sample-eula.htm -->
+<string name="eula_message">
+END-USER LICENSE AGREEMENT FOR %1$s IMPORTANT PLEASE READ THE TERMS 
+AND CONDITIONS OF THIS LICENSE AGREEMENT CAREFULLY BEFORE CONTINUING WITH THIS PROGRAM INSTALL:
+ %2$s\'s End-User License Agreement (\"EULA\") is a legal agreement between you
+ (either an individual or a single entity) and %2$s.
+ for the %2$s software product(s) identified above which may include associated
+ software components, media, printed materials, and \"online\" or electronic documentation (\"SOFTWARE PRODUCT\").
+ By installing, copying, or otherwise using the SOFTWARE PRODUCT, you agree to be bound by the terms of this EULA.
+ This license agreement represents the entire agreement concerning the program between you and
+ %2$s, (referred to as \"licenser\"), and it supersedes any prior proposal, 
+ representation, or understanding between the parties. 
+ If you do not agree to the terms of this EULA, do not install or use the SOFTWARE PRODUCT.\n
+\n
+The SOFTWARE PRODUCT is protected by copyright laws and international copyright treaties,
+ as well as other intellectual property laws and treaties. The SOFTWARE PRODUCT is licensed, not sold.
+\n
+\n
+/// GOVERNING LAW\n
+This EULA is governed by the Japanese laws.
+I and User each irrevocably and unconditionally submit to the exclusive jurisdiction and venue of %3$s,
+ and each knowingly waives any objection that the courts therein do not have personal jurisdiction or
+ that the courts are an improper forum, or not a convenient forum.
+</string>
+	
+</resources>
