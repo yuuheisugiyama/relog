@@ -109,6 +109,7 @@ public class EulaHelper {
 			AlertDialog.Builder ad = new AlertDialog.Builder(_parentActivity);
 			ad.setTitle(_parentActivity.getString(R.string.eula_title));
 			ad.setMessage(getEulaMessage());
+			ad.setCancelable(false);
 			//OKƒ{ƒ^ƒ“
 			ad.setPositiveButton(R.string.eula_agree
 							, new DialogInterface.OnClickListener() {
