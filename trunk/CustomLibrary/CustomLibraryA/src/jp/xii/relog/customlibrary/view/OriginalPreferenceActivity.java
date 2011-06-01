@@ -12,7 +12,7 @@ public abstract class OriginalPreferenceActivity extends PreferenceActivity {
 	/**
 	 * 設定をサマリーに表示する
 	 */
-	protected abstract void updateSettingSummary();	
+	protected abstract void updateSettingSummary(SharedPreferences sharedPreferences, String key);	
 	
 	
 	/**
@@ -37,7 +37,7 @@ public abstract class OriginalPreferenceActivity extends PreferenceActivity {
 	private SharedPreferences.OnSharedPreferenceChangeListener _listener = 
 	  new SharedPreferences.OnSharedPreferenceChangeListener() {
 	    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-	    	updateSettingSummary();
+	    	updateSettingSummary(sharedPreferences, key);
 	    }
 	};
 
