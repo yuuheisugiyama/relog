@@ -57,6 +57,9 @@ public class RangeSelectBar extends OriginalView {
 	
 	private int _widthKnob = 0;	//つまみの横幅
 	
+	private onRangeSelectBarChangeListener _changeListener = null;	//変化発生時のリスナー
+	
+	
 	/**
 	 * 最大値
 	 * @param _max the _max to set
@@ -176,7 +179,7 @@ public class RangeSelectBar extends OriginalView {
 	
 	/**
 	 * つまみの横幅
-	 * @return the _widthStand
+	 * @return the _widthKnob 
 	 */
 	public int getWidthKnob() {
 		if(_widthKnob == 0){
@@ -185,6 +188,21 @@ public class RangeSelectBar extends OriginalView {
 		return _widthKnob;
 	}
 
+	
+	/**
+	 * 変化発生時のリスナー
+	 * @param _changeListener the _changeListener to set
+	 */
+	public void setOnRangeSelectBarChangeListener(onRangeSelectBarChangeListener _changeListener) {
+		this._changeListener = _changeListener;
+	}
+	/**
+	 * 変化発生時のリスナー
+	 * @return the _changeListener
+	 */
+	public onRangeSelectBarChangeListener getOnRangeSelectBarChangeListener() {
+		return _changeListener;
+	}
 	
 	/**
 	 * 範囲を選択するバー
@@ -407,6 +425,12 @@ public class RangeSelectBar extends OriginalView {
 
 				//再描画
 				invalidate();
+				
+				//イベント
+				if(getOnRangeSelectBarChangeListener() != null){
+					getOnRangeSelectBarChangeListener()
+							.onProgressChanged(this, getFirst(), getLast());
+				}
 			}
 			ret = true;
 			break;
@@ -543,4 +567,15 @@ public class RangeSelectBar extends OriginalView {
 			}
 		}
 	}
+
+
+	/**
+	 * 変化が起こったときのインターフェースクラス
+	 * @author Iori
+	 *
+	 */
+	public interface onRangeSelectBarChangeListener{
+		void onProgressChanged(RangeSelectBar rangeSelectBar, int first, int last);
+	}
+
 }
