@@ -30,7 +30,7 @@ public class OriginalView extends View {
 	}
 	
 	/**
-	 * 変換する
+	 * dip値を座標値に変換する
 	 * @param temp
 	 * @return
 	 */
@@ -56,5 +56,15 @@ public class OriginalView extends View {
 
 		return ret;
 	}
+	
+	/**
+	 * dip値を座標値に変換する
+	 * @param temp
+	 * @return
+	 */
+	protected int DtoInt(int temp){
+		return (int) (temp * getContext().getResources().getDisplayMetrics().density);
+	}
+
 	
 }
