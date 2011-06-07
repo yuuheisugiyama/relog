@@ -43,3 +43,5 @@ CustomLibraryプロジェクトの説明
 - ProgressBar.java<br>
 - ProgressCircle.java<br>
 　　円形のプログレスバー<br>
+- RangeSelectBar.java<br>
+　　範囲を選択できるSeekbar的なもの<br>
