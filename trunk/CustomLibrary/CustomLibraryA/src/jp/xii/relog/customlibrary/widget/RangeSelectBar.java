@@ -37,11 +37,11 @@ public class RangeSelectBar extends OriginalView {
 	//定数
 	
 	//属性名
-	private final static String STR_ATTR_MAX = "max";						//最大値
-	private final static String STR_ATTR_MIN = "min";						//最小値
-	private final static String STR_ATTR_STEP = "step";						//可変値
-	private final static String STR_ATTR_DEFAULT_FIRST = "default_first";	//左の初期値
-	private final static String STR_ATTR_DEFAULT_LAST = "default_last";		//右の初期値
+	public final static String STR_ATTR_MAX = "max";						//最大値
+	public final static String STR_ATTR_MIN = "min";						//最小値
+	public final static String STR_ATTR_STEP = "step";						//可変値
+	public final static String STR_ATTR_DEFAULT_FIRST = "default_first";	//左の初期値
+	public final static String STR_ATTR_DEFAULT_LAST = "default_last";		//右の初期値
 
 	//その他
 	private final static int NUM_MAX_HEIGHT = 35;					//高さの最大値(dip)
@@ -134,6 +134,9 @@ public class RangeSelectBar extends OriginalView {
 	 * @param _first the _first to set
 	 */
 	public void setFirst(int _first) {
+		if(_first == getMax()){
+			_first = getMin();
+		}
 		this._first = _first;
 	}
 	/**
@@ -148,6 +151,9 @@ public class RangeSelectBar extends OriginalView {
 	 * @param _last the _last to set
 	 */
 	public void setLast(int _last) {
+		if(_last == getMin()){
+			_last = getMax();
+		}
 		this._last = _last;
 	}
 	/**
@@ -188,7 +194,7 @@ public class RangeSelectBar extends OriginalView {
 	 * @return
 	 */
 	public float getWidthRatio(){
-		return (float)(getWidth()) / (float)(getMax() - getMin());
+		return (float)(getWidth() - getWidthKnob()) / (float)(getMax() - getMin());
 	}
 	
 	
@@ -296,6 +302,8 @@ public class RangeSelectBar extends OriginalView {
 //		int width = getWidth() - padding * 2;							//描画エリア
 //		float ratio = (float)(width) / (float)(getMax() - getMin());	//バーの数値から座標へ変換係数
 		
+		float width_ratio = getWidthRatio();
+		float width_knob_half = getWidthKnob() / 2;
 		
 		Paint paint = new Paint();				//描画フォーマット作成
 		paint.setAntiAlias(true);				//アンチエイリアス有効
@@ -317,8 +325,10 @@ public class RangeSelectBar extends OriginalView {
 		//558DBAE2 FF8DBAE2
 		
 		//ベース
-		rect = new RectF(0, getHeight() * NUM_BASE_BAR_HEIGHT_RATIO
-						, getWidth(), getHeight() * (1.0f - NUM_BASE_BAR_HEIGHT_RATIO));
+		rect = new RectF(width_knob_half
+						, getHeight() * NUM_BASE_BAR_HEIGHT_RATIO
+						, getWidth() - width_knob_half
+						, getHeight() * (1.0f - NUM_BASE_BAR_HEIGHT_RATIO));
 		shader = new LinearGradient(0, 0, 0, getHeight()
 											, colors_base
 											, null
@@ -330,9 +340,9 @@ public class RangeSelectBar extends OriginalView {
 		//選択範囲
 		if(getFirst() < getLast()){
 			//通常状態
-			rect = new RectF((getFirst() - getMin()) * getWidthRatio()
+			rect = new RectF((getFirst() - getMin()) * width_ratio + width_knob_half
 					, getHeight() * NUM_SELECT_BAR_HEIGHT_RATIO
-					, (getLast() - getMin()) * getWidthRatio()
+					, (getLast() - getMin()) * width_ratio + width_knob_half
 					, getHeight() * (1.0f - NUM_SELECT_BAR_HEIGHT_RATIO));
 			shader = new LinearGradient(0, 0, 0, getHeight()
 												, colors_select
@@ -343,9 +353,9 @@ public class RangeSelectBar extends OriginalView {
 			canvas.drawRoundRect(rect, 5, 5, paint);
 		}else{
 			//ループ状態（左）
-			rect = new RectF((getMin() - getMin()) * getWidthRatio()
+			rect = new RectF((getMin() - getMin()) * width_ratio + width_knob_half
 					, getHeight() * NUM_SELECT_BAR_HEIGHT_RATIO
-					, (getLast() - getMin()) * getWidthRatio()
+					, (getLast() - getMin()) * width_ratio + width_knob_half
 					, getHeight() * (1.0f - NUM_SELECT_BAR_HEIGHT_RATIO));
 			shader = new LinearGradient(0, 0, 0, getHeight()
 												, colors_select
@@ -356,17 +366,17 @@ public class RangeSelectBar extends OriginalView {
 			canvas.drawRoundRect(rect, 5, 5, paint);
 
 			//ループ状態（右）
-			rect = new RectF((getFirst() - getMin()) * getWidthRatio()
+			rect = new RectF((getFirst() - getMin()) * width_ratio + width_knob_half
 					, getHeight() * NUM_SELECT_BAR_HEIGHT_RATIO
-					, (getMax() - getMin()) * getWidthRatio()
+					, (getMax() - getMin()) * width_ratio + width_knob_half
 					, getHeight() * (1.0f - NUM_SELECT_BAR_HEIGHT_RATIO));
 			canvas.drawRoundRect(rect, 5, 5, paint);
 		}
 		
 		//持つところの描画（左）
-		rect = new RectF((getFirst() - getMin()) * getWidthRatio()
+		rect = new RectF((getFirst() - getMin()) * width_ratio
 				, getHeight() * NUM_KNOB_HEIGHT_RATIO
-				, (getFirst() - getMin()) * getWidthRatio() + getWidthKnob()
+				, (getFirst() - getMin()) * width_ratio + getWidthKnob()
 				, getHeight() * (1.0f - NUM_KNOB_HEIGHT_RATIO));
 		shader = new LinearGradient(0, 0, 0, getHeight()
 											, colors_point
@@ -378,9 +388,9 @@ public class RangeSelectBar extends OriginalView {
 		canvas.drawRoundRect(rect, 5, 5, paint);
 
 		//持つところの描画（右）
-		rect = new RectF((getLast() - getMin()) * getWidthRatio() - getWidthKnob()
+		rect = new RectF((getLast() - getMin()) * width_ratio
 				, getHeight() * NUM_KNOB_HEIGHT_RATIO
-				, (getLast() - getMin()) * getWidthRatio()
+				, (getLast() - getMin()) * width_ratio + getWidthKnob()
 				, getHeight() * (1.0f - NUM_KNOB_HEIGHT_RATIO));
 		canvas.drawRoundRect(rect, 5, 5, paint);
 	}
