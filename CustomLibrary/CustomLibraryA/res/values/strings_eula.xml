@@ -19,6 +19,7 @@
 	<string name="eula_title">License agreement</string>
 	<string name="eula_agree">Agree</string>
 	<string name="eula_disagree">Disagree</string>
+	<string name="eula_ok">OK</string>
 
 	<!-- Developer's infomation -->
 	<string name="eula_developer_name">IoriAYANE</string><!-- assigned to %2$s -->
