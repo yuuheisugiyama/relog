@@ -148,6 +148,29 @@ public class EulaHelper {
 		}
 	}
 	
+	public void showOnlyView(){
+		//読み込む
+		load(_parentActivity);
+		//実処理開始
+		if(_parentActivity == null){
+		}else{
+			AlertDialog.Builder ad = new AlertDialog.Builder(_parentActivity);
+			ad.setTitle(_parentActivity.getString(R.string.eula_title));
+			ad.setMessage(getEulaMessage());
+			ad.setCancelable(false);
+			//OKボタン
+			ad.setPositiveButton(R.string.eula_ok
+							, new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					//nop
+				}
+			});
+			ad.create();
+			ad.show();
+		}
+	}
+	
 	/**
 	 * 同意したことを保存する
 	 */

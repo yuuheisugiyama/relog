@@ -254,10 +254,19 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 		}
 		
 		//ƒTƒ}ƒŠ‚É•\Ž¦‚·‚é
+		String data = "";
+		try{
+			data = String.format(getValueFormatString(), getFirst())
+				+ " - "
+				+ String.format(getValueFormatString(), getLast());
+		}catch(Exception e){
+			data = getFirst() + " - " + getLast();
+		}
+
 		if(getUnitString().length() == 0){
-			setSummary("Range : " + getFirst() + " - " + getLast());
+			setSummary("Range : " + data);
 		}else{
-			setSummary("Range(" + getUnitString() + ") : " + getFirst() + " - " + getLast());
+			setSummary("Range(" + getUnitString() + ") : " + data);
 		}
 		
 		super.onBindView(view);
