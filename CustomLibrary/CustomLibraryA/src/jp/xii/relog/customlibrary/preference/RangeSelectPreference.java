@@ -341,5 +341,39 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 			}
 		}
 	}
-	
+
+	/**
+	 * プリファレンスに保存された文字列から前の値を取得する
+	 * @param value
+	 * @return
+	 */
+	static public int getPref2First(String value){
+		int ret = 0;
+		String[] values = null;
+		values = value.split(",");
+		if(values == null){
+		}else if(values.length < 2){
+		}else{
+			ret = Integer.valueOf(values[0]);
+		}
+		return ret;
+	}
+
+	/**
+	 * プリファレンスに保存された文字列から後の値を取得する
+	 * @param value
+	 * @return
+	 */
+	static public int getPref2Last(String value){
+		int ret = 0;
+		String[] values = null;
+		values = value.split(",");
+		if(values == null){
+		}else if(values.length < 2){
+		}else{
+			ret = Integer.valueOf(values[1]);
+		}
+		return ret;
+	}
+
 }
