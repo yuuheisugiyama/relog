@@ -15,7 +15,13 @@
  */
 package jp.xii.relog.customlibrary;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -47,7 +53,6 @@ public class Utility {
 		ad.setTitle(title);
 		ad.setMessage(text);
 		ad.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				activity.setResult(Activity.RESULT_OK);
@@ -108,15 +113,33 @@ public class Utility {
 	 * @param text
 	 */
 	public static void showDialog(final Activity activity, String title, String text, OnClickListener listener){
+		showDialog(activity, title, text, listener, null);
+	}
+
+	/**
+	 * ダイアログの表示
+	 * @param activity
+	 * @param title タイトル
+	 * @param text 本文
+	 * @param listener_ok OKボタンのリスナ
+	 * @param listener_cancel キャンセルのリスナ nullの時はキャンセルボタン無し
+	 */
+	public static void showDialog(final Activity activity, String title, String text
+								, OnClickListener listener_ok
+								, OnClickListener listener_cancel){
 		AlertDialog.Builder ad = new AlertDialog.Builder(activity);
 		ad.setIcon(R.drawable.ic_menu_more);
 		ad.setTitle(title);
 		ad.setMessage(text);
-		ad.setPositiveButton("OK", listener);
-		ad.setNegativeButton("Cancel", null);
+		ad.setPositiveButton("OK", listener_ok);
+		if(listener_cancel != null){
+			ad.setNegativeButton("Cancel", listener_cancel);
+		}
 		ad.create();
 		ad.show();
 	}
+	
+		
 	
 	/**
 	 * ダイアログの表示
@@ -200,6 +223,112 @@ public class Utility {
 			Thread.sleep(time);
 		} catch (InterruptedException e) {
 		}
+	}
+
+	
+	
+	/**
+	 * ファイル→文字列
+	 * @param context　コンテキスト（コレがNULLの場合は任意の場所から読める）
+	 * @param fileName  ファイル名
+	 * @return 成否
+	 */
+	public static String file2str(Context context, String fileName){
+		byte[] w = file2data(context, fileName);
+		if(w == null){
+			return "";
+		}else{
+			return new String(w);
+		}
+	}
+	
+	/**
+	 * ファイル→バイトデータ
+	 * @param context コンテキスト（コレがNULLの場合は任意の場所から読める）
+	 * @param fileName  ファイル名
+	 * @return 成否
+	 */
+	public static byte[] file2data(Context context, String fileName){
+		int size;
+		byte[] ret = null;
+		byte[] w = new byte[1024];
+		InputStream in = null;
+		ByteArrayOutputStream out = null;
+		
+		try{
+			if(context != null){
+				in = context.openFileInput(fileName);
+			}else{
+				File inFile = new File(fileName);
+				in = new FileInputStream(inFile);
+			}
+			out = new ByteArrayOutputStream();
+			while(true){
+				size = in.read(w);
+				if(size <= 0){
+					break;
+				}
+				out.write(w, 0, size);
+			}
+			in.close();
+			out.close();
+			ret = out.toByteArray();
+		}catch(Exception e){
+			try{
+				if(in != null){
+					in.close();
+				}
+				if(out != null){
+					out.close();
+				}
+			}catch(Exception e2){
+			}
+		}
+		return ret;
+	}
+	
+	/**
+	 * 文字列をファイルへ保存する
+	 * @param context　コンテキスト（コレがNULLの場合は任意の場所に保存）
+	 * @param str
+	 * @param fileName ファイル名
+	 * @return 成否
+	 */
+	public static boolean str2file(Context context, String str, String fileName){
+		return data2file(context, str.getBytes(), fileName);
+	}
+
+	/**
+	 * バイトデータをファイルへ保存する
+	 * @param context コンテキスト（コレがNULLの場合は任意の場所に保存）
+	 * @param data 内容のバイト列
+	 * @param fileName ファイル名（コンテキストがNULLの時はフルパス）
+	 * @return　成否
+	 */
+	public static boolean data2file(Context context, byte[] data, String fileName){
+		boolean ret = false;
+		OutputStream out = null;
+		
+		try{
+			if(context != null){
+				out = context.openFileOutput(fileName, Context.MODE_WORLD_READABLE);
+			}else{
+				File outFile = new File(fileName);
+				out = new FileOutputStream(outFile);
+			}
+			out.write(data, 0, data.length);
+			out.close();
+			ret = true;
+		}catch(Exception e){
+			try{
+				if(out != null){
+					out.close();
+				}
+			}catch(Exception e2){
+				
+			}
+		}
+		return ret;
 	}
 
 }
