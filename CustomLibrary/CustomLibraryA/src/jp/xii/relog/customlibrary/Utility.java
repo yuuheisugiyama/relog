@@ -67,10 +67,10 @@ public class Utility {
 	 * @param activity
 	 * @param message
 	 */
-	public static void showToast(final Activity activity, String message){
+	public static void showToast(final Context context, String message){
 		if(message == null){
 		}else{
-			Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 		}
 	}
 	

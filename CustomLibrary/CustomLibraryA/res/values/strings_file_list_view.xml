@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="file_list_select_here">Select here</string>
+	<string name="file_list_dont_get_list">Cannot get list.</string>
+	<string name="file_list_empty">&lt;Empty&gt;</string>
+</resources>
