@@ -4,6 +4,6 @@
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:orientation="vertical">
-    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:id="@+id/FileListCurrentPath_TextView" android:textSize="16dip"></TextView>
-	<ListView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/FileList_ListView"></ListView>
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:id="@+id/FileListCurrentPath_TextView" android:textSize="18dip"></TextView>
+	<ListView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/FileList_ListView" android:cacheColorHint="#00000000"></ListView>
 </LinearLayout>
