@@ -30,7 +30,7 @@ import android.widget.TextView;
 			android:id="@+id/AutoScrollTest"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			text="’·‚¢ƒeƒLƒXƒg‚ÌƒTƒ“ƒvƒ‹‚Å‚·‚ªA‚Í‚İ‚Å‚·‚©‚Ë[H"
+			text="é•·ã„ãƒ†ã‚­ã‚¹ãƒˆã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ãŒã€ã¯ã¿ã§ã™ã‹ã­ãƒ¼ï¼Ÿ"
 			android:onClick="onHorizontalAutoScrollTestClick"
 			>
 	</jp.xii.relog.customlibrary.widget.HorizontalAutoScrollTextView>
@@ -40,15 +40,15 @@ import android.widget.TextView;
 
 public class HorizontalAutoScrollTextView extends ViewGroup implements AnimationListener {
 
-	private final static String STR_ATTR_TEXT = "text";			//ƒeƒLƒXƒg
+	private final static String STR_ATTR_TEXT = "text";			//ãƒ†ã‚­ã‚¹ãƒˆ
 
 	
-	private String _text = "";						//ƒeƒLƒXƒg
-	private TextView _textView0 = null;				//’†‚É”z’u‚·‚éƒeƒLƒXƒgƒrƒ…[
+	private String _text = "";						//ãƒ†ã‚­ã‚¹ãƒˆ
+	private TextView _textView0 = null;				//ä¸­ã«é…ç½®ã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼
 	
 	
 	/**
-	 * ’†‚É”z’u‚·‚éƒeƒLƒXƒgƒrƒ…[
+	 * ä¸­ã«é…ç½®ã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼
 	 * @return the _textView0
 	 */
 	public TextView getTextView0() {
@@ -88,7 +88,7 @@ public class HorizontalAutoScrollTextView extends ViewGroup implements Animation
 	}
 
 	/**
-	 * ƒTƒCƒY‚ÌŒˆ’è‚·‚é
+	 * ã‚µã‚¤ã‚ºã®æ±ºå®šã™ã‚‹
 	 */
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -97,12 +97,12 @@ public class HorizontalAutoScrollTextView extends ViewGroup implements Animation
 		LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 		getTextView0().setLayoutParams(lp);
 
-		// q—v‘f‚É•K—v‚È‘å‚«‚³‚ğŒv‘ª
+		// å­è¦ç´ ã«å¿…è¦ãªå¤§ãã•ã‚’è¨ˆæ¸¬
 		int childWidthSpec = ViewGroup.getChildMeasureSpec(widthMeasureSpec, 0, lp.width);
 		int childHeightSpec = ViewGroup.getChildMeasureSpec(heightMeasureSpec, 0, lp.height);
 		getTextView0().measure(childWidthSpec, childHeightSpec);
 
-		//ƒTƒCƒYİ’è
+		//ã‚µã‚¤ã‚ºè¨­å®š
 		setMeasuredDimension(getTextView0().getMeasuredWidth(), getTextView0().getMeasuredHeight());
 	}
 
@@ -112,12 +112,12 @@ public class HorizontalAutoScrollTextView extends ViewGroup implements Animation
 		
 		addViewInLayout(getTextView0(), -1, getTextView0().getLayoutParams());
 		
-        // q—v‘f‚Ì•`‰æ”ÍˆÍ‚ğ“n‚µ‚ÄƒŒƒCƒAƒEƒg
+        // å­è¦ç´ ã®æç”»ç¯„å›²ã‚’æ¸¡ã—ã¦ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
         getTextView0().layout(0, 0, getTextView0().getMeasuredWidth(), getTextView0().getMeasuredHeight());
 	}
 	
 	/**
-	 * ƒXƒNƒ[ƒ‹ŠJn
+	 * ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é–‹å§‹
 	 */
 	public void startScroll(){
 		Log.d("mpremocon", "startScroll");
@@ -130,7 +130,7 @@ public class HorizontalAutoScrollTextView extends ViewGroup implements Animation
 	}
 
 	/**
-	 * ƒAƒjƒ[ƒVƒ‡ƒ“ŠJn
+	 * ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³é–‹å§‹
 	 */
 	@Override
 	public void onAnimationStart(Animation animation) {
@@ -139,7 +139,7 @@ public class HorizontalAutoScrollTextView extends ViewGroup implements Animation
 	}
 
 	/**
-	 * ƒAƒjƒ[ƒVƒ‡ƒ“ŒJ‚è•Ô‚µ
+	 * ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç¹°ã‚Šè¿”ã—
 	 */
 	@Override
 	public void onAnimationRepeat(Animation animation) {
@@ -148,7 +148,7 @@ public class HorizontalAutoScrollTextView extends ViewGroup implements Animation
 	}
 
 	/**
-	 * ƒAƒjƒ[ƒVƒ‡ƒ“I—¹
+	 * ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†
 	 */
 	@Override
 	public void onAnimationEnd(Animation animation) {

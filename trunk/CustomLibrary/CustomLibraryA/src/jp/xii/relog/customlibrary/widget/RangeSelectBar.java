@@ -28,55 +28,55 @@ import android.view.MotionEvent;
 import jp.xii.relog.customlibrary.view.OriginalView;
 
 /**
- * ”ÍˆÍ‚ğ‘I‘ğ‚µ‚Ä‚à‚ç‚¤‚½‚ß‚Ìƒo[
+ * ç¯„å›²ã‚’é¸æŠã—ã¦ã‚‚ã‚‰ã†ãŸã‚ã®ãƒãƒ¼
  * @author Iori
  *
  */
 public class RangeSelectBar extends OriginalView {
 
-	//’è”
+	//å®šæ•°
 	
-	//‘®«–¼
-	public final static String STR_ATTR_MAX = "max";						//Å‘å’l
-	public final static String STR_ATTR_MIN = "min";						//Å¬’l
-	public final static String STR_ATTR_STEP = "step";						//‰Â•Ï’l
-	public final static String STR_ATTR_DEFAULT_FIRST = "default_first";	//¶‚Ì‰Šú’l
-	public final static String STR_ATTR_DEFAULT_LAST = "default_last";		//‰E‚Ì‰Šú’l
+	//å±æ€§å
+	public final static String STR_ATTR_MAX = "max";						//æœ€å¤§å€¤
+	public final static String STR_ATTR_MIN = "min";						//æœ€å°å€¤
+	public final static String STR_ATTR_STEP = "step";						//å¯å¤‰å€¤
+	public final static String STR_ATTR_DEFAULT_FIRST = "default_first";	//å·¦ã®åˆæœŸå€¤
+	public final static String STR_ATTR_DEFAULT_LAST = "default_last";		//å³ã®åˆæœŸå€¤
 
-	//‚»‚Ì‘¼
-	private final static int NUM_MAX_HEIGHT = 35;					//‚‚³‚ÌÅ‘å’l(dip)
-	private final static float NUM_BASE_BAR_HEIGHT_RATIO = 0.4f;	//‘S‘Ì‚Ìƒo[‚ğ‚Ç‚ê‚¾‚¯¬‚³‚­‚·‚é‚©
-	private final static float NUM_SELECT_BAR_HEIGHT_RATIO = 0.2f;	//‘I‘ğ‚Ìƒo[‚ğ‚Ç‚ê‚¾‚¯¬‚³‚­‚·‚é‚©
-	private final static int NUM_POINT_HIT_RADIUS = 30;				//Å‘åÅ¬‚ğ•ÏX‚·‚éƒGƒŠƒA‚Ì”¼Œa(dip)
-	private final static int NUM_WIDTH_KNOB = 15;					//‚Â‚Ü‚İ‚Ì‰¡•(dip)
-	private final static float NUM_KNOB_HEIGHT_RATIO = 0.1f;		//‚Â‚Ü‚İ‚Ì‚‚³‚ğ‚Ç‚ê‚¾‚¯¬‚³‚­‚·‚é‚©
+	//ãã®ä»–
+	private final static int NUM_MAX_HEIGHT = 35;					//é«˜ã•ã®æœ€å¤§å€¤(dip)
+	private final static float NUM_BASE_BAR_HEIGHT_RATIO = 0.4f;	//å…¨ä½“ã®ãƒãƒ¼ã‚’ã©ã‚Œã ã‘å°ã•ãã™ã‚‹ã‹
+	private final static float NUM_SELECT_BAR_HEIGHT_RATIO = 0.2f;	//é¸æŠã®ãƒãƒ¼ã‚’ã©ã‚Œã ã‘å°ã•ãã™ã‚‹ã‹
+	private final static int NUM_POINT_HIT_RADIUS = 30;				//æœ€å¤§æœ€å°ã‚’å¤‰æ›´ã™ã‚‹ã‚¨ãƒªã‚¢ã®åŠå¾„(dip)
+	private final static int NUM_WIDTH_KNOB = 15;					//ã¤ã¾ã¿ã®æ¨ªå¹…(dip)
+	private final static float NUM_KNOB_HEIGHT_RATIO = 0.1f;		//ã¤ã¾ã¿ã®é«˜ã•ã‚’ã©ã‚Œã ã‘å°ã•ãã™ã‚‹ã‹
 	
 	private enum HitAreaType{
 		None
-		, First		//Å‰
-		, Last		//ÅŒã
-		, Bar		//ƒo[
+		, First		//æœ€åˆ
+		, Last		//æœ€å¾Œ
+		, Bar		//ãƒãƒ¼
 	}
 	
 	
-	private int _max = 100;		//Å‘å’l
-	private int _min = 0;		//Å¬’l
-	private int _step = 10;		//‰Â•Ï’l
+	private int _max = 100;		//æœ€å¤§å€¤
+	private int _min = 0;		//æœ€å°å€¤
+	private int _step = 10;		//å¯å¤‰å€¤
 	
-	private int _first = 40;		//Å‰‚Ì’l
-	private int _last = 80;			//ÅŒã‚Ì’l
-	private boolean _isLoop = true;		//¶‰E‚ªƒ‹[ƒv‚·‚é‚©
+	private int _first = 40;		//æœ€åˆã®å€¤
+	private int _last = 80;			//æœ€å¾Œã®å€¤
+	private boolean _isLoop = true;		//å·¦å³ãŒãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
 	
-	private Point _prevDownPoint = null;	//‘O‰ñ‰Ÿ‚µ‚Ä‚½ˆÊ’u
-	private HitAreaType _hitArea = HitAreaType.None;	//‰Ÿ‚µ‚Ä‚éƒGƒŠƒA
+	private Point _prevDownPoint = null;	//å‰å›æŠ¼ã—ã¦ãŸä½ç½®
+	private HitAreaType _hitArea = HitAreaType.None;	//æŠ¼ã—ã¦ã‚‹ã‚¨ãƒªã‚¢
 	
-	private int _widthKnob = 0;	//‚Â‚Ü‚İ‚Ì‰¡•
+	private int _widthKnob = 0;	//ã¤ã¾ã¿ã®æ¨ªå¹…
 	
-	private onRangeSelectBarChangeListener _changeListener = null;	//•Ï‰»”­¶‚ÌƒŠƒXƒi[
+	private onRangeSelectBarChangeListener _changeListener = null;	//å¤‰åŒ–ç™ºç”Ÿæ™‚ã®ãƒªã‚¹ãƒŠãƒ¼
 	
 	
 	/**
-	 * Å‘å’l
+	 * æœ€å¤§å€¤
 	 * @param _max the _max to set
 	 */
 	public void setMax(int _max) {
@@ -86,7 +86,7 @@ public class RangeSelectBar extends OriginalView {
 		this._max = _max;
 	}
 	/**
-	 * Å‘å’l
+	 * æœ€å¤§å€¤
 	 * @return the _max
 	 */
 	public int getMax() {
@@ -94,7 +94,7 @@ public class RangeSelectBar extends OriginalView {
 	}
 
 	/**
-	 * Å¬’l
+	 * æœ€å°å€¤
 	 * @param _min the _min to set
 	 */
 	public void setMin(int _min) {
@@ -106,7 +106,7 @@ public class RangeSelectBar extends OriginalView {
 		this._min = _min;
 	}
 	/**
-	 * Å¬’l
+	 * æœ€å°å€¤
 	 * @return the _min
 	 */
 	public int getMin() {
@@ -114,14 +114,14 @@ public class RangeSelectBar extends OriginalView {
 	}
 		
 	/**
-	 * ‰Â•Ï’l
+	 * å¯å¤‰å€¤
 	 * @param _step the _step to set
 	 */
 	public void setStep(int _step) {
 		this._step = _step;
 	}
 	/**
-	 * ‰Â•Ï’l
+	 * å¯å¤‰å€¤
 	 * @return the _step
 	 */
 	public int getStep() {
@@ -130,7 +130,7 @@ public class RangeSelectBar extends OriginalView {
 	
 	
 	/**
-	 * Å‰‚Ì’l
+	 * æœ€åˆã®å€¤
 	 * @param _first the _first to set
 	 */
 	public void setFirst(int _first) {
@@ -140,14 +140,14 @@ public class RangeSelectBar extends OriginalView {
 		this._first = _first;
 	}
 	/**
-	 * Å‰‚Ì’l
+	 * æœ€åˆã®å€¤
 	 * @return the _first
 	 */
 	public int getFirst() {
 		return _first;
 	}
 	/**
-	 * ÅŒã‚Ì’l
+	 * æœ€å¾Œã®å€¤
 	 * @param _last the _last to set
 	 */
 	public void setLast(int _last) {
@@ -157,21 +157,21 @@ public class RangeSelectBar extends OriginalView {
 		this._last = _last;
 	}
 	/**
-	 * ÅŒã‚Ì’l
+	 * æœ€å¾Œã®å€¤
 	 * @return the _last
 	 */
 	public int getLast() {
 		return _last;
 	}
 	/**
-	 * ¶‰E‚ªƒ‹[ƒv‚·‚é‚©
+	 * å·¦å³ãŒãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
 	 * @param _isLoop the _isLoop to set
 	 */
 	public void setIsLoop(boolean _isLoop) {
 		this._isLoop = _isLoop;
 	}
 	/**
-	 * ¶‰E‚ªƒ‹[ƒv‚·‚é‚©
+	 * å·¦å³ãŒãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
 	 * @return the _isLoop
 	 */
 	public boolean isLoop() {
@@ -179,7 +179,7 @@ public class RangeSelectBar extends OriginalView {
 	}
 	
 	/**
-	 * ‘O‰ñ‰Ÿ‚µ‚Ä‚½ˆÊ’u
+	 * å‰å›æŠ¼ã—ã¦ãŸä½ç½®
 	 * @return the _prevDownPoint
 	 */
 	public Point getPrevDownPoint() {
@@ -190,7 +190,7 @@ public class RangeSelectBar extends OriginalView {
 	}
 
 	/**
-	 * getFirst/getLast‚Ì’l‚ğÀÛ‚Ì‰¡•‚ÆÅ¬Å‘å’l‚©‚çŒvZ‚·‚é‚½‚ß‚ÌŒW”‚ğ‹‚ß‚é
+	 * getFirst/getLastã®å€¤ã‚’å®Ÿéš›ã®æ¨ªå¹…ã¨æœ€å°æœ€å¤§å€¤ã‹ã‚‰è¨ˆç®—ã™ã‚‹ãŸã‚ã®ä¿‚æ•°ã‚’æ±‚ã‚ã‚‹
 	 * @return
 	 */
 	public float getWidthRatio(){
@@ -199,7 +199,7 @@ public class RangeSelectBar extends OriginalView {
 	
 	
 	/**
-	 * ‚Â‚Ü‚İ‚Ì‰¡•
+	 * ã¤ã¾ã¿ã®æ¨ªå¹…
 	 * @return the _widthKnob 
 	 */
 	public int getWidthKnob() {
@@ -211,14 +211,14 @@ public class RangeSelectBar extends OriginalView {
 
 	
 	/**
-	 * •Ï‰»”­¶‚ÌƒŠƒXƒi[
+	 * å¤‰åŒ–ç™ºç”Ÿæ™‚ã®ãƒªã‚¹ãƒŠãƒ¼
 	 * @param _changeListener the _changeListener to set
 	 */
 	public void setOnRangeSelectBarChangeListener(onRangeSelectBarChangeListener _changeListener) {
 		this._changeListener = _changeListener;
 	}
 	/**
-	 * •Ï‰»”­¶‚ÌƒŠƒXƒi[
+	 * å¤‰åŒ–ç™ºç”Ÿæ™‚ã®ãƒªã‚¹ãƒŠãƒ¼
 	 * @return the _changeListener
 	 */
 	public onRangeSelectBarChangeListener getOnRangeSelectBarChangeListener() {
@@ -226,7 +226,7 @@ public class RangeSelectBar extends OriginalView {
 	}
 	
 	/**
-	 * ”ÍˆÍ‚ğ‘I‘ğ‚·‚éƒo[
+	 * ç¯„å›²ã‚’é¸æŠã™ã‚‹ãƒãƒ¼
 	 * @param context
 	 * @param attrs
 	 */
@@ -236,34 +236,34 @@ public class RangeSelectBar extends OriginalView {
 	
 		String temp = null;
 
-		//Å‘å’l
+		//æœ€å¤§å€¤
 		temp = attrs.getAttributeValue(null, STR_ATTR_MAX);
 		if(temp != null){
 			setMax(DtoInt(temp));
 		}
-		//Å¬’l
+		//æœ€å°å€¤
 		temp = attrs.getAttributeValue(null, STR_ATTR_MIN);
 		if(temp != null){
 			setMin(DtoInt(temp));
 		}
-		//‰Â•Ï’l
+		//å¯å¤‰å€¤
 		temp = attrs.getAttributeValue(null, STR_ATTR_STEP);
 		if(temp != null){
 			setStep(DtoInt(temp));
 		}
 		
-		//Å‰‚Ì’l‚Ì‰Šú’l
+		//æœ€åˆã®å€¤ã®åˆæœŸå€¤
 		temp = attrs.getAttributeValue(null, STR_ATTR_DEFAULT_FIRST);
 		if(temp != null){
 			setFirst(DtoInt(temp));
 		}
-		//ÅŒã‚Ì’l‚Ì‰Šú’l
+		//æœ€å¾Œã®å€¤ã®åˆæœŸå€¤
 		temp = attrs.getAttributeValue(null, STR_ATTR_DEFAULT_LAST);
 		if(temp != null){
 			setLast(DtoInt(temp));
 		}
 
-		//•s³‚È’l‚ğ¡‚·
+		//ä¸æ­£ãªå€¤ã‚’æ²»ã™
 		if(getFirst() < getMin()){
 			setFirst(getMin());
 		}
@@ -275,43 +275,43 @@ public class RangeSelectBar extends OriginalView {
 
 
 	/**
-	 * ƒTƒCƒY‚ğŒˆ’è‚·‚é
+	 * ã‚µã‚¤ã‚ºã‚’æ±ºå®šã™ã‚‹
 	 */
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int spec_width = MeasureSpec.getSize(widthMeasureSpec);
 		int spec_height = MeasureSpec.getSize(heightMeasureSpec);
 
-		//ˆê”Ô¬‚³‚¢‚Ì‚ğg‚¤
+		//ä¸€ç•ªå°ã•ã„ã®ã‚’ä½¿ã†
 		int mine = DtoInt(NUM_MAX_HEIGHT);
 		int spec_size = Math.min(mine, spec_height);
 
-		//ƒTƒCƒYİ’è
+		//ã‚µã‚¤ã‚ºè¨­å®š
 		setMeasuredDimension(spec_width, spec_size);
 		
 	}
 
 	/**
-	 * •`‰æˆ—
+	 * æç”»å‡¦ç†
 	 */
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		
 //		int padding = 5;//DtoInt("5dip");
-//		int width = getWidth() - padding * 2;							//•`‰æƒGƒŠƒA
-//		float ratio = (float)(width) / (float)(getMax() - getMin());	//ƒo[‚Ì”’l‚©‚çÀ•W‚Ö•ÏŠ·ŒW”
+//		int width = getWidth() - padding * 2;							//æç”»ã‚¨ãƒªã‚¢
+//		float ratio = (float)(width) / (float)(getMax() - getMin());	//ãƒãƒ¼ã®æ•°å€¤ã‹ã‚‰åº§æ¨™ã¸å¤‰æ›ä¿‚æ•°
 		
 		float width_ratio = getWidthRatio();
 		float width_knob_half = getWidthKnob() / 2;
 		
-		Paint paint = new Paint();				//•`‰æƒtƒH[ƒ}ƒbƒgì¬
-		paint.setAntiAlias(true);				//ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX—LŒø
+		Paint paint = new Paint();				//æç”»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆä½œæˆ
+		paint.setAntiAlias(true);				//ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹æœ‰åŠ¹
 		
 		RectF rect;
 		LinearGradient shader;
 		
-		//ƒOƒ‰ƒf[ƒVƒ‡ƒ“F
+		//ã‚°ãƒ©ãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³è‰²
 		int[] colors_base = {ColorToInt("#00034179")
 				, ColorToInt("#ff034179")
 				, ColorToInt("#ffffffff")};
@@ -324,7 +324,7 @@ public class RangeSelectBar extends OriginalView {
 		//55FF9900 ffFF9900
 		//558DBAE2 FF8DBAE2
 		
-		//ƒx[ƒX
+		//ãƒ™ãƒ¼ã‚¹
 		rect = new RectF(width_knob_half
 						, getHeight() * NUM_BASE_BAR_HEIGHT_RATIO
 						, getWidth() - width_knob_half
@@ -333,13 +333,13 @@ public class RangeSelectBar extends OriginalView {
 											, colors_base
 											, null
 											, TileMode.CLAMP);
-		paint.setShader(shader);	//ƒVƒF[ƒ_[“o˜^
+		paint.setShader(shader);	//ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ç™»éŒ²
 		paint.setStyle(Paint.Style.FILL_AND_STROKE);
 		canvas.drawRoundRect(rect, 5, 5, paint);
 
-		//‘I‘ğ”ÍˆÍ
+		//é¸æŠç¯„å›²
 		if(getFirst() < getLast()){
-			//’Êíó‘Ô
+			//é€šå¸¸çŠ¶æ…‹
 			rect = new RectF((getFirst() - getMin()) * width_ratio + width_knob_half
 					, getHeight() * NUM_SELECT_BAR_HEIGHT_RATIO
 					, (getLast() - getMin()) * width_ratio + width_knob_half
@@ -348,11 +348,11 @@ public class RangeSelectBar extends OriginalView {
 												, colors_select
 												, null
 												, TileMode.CLAMP);
-			paint.setShader(shader);	//ƒVƒF[ƒ_[“o˜^
+			paint.setShader(shader);	//ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ç™»éŒ²
 			paint.setStyle(Paint.Style.FILL_AND_STROKE);
 			canvas.drawRoundRect(rect, 5, 5, paint);
 		}else{
-			//ƒ‹[ƒvó‘Ôi¶j
+			//ãƒ«ãƒ¼ãƒ—çŠ¶æ…‹ï¼ˆå·¦ï¼‰
 			rect = new RectF((getMin() - getMin()) * width_ratio + width_knob_half
 					, getHeight() * NUM_SELECT_BAR_HEIGHT_RATIO
 					, (getLast() - getMin()) * width_ratio + width_knob_half
@@ -361,11 +361,11 @@ public class RangeSelectBar extends OriginalView {
 												, colors_select
 												, null
 												, TileMode.CLAMP);
-			paint.setShader(shader);	//ƒVƒF[ƒ_[“o˜^
+			paint.setShader(shader);	//ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ç™»éŒ²
 			paint.setStyle(Paint.Style.FILL_AND_STROKE);
 			canvas.drawRoundRect(rect, 5, 5, paint);
 
-			//ƒ‹[ƒvó‘Ôi‰Ej
+			//ãƒ«ãƒ¼ãƒ—çŠ¶æ…‹ï¼ˆå³ï¼‰
 			rect = new RectF((getFirst() - getMin()) * width_ratio + width_knob_half
 					, getHeight() * NUM_SELECT_BAR_HEIGHT_RATIO
 					, (getMax() - getMin()) * width_ratio + width_knob_half
@@ -373,7 +373,7 @@ public class RangeSelectBar extends OriginalView {
 			canvas.drawRoundRect(rect, 5, 5, paint);
 		}
 		
-		//‚Â‚Æ‚±‚ë‚Ì•`‰æi¶j
+		//æŒã¤ã¨ã“ã‚ã®æç”»ï¼ˆå·¦ï¼‰
 		rect = new RectF((getFirst() - getMin()) * width_ratio
 				, getHeight() * NUM_KNOB_HEIGHT_RATIO
 				, (getFirst() - getMin()) * width_ratio + getWidthKnob()
@@ -382,12 +382,12 @@ public class RangeSelectBar extends OriginalView {
 											, colors_point
 											, null
 											, TileMode.CLAMP);
-		paint.setShader(shader);	//ƒVƒF[ƒ_[“o˜^
+		paint.setShader(shader);	//ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ç™»éŒ²
 		paint.setColor(Color.BLACK);
 		paint.setStyle(Paint.Style.FILL_AND_STROKE);
 		canvas.drawRoundRect(rect, 5, 5, paint);
 
-		//‚Â‚Æ‚±‚ë‚Ì•`‰æi‰Ej
+		//æŒã¤ã¨ã“ã‚ã®æç”»ï¼ˆå³ï¼‰
 		rect = new RectF((getLast() - getMin()) * width_ratio
 				, getHeight() * NUM_KNOB_HEIGHT_RATIO
 				, (getLast() - getMin()) * width_ratio + getWidthKnob()
@@ -398,7 +398,7 @@ public class RangeSelectBar extends OriginalView {
 	
 		
 	/**
-	 * ƒ^ƒbƒ`ƒCƒxƒ“ƒg
+	 * ã‚¿ãƒƒãƒã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
@@ -410,9 +410,9 @@ public class RangeSelectBar extends OriginalView {
 
 		switch(action){
 		case MotionEvent.ACTION_DOWN:
-			//ƒ|ƒCƒ“ƒg•Û‘¶
+			//ãƒã‚¤ãƒ³ãƒˆä¿å­˜
 			getPrevDownPoint().set(x, y);
-			//ƒhƒR‚ğ‰Ÿ‚µ‚Ä‚é‚©
+			//ãƒ‰ã‚³ã‚’æŠ¼ã—ã¦ã‚‹ã‹
 			_hitArea = calcHitArea(x, y);
 			ret = true;
 			break;
@@ -421,23 +421,23 @@ public class RangeSelectBar extends OriginalView {
 			int diff = (int) ((getPrevDownPoint().x - x) / getWidthRatio());
 
 			if(Math.abs(diff) >= getStep()){
-				//“®‚­‚Æ‚«‚¾‚¯
+				//å‹•ãã¨ãã ã‘
 
-				//ƒXƒeƒbƒv‚ÅŠÛ‚ß‚é
+				//ã‚¹ãƒ†ãƒƒãƒ—ã§ä¸¸ã‚ã‚‹
 				diff = (diff / getStep()) * getStep();
 
-				//Å‰‚ÆÅŒã‚Ì’l‚ğÄŒvZ
+				//æœ€åˆã¨æœ€å¾Œã®å€¤ã‚’å†è¨ˆç®—
 				switch(_hitArea){
 				case First:
-					//Å‰‚Ì’l
+					//æœ€åˆã®å€¤
 					moveFirst(diff);
 					break;
 				case Last:
-					//ÅŒã‚Ì’l
+					//æœ€å¾Œã®å€¤
 					moveLast(diff);
 					break;
 				case Bar:
-					//ƒo[
+					//ãƒãƒ¼
 					moveBar(diff);
 					break;
 					
@@ -445,13 +445,13 @@ public class RangeSelectBar extends OriginalView {
 					break;
 				}
 								
-				//‘O‰ñ•ª‚Æ‚µ‚Ä•Û‘¶
+				//å‰å›åˆ†ã¨ã—ã¦ä¿å­˜
 				getPrevDownPoint().set(x, y);
 
-				//Ä•`‰æ
+				//å†æç”»
 				invalidate();
 				
-				//ƒCƒxƒ“ƒg
+				//ã‚¤ãƒ™ãƒ³ãƒˆ
 				if(getOnRangeSelectBarChangeListener() != null){
 					getOnRangeSelectBarChangeListener()
 							.onProgressChanged(this, getFirst(), getLast());
@@ -475,7 +475,7 @@ public class RangeSelectBar extends OriginalView {
 	}
 	
 	/**
-	 * G‚Á‚Ä‚éƒGƒŠƒA‚ğ”»’è‚·‚é
+	 * è§¦ã£ã¦ã‚‹ã‚¨ãƒªã‚¢ã‚’åˆ¤å®šã™ã‚‹
 	 * @param x
 	 * @param y
 	 * @return
@@ -487,14 +487,14 @@ public class RangeSelectBar extends OriginalView {
 		int range = DtoInt(NUM_POINT_HIT_RADIUS); 
 		int diff = 0;
 		
-		//Å‰‚Ì’l‚ÌƒGƒŠƒA
+		//æœ€åˆã®å€¤ã®ã‚¨ãƒªã‚¢
 		diff = Math.abs(first - x);
 		if(diff < range){
 			//hit
 			ret = HitAreaType.First;
 		}
 
-		//ÅŒã‚Ì’l‚ÌƒGƒŠƒA
+		//æœ€å¾Œã®å€¤ã®ã‚¨ãƒªã‚¢
 		diff = Math.abs(last - x);
 		if(diff < range){
 			//hit
@@ -506,21 +506,21 @@ public class RangeSelectBar extends OriginalView {
 	
 	
 	/**
-	 * Å‰‚ÌêŠ‚ğˆÚ“®‚³‚¹‚é
+	 * æœ€åˆã®å ´æ‰€ã‚’ç§»å‹•ã•ã›ã‚‹
 	 * @param diff
 	 */
 	private void moveFirst(int diff){
 		if(getFirst() < getLast()){
-			//’Êí‚ÌˆÊ’uŠÖŒW
+			//é€šå¸¸ã®ä½ç½®é–¢ä¿‚
 			if((getFirst() - diff) >= getLast()){
-				//“ü‚êˆá‚¤‚Ì‚Å‚È‚É‚à‚µ‚È‚¢
+				//å…¥ã‚Œé•ã†ã®ã§ãªã«ã‚‚ã—ãªã„
 			}else{
 				setFirst(getFirst() - diff);
 			}
 		}else{
-			//“ü‚ê‘Ö‚í‚Á‚Ä‚é
+			//å…¥ã‚Œæ›¿ã‚ã£ã¦ã‚‹æ™‚
 			if((getFirst() - diff) < getLast()){
-				//“ü‚êˆá‚¤‚Ì‚Å‚È‚É‚à‚µ‚È‚¢
+				//å…¥ã‚Œé•ã†ã®ã§ãªã«ã‚‚ã—ãªã„
 			}else{
 				setFirst(getFirst() - diff);
 			}
@@ -528,21 +528,21 @@ public class RangeSelectBar extends OriginalView {
 	}
 	
 	/**
-	 * ÅŒã‚ÌêŠ‚ğˆÚ“®‚³‚¹‚é
+	 * æœ€å¾Œã®å ´æ‰€ã‚’ç§»å‹•ã•ã›ã‚‹
 	 * @param diff
 	 */
 	private void moveLast(int diff){
 		if(getFirst() < getLast()){
-			//’Êí‚ÌˆÊ’uŠÖŒW
+			//é€šå¸¸ã®ä½ç½®é–¢ä¿‚
 			if((getLast() - diff) <= getFirst()){
-				//“ü‚êˆá‚¤‚Ì‚Å‚È‚É‚à‚µ‚È‚¢
+				//å…¥ã‚Œé•ã†ã®ã§ãªã«ã‚‚ã—ãªã„
 			}else{
 				setLast(getLast() - diff);
 			}
 		}else{
-			//“ü‚ê‘Ö‚í‚Á‚Ä‚é
+			//å…¥ã‚Œæ›¿ã‚ã£ã¦ã‚‹æ™‚
 			if((getLast() - diff) > getFirst()){
-				//“ü‚êˆá‚¤‚Ì‚Å‚È‚É‚à‚µ‚È‚¢
+				//å…¥ã‚Œé•ã†ã®ã§ãªã«ã‚‚ã—ãªã„
 			}else{
 				setLast(getLast() - diff);
 			}
@@ -550,40 +550,40 @@ public class RangeSelectBar extends OriginalView {
 	}
 	
 	/**
-	 * Å‰‚ÆÅŒã‚Ì’l‚ğÄŒvZ‚·‚é
+	 * æœ€åˆã¨æœ€å¾Œã®å€¤ã‚’å†è¨ˆç®—ã™ã‚‹
 	 * @param diff
 	 */
 	private void moveBar(int diff){
 		if(isLoop()){
-			//ƒ‹[ƒv
-			//¶
+			//ãƒ«ãƒ¼ãƒ—
+			//å·¦
 			if((getFirst() - diff) < getMin()){
-				//¶‚É‚Í‚İo‚é
+				//å·¦ã«ã¯ã¿å‡ºã‚‹
 				setFirst(getMax() - (getMin() - (getFirst() - diff)));
 			}else if((getFirst() - diff) > getMax()){
-				//‰E‚É‚Í‚İo‚é
+				//å³ã«ã¯ã¿å‡ºã‚‹
 				setFirst(getMin() + ((getFirst() - diff) - getMax()));
 			}else{
 				setFirst(getFirst() - diff);
 			}
-			//‰E
+			//å³
 			if((getLast() - diff) < getMin()){
-				//¶‚É‚Í‚İo‚é
+				//å·¦ã«ã¯ã¿å‡ºã‚‹
 				setLast(getMax() - (getMin() - (getLast() - diff)));
 			}else if((getLast() - diff) > getMax()){
-				//‰E‚É‚Í‚İo‚é
+				//å³ã«ã¯ã¿å‡ºã‚‹
 				setLast(getMin() + ((getLast() - diff) - getMax()));
 			}else{
 				setLast(getLast() - diff);
 			}
 		}else{
-			//~‚ß‚é
+			//æ­¢ã‚ã‚‹
 			if((getFirst() - diff) < getMin()){
-				//¶‚É‚Í‚İo‚é
+				//å·¦ã«ã¯ã¿å‡ºã‚‹
 				setLast(getLast() - getFirst() + getMin());
 				setFirst(getMin());
 			}else if((getLast() - diff) > getMax()){
-				//‰E‚É‚Í‚İo‚é
+				//å³ã«ã¯ã¿å‡ºã‚‹
 				setFirst(getMax() - (getLast() - getFirst()));
 				setLast(getMax());
 			}else{
@@ -595,7 +595,7 @@ public class RangeSelectBar extends OriginalView {
 
 
 	/**
-	 * •Ï‰»‚ª‹N‚±‚Á‚½‚Æ‚«‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXƒNƒ‰ƒX
+	 * å¤‰åŒ–ãŒèµ·ã“ã£ãŸã¨ãã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹
 	 * @author Iori
 	 *
 	 */

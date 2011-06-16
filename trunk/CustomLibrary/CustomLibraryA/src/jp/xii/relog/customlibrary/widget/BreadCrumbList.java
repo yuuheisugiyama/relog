@@ -32,16 +32,16 @@ import android.widget.LinearLayout;
 public class BreadCrumbList extends HorizontalScrollView
 	implements OnClickListener{
 
-	private LinearLayout _buttonArea = null;				//ƒŠƒXƒg‚ğ”z’u‚·‚éƒŒƒCƒAƒEƒg
-	private ArrayList<LinearLayout> _buttonList = null;		//ƒpƒ“‚­‚¸ƒŠƒXƒg‚Ìƒ{ƒ^ƒ“
-	private OnClickListener _onClickListener = null;		//ƒŠƒXƒi[
-	private int _textColor = 0xff000000;					//ƒeƒLƒXƒgƒJƒ‰[
-	private int _buttonBackgroundResourceId = -1;			//ƒ{ƒ^ƒ“”wŒi‚ÌƒŠƒ\[ƒXID
-	private int _separatorResourceId = -1;					//ƒZƒpƒŒ[ƒ^‚ÌƒŠƒ\[ƒXID
-	private boolean _isUnResponse = false;					//ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚à”½‰‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+	private LinearLayout _buttonArea = null;				//ãƒªã‚¹ãƒˆã‚’é…ç½®ã™ã‚‹ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
+	private ArrayList<LinearLayout> _buttonList = null;		//ãƒ‘ãƒ³ããšãƒªã‚¹ãƒˆã®ãƒœã‚¿ãƒ³
+	private OnClickListener _onClickListener = null;		//ãƒªã‚¹ãƒŠãƒ¼
+	private int _textColor = 0xff000000;					//ãƒ†ã‚­ã‚¹ãƒˆã‚«ãƒ©ãƒ¼
+	private int _buttonBackgroundResourceId = -1;			//ãƒœã‚¿ãƒ³èƒŒæ™¯ã®ãƒªã‚½ãƒ¼ã‚¹ID
+	private int _separatorResourceId = -1;					//ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã®ãƒªã‚½ãƒ¼ã‚¹ID
+	private boolean _isUnResponse = false;					//ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã‚‚åå¿œã—ãªã„ã‚ˆã†ã«ã™ã‚‹
 	
 	/**
-	 * ƒŠƒXƒg‚ğ”z’u‚·‚éƒŒƒCƒAƒEƒg
+	 * ãƒªã‚¹ãƒˆã‚’é…ç½®ã™ã‚‹ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆ
 	 * @return
 	 */
 	public LinearLayout getButtonArea(){
@@ -52,7 +52,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 	
 	/**
-	 * ƒpƒ“‚­‚¸ƒŠƒXƒg‚Ìƒ{ƒ^ƒ“
+	 * ãƒ‘ãƒ³ããšãƒªã‚¹ãƒˆã®ãƒœã‚¿ãƒ³
 	 * @return the _buttonList
 	 */
 	public ArrayList<LinearLayout> getButtonList() {
@@ -63,7 +63,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ƒŠƒXƒi[‚Ì“o˜^
+	 * ãƒªã‚¹ãƒŠãƒ¼ã®ç™»éŒ²
 	 * @param listner
 	 */
 	public void setOnClickListener(OnClickListener listner){
@@ -72,7 +72,7 @@ public class BreadCrumbList extends HorizontalScrollView
 
 
 	/**
-	 * ƒeƒLƒXƒgƒJƒ‰[
+	 * ãƒ†ã‚­ã‚¹ãƒˆã‚«ãƒ©ãƒ¼
 	 * @param _textColor the _textColor to set
 	 */
 	public void setTextColor(int _textColor) {
@@ -80,7 +80,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ƒeƒLƒXƒgƒJƒ‰[
+	 * ãƒ†ã‚­ã‚¹ãƒˆã‚«ãƒ©ãƒ¼
 	 * @return the _textColor
 	 */
 	public int getTextColor() {
@@ -88,7 +88,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ƒ{ƒ^ƒ“”wŒi‚ÌƒŠƒ\[ƒXID
+	 * ãƒœã‚¿ãƒ³èƒŒæ™¯ã®ãƒªã‚½ãƒ¼ã‚¹ID
 	 * @param _buttonBackgroundResourceId the _buttonBackgroundResourceId to set
 	 */
 	public void setButtonBackgroundResourceId(int _buttonBackgroundResourceId) {
@@ -96,7 +96,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ƒ{ƒ^ƒ“”wŒi‚ÌƒŠƒ\[ƒXID
+	 * ãƒœã‚¿ãƒ³èƒŒæ™¯ã®ãƒªã‚½ãƒ¼ã‚¹ID
 	 * @return the _buttonBackgroundResourceId
 	 */
 	public int getButtonBackgroundResourceId() {
@@ -104,7 +104,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ƒZƒpƒŒ[ƒ^‚ÌƒŠƒ\[ƒXID
+	 * ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã®ãƒªã‚½ãƒ¼ã‚¹ID
 	 * @param _separatorResourceId the _separatorResourceId to set
 	 */
 	public void setSeparatorResourceId(int _separatorResourceId) {
@@ -112,7 +112,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ƒZƒpƒŒ[ƒ^‚ÌƒŠƒ\[ƒXID
+	 * ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã®ãƒªã‚½ãƒ¼ã‚¹ID
 	 * @return the _separatorResourceId
 	 */
 	public int getSeparatorResourceId() {
@@ -120,7 +120,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚à”½‰‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+	 * ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã‚‚åå¿œã—ãªã„ã‚ˆã†ã«ã™ã‚‹
 	 * @param _isUnResponse the _isUnResponse to set
 	 */
 	public void setIsUnResponse(boolean _isUnResponse) {
@@ -128,7 +128,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚à”½‰‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+	 * ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã‚‚åå¿œã—ãªã„ã‚ˆã†ã«ã™ã‚‹
 	 * @return the _isUnResponse
 	 */
 	public boolean isUnResponse() {
@@ -136,33 +136,33 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param attrs
 	 */
 	public BreadCrumbList(Context context, AttributeSet attrs) {
 		super(context, attrs);
 
-//		//xmlƒpƒ‰ƒ[ƒ^‚Ì‰ğÍ
+//		//xmlãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®è§£æ
 //        TypedArray a = context.obtainStyledAttributes(attrs,
 //                R.styleable.BreadCrumbList, 0, 0);
 //
-//        //ƒZƒpƒŒ[ƒ^‚ÌDrawable‚ğæ“¾
+//        //ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã®Drawableã‚’å–å¾—
 //        
 //        Drawable d = a.getDrawable(R.styleable.BreadCrumbList_separater_src);
 //        setSeparatorDrawable(d);
 //		Log.d("mpremocon", "onCreate d="+ d + ",a.length="+a.length());
 		
-		//ƒeƒLƒXƒgF
+		//ãƒ†ã‚­ã‚¹ãƒˆè‰²
 		setTextColor(getResources().getColor(color.primary_text_light));
 
-		//ƒZƒpƒŒ[ƒ^‚ğw’è‚·‚é
+		//ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã‚’æŒ‡å®šã™ã‚‹
 		setSeparatorResourceId(jp.xii.relog.customlibrary.R.drawable.im_breadcrumblist_separator);
 		
-		//ƒ{ƒ^ƒ“‚Ì”z’u—p‚Ìˆê”Ôe‚ÌƒŒƒCƒAƒEƒg‚ğ’Ç‰Á‚·‚é
+		//ãƒœã‚¿ãƒ³ã®é…ç½®ç”¨ã®ä¸€ç•ªè¦ªã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’è¿½åŠ ã™ã‚‹
 		addView(getButtonArea());
 
-		//ã‘¤‚ÌŒ„ŠÔ’²ß
+		//ä¸Šå´ã®éš™é–“èª¿ç¯€
 //		getButtonArea().setPadding(getButtonArea().getPaddingLeft()
 //				, getHorizontalScrollbarHeight()
 //				, getButtonArea().getPaddingRight()
@@ -172,7 +172,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 
 	/**
-	 * ã‰º‚ÌŒ„ŠÔ‚ğƒXƒNƒ[ƒ‹ƒo[‚ÌƒTƒCƒY‚Å’²ß‚·‚é‚©
+	 * ä¸Šä¸‹ã®éš™é–“ã‚’ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®ã‚µã‚¤ã‚ºã§èª¿ç¯€ã™ã‚‹ã‹
 	 * @param top
 	 * @param bottom
 	 */
@@ -193,26 +193,26 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 	
 	/**
-	 * ƒŒƒCƒAƒEƒg‚ğŠm’è‚³‚¹‚é
+	 * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ç¢ºå®šã•ã›ã‚‹
 	 */
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 		super.onLayout(changed, l, t, r, b);
 
 
-		//ˆê”Ô‰E‚ÖˆÚ“®
+		//ä¸€ç•ªå³ã¸ç§»å‹•
 		fullScroll(FOCUS_RIGHT);
 	}
 	
 	/**
-	 * ƒAƒCƒeƒ€‚ğ’Ç‰Á‚·‚é
+	 * ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ ã™ã‚‹
 	 * @param name
 	 */
 	public void push(String name){
-		//ƒŒƒCƒAƒEƒgì¬
+		//ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆä½œæˆ
 		LinearLayout layout = new LinearLayout(getContext());
 		
-		//ƒZƒpƒŒ[ƒ^‚ªw’è‚³‚ê‚Ä‚¢‚½ê‡‚Í’Ç‰Á
+		//ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ãŒæŒ‡å®šã•ã‚Œã¦ã„ãŸå ´åˆã¯è¿½åŠ 
 		if(getButtonList().size() == 0){
 		}else if(getSeparatorResourceId() < 0){
 		}else{
@@ -221,7 +221,7 @@ public class BreadCrumbList extends HorizontalScrollView
 			layout.addView(image);
 		}
 
-		//ƒ{ƒ^ƒ“ì¬
+		//ãƒœã‚¿ãƒ³ä½œæˆ
 		Button button = new Button(getContext());
 		button.setText(name);
 		button.setOnClickListener(this);
@@ -232,54 +232,54 @@ public class BreadCrumbList extends HorizontalScrollView
 		}
 		layout.addView(button);
 
-		//^‚ñ’†Šñ‚¹‚É‚·‚é
+		//çœŸã‚“ä¸­å¯„ã›ã«ã™ã‚‹
 		layout.setGravity(Gravity.CENTER);
 
-		//e‚É’Ç‰Á
+		//è¦ªã«è¿½åŠ 
 		getButtonList().add(layout);
 		getButtonArea().addView(layout);
 	}
 
 	/**
-	 * ƒAƒCƒeƒ€‚ğ‚P‚ÂŠO‚·
+	 * ã‚¢ã‚¤ãƒ†ãƒ ã‚’ï¼‘ã¤å¤–ã™
 	 */
 	public LinearLayout pop(){
 		int del_index = getButtonList().size() - 1;
 		LinearLayout ret = getButtonList().get(del_index);
-		//ƒŠƒXƒg‚©‚çíœ
+		//ãƒªã‚¹ãƒˆã‹ã‚‰å‰Šé™¤
 		getButtonList().remove(del_index);
-		//ƒŒƒCƒAƒEƒg‚©‚çíœ
+		//ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‹ã‚‰å‰Šé™¤
 		getButtonArea().removeView(ret);
 		
 		return ret;
 	}
 
 	/**
-	 * ŠÜ‚Ü‚ê‚éƒAƒCƒeƒ€‚Ì”
+	 * å«ã¾ã‚Œã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®æ•°
 	 */
 	public int size(){
 		return getButtonList().size();
 	}
 
 	/**
-	 * ƒNƒŠƒbƒNƒCƒxƒ“ƒg
+	 * ã‚¯ãƒªãƒƒã‚¯ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	public void onClick(View v) {
 		if(_onClickListener == null){
-			//ƒŠƒXƒi[‚ª“o˜^‚³‚ê‚Ä‚È‚¢‚Æ‚«‚ÍŸè‚ÉŒ¸‚ç‚³‚È‚¢
+			//ãƒªã‚¹ãƒŠãƒ¼ãŒç™»éŒ²ã•ã‚Œã¦ãªã„ã¨ãã¯å‹æ‰‹ã«æ¸›ã‚‰ã•ãªã„
 		}else if(isUnResponse()){
-			//ƒƒbƒN’†‚Í”½‰‚µ‚È‚¢
+			//ãƒ­ãƒƒã‚¯ä¸­ã¯åå¿œã—ãªã„
 		}else{
-			//‰Ÿ‚µ‚½ƒ{ƒ^ƒ“‚ğƒŠƒXƒg‚Ì’†‚©‚ç’T‚·
+			//æŠ¼ã—ãŸãƒœã‚¿ãƒ³ã‚’ãƒªã‚¹ãƒˆã®ä¸­ã‹ã‚‰æ¢ã™
 			for(int i=0; i<getButtonList().size(); i++){
 				if(getButtonList().get(i).findViewById(1).equals(v)){
-					//Œ©‚Â‚©‚Á‚½‚ç‚»‚ê‚æ‚èŒã‚ë‚Ìƒ{ƒ^ƒ“‚ğÁ‚·
+					//è¦‹ã¤ã‹ã£ãŸã‚‰ãã‚Œã‚ˆã‚Šå¾Œã‚ã®ãƒœã‚¿ãƒ³ã‚’æ¶ˆã™
 					while((i+1) < getButtonList().size()){
 						pop();
 					}
 					
-					//ƒCƒxƒ“ƒg‚ğŒÄ‚Ô
+					//ã‚¤ãƒ™ãƒ³ãƒˆã‚’å‘¼ã¶
 					_onClickListener.onClick(v, i);
 					break;
 				}
@@ -288,7 +288,7 @@ public class BreadCrumbList extends HorizontalScrollView
 	}
 	
 	/**
-	 * ƒNƒŠƒbƒNƒŠƒXƒi[
+	 * ã‚¯ãƒªãƒƒã‚¯ãƒªã‚¹ãƒŠãƒ¼
 	 * @author Iori
 	 *
 	 */

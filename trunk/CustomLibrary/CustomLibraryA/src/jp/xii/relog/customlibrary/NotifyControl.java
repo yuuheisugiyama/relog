@@ -26,11 +26,12 @@ public class NotifyControl {
 	private Activity _activity = null;
 	private int _icon_resourse_id = android.R.drawable.stat_sys_warning;
 	
-	//ƒAƒbƒvƒf[ƒgŠÔŠu‚Ì§Œä
-	private long _lastUpdateTime = 0;		//‘O‰ñƒAƒbƒvƒf[ƒg‚µ‚½ŠÔ
-	private long _updateInterval = 500;		//XVŠÔŠu(ƒfƒtƒHƒ‹ƒg500msec)
 	
-	//’Ê’m—Ìˆæ•\¦ŠÖŒW
+	//ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆé–“éš”ã®åˆ¶å¾¡
+	private long _lastUpdateTime = 0;		//å‰å›ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆã—ãŸæ™‚é–“
+	private long _updateInterval = 500;		//æ›´æ–°é–“éš”(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ500msec)
+	
+	//é€šçŸ¥é ˜åŸŸè¡¨ç¤ºé–¢ä¿‚
 	private NotificationManager _notificationManager = null;	
 	private Notification _notification = null;
 	private Intent _notifyIntent = null;
@@ -38,7 +39,7 @@ public class NotifyControl {
 
 
 	/**
-	 * e‚ÌƒAƒNƒeƒBƒrƒeƒB‚Ìæ“¾
+	 * è¦ªã®ã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£ã®å–å¾—
 	 * @return
 	 */
 	public Activity getActivity(){
@@ -46,7 +47,7 @@ public class NotifyControl {
 	}
 	
 	/**
-	 * ƒAƒCƒRƒ“‚ÌƒŠƒ\[ƒXID‚Ìw’è
+	 * ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒªã‚½ãƒ¼ã‚¹IDã®æŒ‡å®š
 	 * @param icon
 	 */
 	public void setIcon(int icon) {
@@ -55,14 +56,14 @@ public class NotifyControl {
 
 
 	/**
-	 * XVŠÔŠu
+	 * æ›´æ–°é–“éš”
 	 * @param _updateInterval the _updateInterval to set
 	 */
 	public void setUpdateInterval(long _updateInterval) {
 		this._updateInterval = _updateInterval;
 	}
 	/**
-	 * XVŠÔŠu
+	 * æ›´æ–°é–“éš”
 	 * @return the _updateInterval
 	 */
 	public long getUpdateInterval() {
@@ -70,7 +71,7 @@ public class NotifyControl {
 	}
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 */
 	public NotifyControl(Activity activity, int icon){
@@ -83,7 +84,7 @@ public class NotifyControl {
 	}
 	
 	/**
-	 * Notify‚Ì‰Šú‰»
+	 * Notifyã®åˆæœŸåŒ–
 	 * @param context
 	 */
 	public void initNotify(String message){
@@ -91,7 +92,7 @@ public class NotifyControl {
 	}
 
 	/**
-	 * Notify‚Ì‰Šú‰»
+	 * Notifyã®åˆæœŸåŒ–
 	 * @param activity
 	 * @param icon
 	 * @param message
@@ -107,13 +108,13 @@ public class NotifyControl {
 			_notifyIntent = activity.getIntent();
 			_contentIntent = PendingIntent.getActivity(activity, 0, _notifyIntent, 0);
 			
-			//“o˜^‚µ‚½‚çƒNƒŠƒA
+			//ç™»éŒ²ã—ãŸã‚‰ã‚¯ãƒªã‚¢
 			_lastUpdateTime = System.currentTimeMillis();
 		}
 	}
 	
 	/**
-	 * Notify‚ğ•\¦‚·‚é
+	 * Notifyã‚’è¡¨ç¤ºã™ã‚‹
 	 * @param title
 	 * @param message
 	 * @param app_name
@@ -123,18 +124,18 @@ public class NotifyControl {
 	}	
 	
 	/**
-	 * Notify‚ğ•\¦‚·‚é
-	 * @param activity ŒÄ‚Ño‚µŒ³ƒAƒNƒeƒBƒrƒeƒB
-	 * @param title ƒ^ƒCƒgƒ‹
-	 * @param message ‰º‚É‚Å‚éƒƒbƒZ[ƒW
-	 * @param app_name ƒAƒvƒŠ–¼iƒ^ƒXƒNƒo[“I‚È‚Æ‚±‚ë‚É‚Å‚é‚â‚Â‚¾‚Á‚½‚©‚Èj
+	 * Notifyã‚’è¡¨ç¤ºã™ã‚‹
+	 * @param activity å‘¼ã³å‡ºã—å…ƒã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£
+	 * @param title ã‚¿ã‚¤ãƒˆãƒ«
+	 * @param message ä¸‹ã«ã§ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+	 * @param app_name ã‚¢ãƒ—ãƒªåï¼ˆã‚¿ã‚¹ã‚¯ãƒãƒ¼çš„ãªã¨ã“ã‚ã«ã§ã‚‹ã‚„ã¤ã ã£ãŸã‹ãªï¼‰
 	 */
 	public void viewNotify(Activity activity, String title, String message, int app_name){
 		viewNotify(activity, title, message, app_name, _contentIntent);
 	}
 
 	/**
-	 * Notify‚ğ•\¦‚·‚é
+	 * Notifyã‚’è¡¨ç¤ºã™ã‚‹
 	 * @param activity
 	 * @param title
 	 * @param message
@@ -148,7 +149,7 @@ public class NotifyControl {
 		if((_notification == null) || (_notificationManager == null)
 				|| (activity == null)){
 		}else if((now - _lastUpdateTime) < getUpdateInterval()){
-			//ŒÄo‚ª‘‰ß‚¬‚é
+			//å‘¼å‡ºãŒæ—©éãã‚‹
 		}else{
 			_notification.when = now;
 			_notification.setLatestEventInfo(
@@ -159,14 +160,14 @@ public class NotifyControl {
 			
 			_notificationManager.notify(app_name, _notification);
 
-			//‘O‰ñ‚ÌXVŠÔ‚ğ•Û‘¶
+			//å‰å›ã®æ›´æ–°æ™‚é–“ã‚’ä¿å­˜
 			_lastUpdateTime = now;
 		}
 	}
 	
 	
 	/**
-	 * Notify‚ğÁ‚·
+	 * Notifyã‚’æ¶ˆã™
 	 */
 	public void clearNotify(){
 		if(_notificationManager != null){

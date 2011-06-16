@@ -34,17 +34,17 @@ public class MediaStoreAccess {
 	public static final String PHONE_GALAXY_S = "GT-I9000";
 	
 	/**
-	 * “d˜b‚Ìí—Şi‹@íˆË‘¶ˆ——pî•ñj
+	 * é›»è©±ã®ç¨®é¡ï¼ˆæ©Ÿç¨®ä¾å­˜å‡¦ç†ç”¨æƒ…å ±ï¼‰
 	 * @author Iori
 	 *
 	 */
 	enum PhoneType{
-		Standard		//•W€’[––
-		, GalaxyS		//‚¬‚á‚ç‚­‚µ[
+		Standard		//æ¨™æº–ç«¯æœ«
+		, GalaxyS		//ãã‚ƒã‚‰ãã—ãƒ¼
 	}
 	
 	/**
-	 * ‘ÎÛƒƒfƒBƒA
+	 * å¯¾è±¡ãƒ¡ãƒ‡ã‚£ã‚¢
 	 * @author Iori
 	 *
 	 */
@@ -54,7 +54,7 @@ public class MediaStoreAccess {
 	}
 	
 	/**
-	 * ‘ÎÛî•ñ
+	 * å¯¾è±¡æƒ…å ±
 	 * @author Iori
 	 *
 	 */
@@ -69,13 +69,13 @@ public class MediaStoreAccess {
 	
 
 	private Activity _activityParent = null;
-	private PhoneType _phoneType = PhoneType.Standard;	//‹@íˆË‘¶î•ñ
+	private PhoneType _phoneType = PhoneType.Standard;	//æ©Ÿç¨®ä¾å­˜æƒ…å ±
 	
-	private boolean _isDebuging = false;				//ƒfƒoƒbƒO‚·‚é‚©
-	private ArrayList<String> _debugLog = null;						//ƒfƒoƒbƒOƒƒO
+	private boolean _isDebuging = false;				//ãƒ‡ãƒãƒƒã‚°ã™ã‚‹ã‹
+	private ArrayList<String> _debugLog = null;						//ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°
 	
 	/**
-	 * ‹@íˆË‘¶î•ñ
+	 * æ©Ÿç¨®ä¾å­˜æƒ…å ±
 	 * @return
 	 */
 	protected PhoneType getPhoneType(){
@@ -89,11 +89,11 @@ public class MediaStoreAccess {
 	}
 
 	/**
-	 * ‹@íƒ^ƒCƒv‚ğŒˆ’è‚·‚é
+	 * æ©Ÿç¨®ã‚¿ã‚¤ãƒ—ã‚’æ±ºå®šã™ã‚‹
 	 */
 	public void checkPhoneType(){
 		
-		//‚Æ‚è‚ ‚¦‚¸ƒvƒŒƒCƒŠƒXƒg‚ğæ“¾‚µ‚Ä‚İ‚Ä”»’f‚·‚é
+		//ã¨ã‚Šã‚ãˆãšãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã‚’å–å¾—ã—ã¦ã¿ã¦åˆ¤æ–­ã™ã‚‹
 		PhoneType[] types = {PhoneType.GalaxyS
 							, PhoneType.Standard
 							};
@@ -105,7 +105,7 @@ public class MediaStoreAccess {
 					, null, null, null, null);
 			if(cursor == null){
 			}else{
-				//OK‚È‚Ì‚ÅI—¹
+				//OKãªã®ã§çµ‚äº†
 				break;
 			}
 		}
@@ -143,14 +143,14 @@ public class MediaStoreAccess {
 	}
 	
 	/**
-	 * ƒfƒoƒbƒO‚·‚é‚©
+	 * ãƒ‡ãƒãƒƒã‚°ã™ã‚‹ã‹
 	 * @param _isDebuging the _isDebuging to set
 	 */
 	public void setIsDebuging(boolean _isDebuging) {
 		this._isDebuging = _isDebuging;
 	}
 	/**
-	 * ƒfƒoƒbƒO‚·‚é‚©
+	 * ãƒ‡ãƒãƒƒã‚°ã™ã‚‹ã‹
 	 * @return the _isDebuging
 	 */
 	public boolean isDebuging() {
@@ -158,7 +158,7 @@ public class MediaStoreAccess {
 	}
 
 	/**
-	 * ƒfƒoƒbƒOƒƒO
+	 * ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°
 	 * @return the _debugLog
 	 */
 	public ArrayList<String> getDebugLog() {
@@ -178,13 +178,13 @@ public class MediaStoreAccess {
 	
 
 	/**
-	 * ƒƒfƒBƒAî•ñ‚ğƒJ[ƒ\ƒ‹‚Åó‚¯æ‚é
-	 * @param place ‘ÎÛ‚Ì•Û‘¶ƒƒfƒBƒA
-	 * @param info æ“¾‚·‚éî•ñ
-	 * @param projection æ“¾‚·‚éƒJƒ‰ƒ€
-	 * @param selection ŒŸõ‘ÎÛ
-	 * @param selectionArgs ŒŸõğŒ‚Ì’l
-	 * @param sortOrder ƒ\[ƒgğŒ
+	 * ãƒ¡ãƒ‡ã‚£ã‚¢æƒ…å ±ã‚’ã‚«ãƒ¼ã‚½ãƒ«ã§å—ã‘å–ã‚‹
+	 * @param place å¯¾è±¡ã®ä¿å­˜ãƒ¡ãƒ‡ã‚£ã‚¢
+	 * @param info å–å¾—ã™ã‚‹æƒ…å ±
+	 * @param projection å–å¾—ã™ã‚‹ã‚«ãƒ©ãƒ 
+	 * @param selection æ¤œç´¢å¯¾è±¡
+	 * @param selectionArgs æ¤œç´¢æ¡ä»¶ã®å€¤
+	 * @param sortOrder ã‚½ãƒ¼ãƒˆæ¡ä»¶
 	 * @return
 	 */
 	public Cursor getMediaStoreInfo(StoragePlaceType place
@@ -223,7 +223,7 @@ public class MediaStoreAccess {
 //			Log( "uri:" + uri.toString());
 		}
 		
-		//æ“¾
+		//å–å¾—
 		if(_activityParent != null){
 			try{
 				cursor = _activityParent.managedQuery(uri, projection, selection
@@ -240,7 +240,7 @@ public class MediaStoreAccess {
 
 
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚Ìƒƒ“ƒo[‚ğæ“¾
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã®ãƒ¡ãƒ³ãƒãƒ¼ã‚’å–å¾—
 	 * @param place
 	 * @param playlist_id
 	 * @return
@@ -256,9 +256,9 @@ public class MediaStoreAccess {
 		Uri uri = null;
 
 		//URI
-		uri = getPlaylistsMembersContentsUri(place, playlist_id);	//•W€
+		uri = getPlaylistsMembersContentsUri(place, playlist_id);	//æ¨™æº–
 		
-		//æ“¾
+		//å–å¾—
 		if(_activityParent != null){
 			try{
 				cursor = _activityParent.managedQuery(uri, projection, selection, selectionArgs, sortOrder);
@@ -270,7 +270,7 @@ public class MediaStoreAccess {
 	}
 
 	/**
-	 * ƒƒfƒBƒA—p‚ÌURI‚ğæ“¾‚·‚é
+	 * ãƒ¡ãƒ‡ã‚£ã‚¢ç”¨ã®URIã‚’å–å¾—ã™ã‚‹
 	 * @param place
 	 * @return
 	 */
@@ -284,7 +284,7 @@ public class MediaStoreAccess {
 		return uri;
 	}
 	/**
-	 * ƒAƒ‹ƒoƒ€‚ÌURI‚ğæ“¾‚·‚é
+	 * ã‚¢ãƒ«ãƒãƒ ã®URIã‚’å–å¾—ã™ã‚‹
 	 * @param place
 	 * @return
 	 */
@@ -299,7 +299,7 @@ public class MediaStoreAccess {
 	}
 	
 	/**
-	 * ƒA[ƒeƒBƒXƒg‚ÌURI‚ğæ“¾‚·‚é
+	 * ã‚¢ãƒ¼ãƒ†ã‚£ã‚¹ãƒˆã®URIã‚’å–å¾—ã™ã‚‹
 	 * @param place
 	 * @return
 	 */
@@ -313,7 +313,7 @@ public class MediaStoreAccess {
 		return uri;
 	}
 	/**
-	 * ƒWƒƒƒ“ƒ‹‚ÌURI‚ğæ“¾‚·‚é
+	 * ã‚¸ãƒ£ãƒ³ãƒ«ã®URIã‚’å–å¾—ã™ã‚‹
 	 * @param place
 	 * @return
 	 */
@@ -328,7 +328,7 @@ public class MediaStoreAccess {
 	}
 	
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚ÌURI‚ğæ“¾‚·‚é
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã®URIã‚’å–å¾—ã™ã‚‹
 	 * @param place
 	 * @return
 	 */
@@ -338,7 +338,7 @@ public class MediaStoreAccess {
 		switch(_phoneType){
 		default:
 		case Standard:
-			//•W€’[––
+			//æ¨™æº–ç«¯æœ«
 			if(place == StoragePlaceType.Internal){
 				uri = MediaStore.Audio.Playlists.INTERNAL_CONTENT_URI;
 			}else{
@@ -346,7 +346,7 @@ public class MediaStoreAccess {
 			}
 			break;
 		case GalaxyS:
-			//ƒMƒƒƒ‰ƒNƒV[
+			//ã‚®ãƒ£ãƒ©ã‚¯ã‚·ãƒ¼
 			String volumeName = "";
 			if(place == StoragePlaceType.Internal){
 				volumeName = VOLUME_NAME_INTERNAL;
@@ -361,7 +361,7 @@ public class MediaStoreAccess {
 	}
 	
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚ğæ“¾‚·‚é‚ÌURI‚ğæ“¾‚·‚é
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹æ™‚ã®URIã‚’å–å¾—ã™ã‚‹
 	 * @param volumeName
 	 * @param genreId
 	 * @return
@@ -379,11 +379,11 @@ public class MediaStoreAccess {
 		switch(_phoneType){
 		default:
 		case Standard:
-			//•W€’[––
+			//æ¨™æº–ç«¯æœ«
 			uri = MediaStore.Audio.Playlists.Members.getContentUri(volumeName, genreId);
 			break;
 		case GalaxyS:
-			//ƒMƒƒƒ‰ƒNƒV[
+			//ã‚®ãƒ£ãƒ©ã‚¯ã‚·ãƒ¼
 			uri = Uri.parse("content://media/" + volumeName + "/audio/music_playlists/" + genreId + "/members");
 			break;
 		}
@@ -392,7 +392,7 @@ public class MediaStoreAccess {
 
 
 	/**
-	 * ƒƒO‚ğo—Í
+	 * ãƒ­ã‚°ã‚’å‡ºåŠ›
 	 * @param message
 	 */
 	public void Log(String message){

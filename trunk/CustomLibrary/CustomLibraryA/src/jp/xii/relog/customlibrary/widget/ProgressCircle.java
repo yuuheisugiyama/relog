@@ -26,21 +26,21 @@ import android.util.AttributeSet;
 
 public class ProgressCircle extends OriginalView {
 
-	private final static String STR_ATTR_RADIUS = "radius";			//”¼Œa
-	private final static String STR_ATTR_WEIGHT = "weight";			//ü‚Ì‘¾‚³
-	private final static String STR_ATTR_COLOR = "color";			//F
-	private final static String STR_ATTR_BASE_COLOR= "base_color";	//i’»‚µ‚Ä‚È‚¢Š‚ÌF
+	private final static String STR_ATTR_RADIUS = "radius";			//åŠå¾„
+	private final static String STR_ATTR_WEIGHT = "weight";			//ç·šã®å¤ªã•
+	private final static String STR_ATTR_COLOR = "color";			//è‰²
+	private final static String STR_ATTR_BASE_COLOR= "base_color";	//é€²æ—ã—ã¦ãªã„æ‰€ã®è‰²
 
-	private int _progress;			//Œ»İ‚Ìi’»
-	private int _max;				//Å‘å’l
-	private int _weight;			//ü‚Ì‘¾‚³
-	private int _color;				//F
-	private int _base_color;		//i’»‚µ‚Ä‚È‚¢Š‚ÌF
+	private int _progress;			//ç¾åœ¨ã®é€²æ—
+	private int _max;				//æœ€å¤§å€¤
+	private int _weight;			//ç·šã®å¤ªã•
+	private int _color;				//è‰²
+	private int _base_color;		//é€²æ—ã—ã¦ãªã„æ‰€ã®è‰²
 
-	private int _radius;			//”¼Œa
+	private int _radius;			//åŠå¾„
 	
 	/**
-	 * Œ»İ‚Ìi’»
+	 * ç¾åœ¨ã®é€²æ—
 	 * @param _progress the _progress to set
 	 */
 	public void setProgress(int _progress) {
@@ -52,7 +52,7 @@ public class ProgressCircle extends OriginalView {
 
 
 	/**
-	 * Œ»İ‚Ìi’»
+	 * ç¾åœ¨ã®é€²æ—
 	 * @return the _progress
 	 */
 	public int getProgress() {
@@ -61,7 +61,7 @@ public class ProgressCircle extends OriginalView {
 
 
 	/**
-	 * Å‘å’l
+	 * æœ€å¤§å€¤
 	 * @param _max the _max to set
 	 */
 	public void setMax(int _max) {
@@ -73,7 +73,7 @@ public class ProgressCircle extends OriginalView {
 
 
 	/**
-	 * Å‘å’l
+	 * æœ€å¤§å€¤
 	 * @return the _max
 	 */
 	public int getMax() {
@@ -81,7 +81,7 @@ public class ProgressCircle extends OriginalView {
 	}
 
 	/**
-	 * ü‚Ì‘¾‚³
+	 * ç·šã®å¤ªã•
 	 * @param _weight the _weight to set
 	 */
 	public void setWeight(int _weight) {
@@ -93,7 +93,7 @@ public class ProgressCircle extends OriginalView {
 
 
 	/**
-	 * ü‚Ì‘¾‚³
+	 * ç·šã®å¤ªã•
 	 * @return the _weight
 	 */
 	public int getWeight() {
@@ -101,7 +101,7 @@ public class ProgressCircle extends OriginalView {
 	}
 
 	/**
-	 * F
+	 * è‰²
 	 * @param _color the _color to set
 	 */
 	public void setColor(int _color) {
@@ -110,7 +110,7 @@ public class ProgressCircle extends OriginalView {
 
 
 	/**
-	 * F
+	 * è‰²
 	 * @return the _color
 	 */
 	public int getColor() {
@@ -118,7 +118,7 @@ public class ProgressCircle extends OriginalView {
 	}
 
 	/**
-	 * i’»‚µ‚Ä‚È‚¢Š‚ÌF
+	 * é€²æ—ã—ã¦ãªã„æ‰€ã®è‰²
 	 * @param _base_color the _base_color to set
 	 */
 	public void setBaseColor(int _base_color) {
@@ -127,7 +127,7 @@ public class ProgressCircle extends OriginalView {
 
 
 	/**
-	 * i’»‚µ‚Ä‚È‚¢Š‚ÌF
+	 * é€²æ—ã—ã¦ãªã„æ‰€ã®è‰²
 	 * @return the _base_color
 	 */
 	public int getBaseColor() {
@@ -136,7 +136,7 @@ public class ProgressCircle extends OriginalView {
 
 	
 	/**
-	 * ‰~Œ`‚ÌƒvƒƒOƒŒƒXƒo[
+	 * å††å½¢ã®ãƒ—ãƒ­ã‚°ãƒ¬ã‚¹ãƒãƒ¼
 	 * @param context
 	 * @param attrs
 	 */
@@ -153,25 +153,25 @@ public class ProgressCircle extends OriginalView {
 		String temp;
 
 	
-		//”¼Œa
+		//åŠå¾„
 		temp = attrs.getAttributeValue(null, STR_ATTR_RADIUS);
 		if(temp != null){
 			_radius = DtoInt(temp);
 		}
 		
-		//ü‚Ì‘¾‚³
+		//ç·šã®å¤ªã•
 		temp = attrs.getAttributeValue(null, STR_ATTR_WEIGHT);
 		if(temp != null){
 			setWeight(DtoInt(temp));
 		}
 		
-		//F
+		//è‰²
 		temp = attrs.getAttributeValue(null, STR_ATTR_COLOR);
 		if(temp != null){
 			setColor(ColorToInt(temp));
 		}
 
-		//ƒx[ƒXF
+		//ãƒ™ãƒ¼ã‚¹è‰²
 		temp = attrs.getAttributeValue(null, STR_ATTR_BASE_COLOR);
 		if(temp != null){
 			setBaseColor(ColorToInt(temp));
@@ -180,42 +180,42 @@ public class ProgressCircle extends OriginalView {
 	}
 	
 	/**
-	 * ƒTƒCƒY‚ğŒˆ’è‚·‚é
+	 * ã‚µã‚¤ã‚ºã‚’æ±ºå®šã™ã‚‹
 	 */
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int spec_width = MeasureSpec.getSize(widthMeasureSpec);
 		int spec_height = MeasureSpec.getSize(heightMeasureSpec);
 		int mine = _radius * 2;
-		//ˆê”Ô¬‚³‚¢‚Ì‚ğg‚¤
+		//ä¸€ç•ªå°ã•ã„ã®ã‚’ä½¿ã†
 		int spec_size = Math.min(mine, spec_width);
 		spec_size = Math.min(spec_size, spec_height);
-		//ƒTƒCƒYİ’è
+		//ã‚µã‚¤ã‚ºè¨­å®š
 		setMeasuredDimension(spec_size, spec_size);
 	}
 	
 	/**
-	 * •`‰æˆ—
+	 * æç”»å‡¦ç†
 	 */
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		
 		
-		Paint paint = new Paint();				//•`‰æƒtƒH[ƒ}ƒbƒgì¬
-		paint.setAntiAlias(true);				//ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX—LŒø
-		paint.setStyle(Paint.Style.STROKE);		//ü‚¾‚¯‚É‚·‚é
+		Paint paint = new Paint();				//æç”»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆä½œæˆ
+		paint.setAntiAlias(true);				//ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹æœ‰åŠ¹
+		paint.setStyle(Paint.Style.STROKE);		//ç·šã ã‘ã«ã™ã‚‹
 		
-		//‰~‚ÌƒGƒŠƒA’è‹`
+		//å††ã®ã‚¨ãƒªã‚¢å®šç¾©
 		RectF rect = new RectF(0 + getWeight(), 0 + getWeight()
 							, getWidth() - getWeight(), getHeight() - getWeight());
 
-		//i’»ŠO
+		//é€²æ—å¤–
 		paint.setColor(getBaseColor());
 		paint.setStrokeWidth(getWeight());
 		canvas.drawArc(rect, 270, 360, false, paint);
 		
-		//i’»
+		//é€²æ—
 		paint.setColor(getColor());
 		paint.setStrokeWidth(getWeight());
 		canvas.drawArc(rect, 270,(float)(360 * (float)getProgress() / (float)getMax()), false, paint);

@@ -23,26 +23,26 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 /**
- * EULA•\¦ƒwƒ‹ƒp[ƒNƒ‰ƒX
+ * EULAè¡¨ç¤ºãƒ˜ãƒ«ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹
  * @author Iori
  *
  */
 public class EulaHelper {
 
-	private Activity _parentActivity = null;	//ŒÄ‚Ño‚µŒ³ƒAƒNƒeƒBƒrƒeƒB
-	private boolean _isAgreed = false;			//“¯ˆÓ‚µ‚Ä‚é‚©
-	private String _appName = "";				//ƒAƒvƒŠ‚Ì–¼Ì
-	private String _eulaMessage = "";			//ƒƒbƒZ[ƒW
+	private Activity _parentActivity = null;	//å‘¼ã³å‡ºã—å…ƒã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£
+	private boolean _isAgreed = false;			//åŒæ„ã—ã¦ã‚‹ã‹
+	private String _appName = "";				//ã‚¢ãƒ—ãƒªã®åç§°
+	private String _eulaMessage = "";			//ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	
 	/**
-	 * “¯ˆÓ‚µ‚Ä‚¢‚é‚©
+	 * åŒæ„ã—ã¦ã„ã‚‹ã‹
 	 * @param _isAgreed the _isAgreed to set
 	 */
 	public void setIsAgreed(boolean _isAgreed) {
 		this._isAgreed = _isAgreed;
 	}
 	/**
-	 * “¯ˆÓ‚µ‚Ä‚¢‚é‚©
+	 * åŒæ„ã—ã¦ã„ã‚‹ã‹
 	 * @return the _isAgreed
 	 */
 	public boolean isAgreed() {
@@ -50,14 +50,14 @@ public class EulaHelper {
 	}
 	
 	/**
-	 * ƒAƒvƒŠ‚Ì–¼Ì‚ğİ’è‚·‚é
+	 * ã‚¢ãƒ—ãƒªã®åç§°ã‚’è¨­å®šã™ã‚‹
 	 * @param _appName the _appName to set
 	 */
 	public void setAppName(String _appName) {
 		this._appName = _appName;
 	}
 	/**
-	 * ƒAƒvƒŠ‚Ì–¼Ì‚ğæ“¾‚·‚é
+	 * ã‚¢ãƒ—ãƒªã®åç§°ã‚’å–å¾—ã™ã‚‹
 	 * @return the _appName
 	 */
 	public String getAppName() {
@@ -65,23 +65,23 @@ public class EulaHelper {
 	}
 	
 	/**
-	 * EULA–{•¶‚ğİ’è‚·‚é
-	 * ‚Ü‚é‚²‚Æ‘‚«Š·‚¦‚é‚Ì‚Å’ˆÓ
+	 * EULAæœ¬æ–‡ã‚’è¨­å®šã™ã‚‹
+	 * ã¾ã‚‹ã”ã¨æ›¸ãæ›ãˆã‚‹ã®ã§æ³¨æ„
 	 * @param _eulaMessage the _eulaMessage to set
 	 */
 	public void setEulaMessage(String _eulaMessage) {
 		this._eulaMessage = _eulaMessage;
 	}
 	/**
-	 * EULA–{•¶‚ğæ“¾‚·‚é
+	 * EULAæœ¬æ–‡ã‚’å–å¾—ã™ã‚‹
 	 * @return the _eulaMessage
 	 */
 	public String getEulaMessage() {
 		return _eulaMessage;
 	}
 	/**
-	 * EULA–{•¶‚ğ‰Šúó‘Ô‚É‚µ‚Ü‚·
-	 * activity‚ªw’è‚µ‚Ä‚È‚¢‚ÆÁ‚¦‚é‚¾‚¯‚Å‚·
+	 * EULAæœ¬æ–‡ã‚’åˆæœŸçŠ¶æ…‹ã«ã—ã¾ã™
+	 * activityãŒæŒ‡å®šã—ã¦ãªã„ã¨æ¶ˆãˆã‚‹ã ã‘ã§ã™
 	 */
 	public void clearEulaMessage(){
 		if(_parentActivity == null){
@@ -101,7 +101,7 @@ public class EulaHelper {
 
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param activity
 	 */
 	public EulaHelper(Activity activity, String app_name){
@@ -111,35 +111,35 @@ public class EulaHelper {
 	}
 	
 	/**
-	 * •\¦‚µ‚ÄŒ‹‰Ê‚ğ”½‰f‚·‚é
+	 * è¡¨ç¤ºã—ã¦çµæœã‚’åæ˜ ã™ã‚‹
 	 */
 	public void show(){
-		//“Ç‚İ‚Ş
+		//èª­ã¿è¾¼ã‚€
 		load(_parentActivity);
-		//Àˆ—ŠJn
+		//å®Ÿå‡¦ç†é–‹å§‹
 		if(_parentActivity == null){
 		}else if(isAgreed()){
-			//Šù‚É“¯ˆÓ‚µ‚Ä‚¢‚é
+			//æ—¢ã«åŒæ„ã—ã¦ã„ã‚‹
 		}else{
 			AlertDialog.Builder ad = new AlertDialog.Builder(_parentActivity);
 			ad.setTitle(_parentActivity.getString(R.string.eula_title));
 			ad.setMessage(getEulaMessage());
 			ad.setCancelable(false);
-			//OKƒ{ƒ^ƒ“
+			//OKãƒœã‚¿ãƒ³
 			ad.setPositiveButton(R.string.eula_agree
 							, new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					//“¯ˆÓ‚µ‚½‚±‚Æ‚ğ•Û‘¶‚·‚é
+					//åŒæ„ã—ãŸã“ã¨ã‚’ä¿å­˜ã™ã‚‹
 					save(_parentActivity, true);
 				}
 			});
-			//Cancelƒ{ƒ^ƒ“
+			//Cancelãƒœã‚¿ãƒ³
 			ad.setNegativeButton(R.string.eula_disagree
 							, new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					//“¯ˆÓ‚µ‚È‚¢‚Ì‚ÅI—¹‚·‚é
+					//åŒæ„ã—ãªã„ã®ã§çµ‚äº†ã™ã‚‹
 					_parentActivity.finish();
 				}
 			});
@@ -149,16 +149,16 @@ public class EulaHelper {
 	}
 	
 	public void showOnlyView(){
-		//“Ç‚İ‚Ş
+		//èª­ã¿è¾¼ã‚€
 		load(_parentActivity);
-		//Àˆ—ŠJn
+		//å®Ÿå‡¦ç†é–‹å§‹
 		if(_parentActivity == null){
 		}else{
 			AlertDialog.Builder ad = new AlertDialog.Builder(_parentActivity);
 			ad.setTitle(_parentActivity.getString(R.string.eula_title));
 			ad.setMessage(getEulaMessage());
 			ad.setCancelable(false);
-			//OKƒ{ƒ^ƒ“
+			//OKãƒœã‚¿ãƒ³
 			ad.setPositiveButton(R.string.eula_ok
 							, new DialogInterface.OnClickListener() {
 				@Override
@@ -172,7 +172,7 @@ public class EulaHelper {
 	}
 	
 	/**
-	 * “¯ˆÓ‚µ‚½‚±‚Æ‚ğ•Û‘¶‚·‚é
+	 * åŒæ„ã—ãŸã“ã¨ã‚’ä¿å­˜ã™ã‚‹
 	 */
 	private void save(Context context, boolean is_agreed){
 		if(context == null){
@@ -187,7 +187,7 @@ public class EulaHelper {
 		}
 	}
 	/**
-	 * “¯ˆÓó‹µ‚ğ“Ç‚İ‚Ş
+	 * åŒæ„çŠ¶æ³ã‚’èª­ã¿è¾¼ã‚€
 	 */
 	public void load(Context context){
 		if(context == null){

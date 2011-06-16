@@ -42,7 +42,7 @@ public class Utility {
 	}
 	
 	/**
-	 * ƒ_ƒCƒAƒƒO‚Ì•\¦
+	 * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
 	 * @param activity
 	 * @param title
 	 * @param text
@@ -63,7 +63,7 @@ public class Utility {
 	}
 	
 	/**
-	 * ƒg[ƒXƒg‚ğ•\¦‚·‚é
+	 * ãƒˆãƒ¼ã‚¹ãƒˆã‚’è¡¨ç¤ºã™ã‚‹
 	 * @param activity
 	 * @param message
 	 */
@@ -76,7 +76,7 @@ public class Utility {
 	
 	
 	/**
-	 * ƒƒO‚ğo—Í‚·‚é
+	 * ãƒ­ã‚°ã‚’å‡ºåŠ›ã™ã‚‹
 	 * @param message
 	 */
 	public static void outputDebugLog(String message){
@@ -89,7 +89,7 @@ public class Utility {
 	
 	
 	/**
-	 * ƒŠƒXƒgƒ_ƒCƒAƒƒO‚ğ•\¦‚·‚é
+	 * ãƒªã‚¹ãƒˆãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã™ã‚‹
 	 * @param activity
 	 * @param title
 	 * @param item_list
@@ -107,7 +107,7 @@ public class Utility {
 	}
 
 	/**
-	 * ƒ_ƒCƒAƒƒO‚Ì•\¦
+	 * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
 	 * @param activity
 	 * @param title
 	 * @param text
@@ -117,12 +117,12 @@ public class Utility {
 	}
 
 	/**
-	 * ƒ_ƒCƒAƒƒO‚Ì•\¦
+	 * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
 	 * @param activity
-	 * @param title ƒ^ƒCƒgƒ‹
-	 * @param text –{•¶
-	 * @param listener_ok OKƒ{ƒ^ƒ“‚ÌƒŠƒXƒi
-	 * @param listener_cancel ƒLƒƒƒ“ƒZƒ‹‚ÌƒŠƒXƒi null‚Ì‚ÍƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“–³‚µ
+	 * @param title ã‚¿ã‚¤ãƒˆãƒ«
+	 * @param text æœ¬æ–‡
+	 * @param listener_ok OKãƒœã‚¿ãƒ³ã®ãƒªã‚¹ãƒŠ
+	 * @param listener_cancel ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã®ãƒªã‚¹ãƒŠ nullã®æ™‚ã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³ç„¡ã—
 	 */
 	public static void showDialog(final Activity activity, String title, String text
 								, OnClickListener listener_ok
@@ -142,7 +142,7 @@ public class Utility {
 		
 	
 	/**
-	 * ƒ_ƒCƒAƒƒO‚Ì•\¦
+	 * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
 	 * @param activity
 	 * @param title
 	 * @param text
@@ -162,9 +162,9 @@ public class Utility {
 	}
 
 	/**
-	 * SDƒJ[ƒh‚ÌƒpƒX‚ğæ“¾‚·‚é
-	 * g‚¦‚È‚¯‚ê‚Înull
-	 * ÅŒã‚É/‚Í‚È‚¢
+	 * SDã‚«ãƒ¼ãƒ‰ã®ãƒ‘ã‚¹ã‚’å–å¾—ã™ã‚‹
+	 * ä½¿ãˆãªã‘ã‚Œã°null
+	 * æœ€å¾Œã«/ã¯ãªã„
 	 * @return
 	 */
 	public static String getSdcardPath(){
@@ -173,11 +173,11 @@ public class Utility {
 		String status = Environment.getExternalStorageState(); 
 		File sdcard = Environment.getExternalStorageDirectory();
 		if(!status.equals(Environment.MEDIA_MOUNTED)){
-			//ƒ}ƒEƒ“ƒg‚³‚ê‚Ä‚È‚¢
+			//ãƒã‚¦ãƒ³ãƒˆã•ã‚Œã¦ãªã„
 //		}else if(!sdcard.canWrite()){
-//			//g‚¦‚È‚¢
+//			//ä½¿ãˆãªã„
 		}else{
-			//g‚¦‚é
+			//ä½¿ãˆã‚‹
 			ret = sdcard.toString();
 		}
 
@@ -186,7 +186,7 @@ public class Utility {
 	
 	
 	/**
-	 * Wifi‚ªon‚©’²‚×‚é
+	 * WifiãŒonã‹èª¿ã¹ã‚‹
 	 * @param context
 	 * @return
 	 */
@@ -215,7 +215,7 @@ public class Utility {
 	
 	
 	/**
-	 * ˆê’èŠÔƒXƒŠ[ƒv‚·‚é
+	 * ä¸€å®šæ™‚é–“ã‚¹ãƒªãƒ¼ãƒ—ã™ã‚‹
 	 * @param time
 	 */
 	public static void Sleep(long time){
@@ -228,10 +228,10 @@ public class Utility {
 	
 	
 	/**
-	 * ƒtƒ@ƒCƒ‹¨•¶š—ñ
-	 * @param context@ƒRƒ“ƒeƒLƒXƒgiƒRƒŒ‚ªNULL‚Ìê‡‚Í”CˆÓ‚ÌêŠ‚©‚ç“Ç‚ß‚éj
-	 * @param fileName  ƒtƒ@ƒCƒ‹–¼
-	 * @return ¬”Û
+	 * ãƒ•ã‚¡ã‚¤ãƒ«â†’æ–‡å­—åˆ—
+	 * @param contextã€€ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆï¼ˆã‚³ãƒ¬ãŒNULLã®å ´åˆã¯ä»»æ„ã®å ´æ‰€ã‹ã‚‰èª­ã‚ã‚‹ï¼‰
+	 * @param fileName  ãƒ•ã‚¡ã‚¤ãƒ«å
+	 * @return æˆå¦
 	 */
 	public static String file2str(Context context, String fileName){
 		byte[] w = file2data(context, fileName);
@@ -243,10 +243,10 @@ public class Utility {
 	}
 	
 	/**
-	 * ƒtƒ@ƒCƒ‹¨ƒoƒCƒgƒf[ƒ^
-	 * @param context ƒRƒ“ƒeƒLƒXƒgiƒRƒŒ‚ªNULL‚Ìê‡‚Í”CˆÓ‚ÌêŠ‚©‚ç“Ç‚ß‚éj
-	 * @param fileName  ƒtƒ@ƒCƒ‹–¼
-	 * @return ¬”Û
+	 * ãƒ•ã‚¡ã‚¤ãƒ«â†’ãƒã‚¤ãƒˆãƒ‡ãƒ¼ã‚¿
+	 * @param context ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆï¼ˆã‚³ãƒ¬ãŒNULLã®å ´åˆã¯ä»»æ„ã®å ´æ‰€ã‹ã‚‰èª­ã‚ã‚‹ï¼‰
+	 * @param fileName  ãƒ•ã‚¡ã‚¤ãƒ«å
+	 * @return æˆå¦
 	 */
 	public static byte[] file2data(Context context, String fileName){
 		int size;
@@ -288,22 +288,22 @@ public class Utility {
 	}
 	
 	/**
-	 * •¶š—ñ‚ğƒtƒ@ƒCƒ‹‚Ö•Û‘¶‚·‚é
-	 * @param context@ƒRƒ“ƒeƒLƒXƒgiƒRƒŒ‚ªNULL‚Ìê‡‚Í”CˆÓ‚ÌêŠ‚É•Û‘¶j
+	 * æ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã¸ä¿å­˜ã™ã‚‹
+	 * @param contextã€€ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆï¼ˆã‚³ãƒ¬ãŒNULLã®å ´åˆã¯ä»»æ„ã®å ´æ‰€ã«ä¿å­˜ï¼‰
 	 * @param str
-	 * @param fileName ƒtƒ@ƒCƒ‹–¼
-	 * @return ¬”Û
+	 * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+	 * @return æˆå¦
 	 */
 	public static boolean str2file(Context context, String str, String fileName){
 		return data2file(context, str.getBytes(), fileName);
 	}
 
 	/**
-	 * ƒoƒCƒgƒf[ƒ^‚ğƒtƒ@ƒCƒ‹‚Ö•Û‘¶‚·‚é
-	 * @param context ƒRƒ“ƒeƒLƒXƒgiƒRƒŒ‚ªNULL‚Ìê‡‚Í”CˆÓ‚ÌêŠ‚É•Û‘¶j
-	 * @param data “à—e‚ÌƒoƒCƒg—ñ
-	 * @param fileName ƒtƒ@ƒCƒ‹–¼iƒRƒ“ƒeƒLƒXƒg‚ªNULL‚Ì‚Íƒtƒ‹ƒpƒXj
-	 * @return@¬”Û
+	 * ãƒã‚¤ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã¸ä¿å­˜ã™ã‚‹
+	 * @param context ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆï¼ˆã‚³ãƒ¬ãŒNULLã®å ´åˆã¯ä»»æ„ã®å ´æ‰€ã«ä¿å­˜ï¼‰
+	 * @param data å†…å®¹ã®ãƒã‚¤ãƒˆåˆ—
+	 * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãŒNULLã®æ™‚ã¯ãƒ•ãƒ«ãƒ‘ã‚¹ï¼‰
+	 * @returnã€€æˆå¦
 	 */
 	public static boolean data2file(Context context, byte[] data, String fileName){
 		boolean ret = false;

@@ -25,13 +25,13 @@ import android.view.KeyEvent;
 public abstract class OriginalPreferenceActivity extends PreferenceActivity {
 
 	/**
-	 * İ’è‚ğƒTƒ}ƒŠ[‚É•\¦‚·‚é
+	 * è¨­å®šã‚’ã‚µãƒãƒªãƒ¼ã«è¡¨ç¤ºã™ã‚‹
 	 */
 	protected abstract void updateSettingSummary(SharedPreferences sharedPreferences, String key);	
 	
 	
 	/**
-	 * ’â~‚©‚çÄŠJ
+	 * åœæ­¢ã‹ã‚‰å†é–‹
 	 */
 	@Override
 	protected void onResume() {
@@ -39,7 +39,7 @@ public abstract class OriginalPreferenceActivity extends PreferenceActivity {
 	  getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(_listener);
 	}
 	/**
-	 * ˆê’â~
+	 * ä¸€æ™‚åœæ­¢
 	 */
 	@Override
 	protected void onPause() {
@@ -47,7 +47,7 @@ public abstract class OriginalPreferenceActivity extends PreferenceActivity {
 	  getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(_listener);
 	}
 	/**
-	 * ƒvƒŠƒtƒ@ƒŒƒ“ƒX‚Ì•ÏX‚ÌƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰
+	 * ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®å¤‰æ›´æ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©
 	 */
 	private SharedPreferences.OnSharedPreferenceChangeListener _listener = 
 	  new SharedPreferences.OnSharedPreferenceChangeListener() {
@@ -57,16 +57,16 @@ public abstract class OriginalPreferenceActivity extends PreferenceActivity {
 	};
 
 	/**
-	 *ƒL[ƒCƒxƒ“ƒgˆ— 
+	 *ã‚­ãƒ¼ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç† 
 	 */
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent event){
-		//BACKƒL[
+		//BACKã‚­ãƒ¼
 		if(event.getAction() == KeyEvent.ACTION_DOWN){
 			if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){
-				//ƒpƒ‰ƒ[ƒ^•Û‘¶ió‚¯“n‚µ—pj
+				//ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ä¿å­˜ï¼ˆå—ã‘æ¸¡ã—ç”¨ï¼‰
 
-				//ƒAƒNƒeƒBƒrƒeƒB‚ÌI—¹
+				//ã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£ã®çµ‚äº†
 				setResult(RESULT_OK);
 				finish();
 			}
@@ -76,10 +76,10 @@ public abstract class OriginalPreferenceActivity extends PreferenceActivity {
 
 	
 	/**
-	 * ‚Ü‚Æ‚ß‚ÄƒNƒŠƒbƒNƒŠƒXƒi[‚ğ“o˜^‚·‚é
-	 * @param context ŒÄ‚Ño‚µƒpƒbƒP[ƒW‚ÌƒRƒ“ƒeƒLƒXƒg
-	 * @param res_ids ƒvƒŠƒtƒ@ƒŒƒ“ƒXkey‚É‚µ‚Ä‚¢‚é•¶š—ñ‚ÌƒŠƒ\[ƒXID
-	 * @param listener ƒŠƒXƒi[
+	 * ã¾ã¨ã‚ã¦ã‚¯ãƒªãƒƒã‚¯ãƒªã‚¹ãƒŠãƒ¼ã‚’ç™»éŒ²ã™ã‚‹
+	 * @param context å‘¼ã³å‡ºã—ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+	 * @param res_ids ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹keyã«ã—ã¦ã„ã‚‹æ–‡å­—åˆ—ã®ãƒªã‚½ãƒ¼ã‚¹ID
+	 * @param listener ãƒªã‚¹ãƒŠãƒ¼
 	 */
 	protected void setOnPreferenceClickListener(Context context, int[] res_ids, OnPreferenceClickListener listener){
 		if((context == null) || (res_ids == null) || (listener == null)){
@@ -96,10 +96,10 @@ public abstract class OriginalPreferenceActivity extends PreferenceActivity {
 	}
 	
 	/**
-	 * ‚Ü‚Æ‚ß‚Ä—LŒø–³Œø‚ğİ’è‚·‚é
-	 * @param context ŒÄ‚Ño‚µƒpƒbƒP[ƒW‚ÌƒRƒ“ƒeƒLƒXƒg
-	 * @param res_ids ƒvƒŠƒtƒ@ƒŒƒ“ƒXkey‚É‚µ‚Ä‚¢‚é•¶š—ñ‚ÌƒŠƒ\[ƒXID
-	 * @param enabled —LŒø‚É‚·‚é‚©–³Œø‚É‚·‚é‚©
+	 * ã¾ã¨ã‚ã¦æœ‰åŠ¹ç„¡åŠ¹ã‚’è¨­å®šã™ã‚‹
+	 * @param context å‘¼ã³å‡ºã—ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+	 * @param res_ids ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹keyã«ã—ã¦ã„ã‚‹æ–‡å­—åˆ—ã®ãƒªã‚½ãƒ¼ã‚¹ID
+	 * @param enabled æœ‰åŠ¹ã«ã™ã‚‹ã‹ç„¡åŠ¹ã«ã™ã‚‹ã‹
 	 */
 	protected void setPreferenceEnabled(Context context, int[] res_ids, boolean enabled){
 		if((context == null) || (res_ids == null)){
@@ -117,7 +117,7 @@ public abstract class OriginalPreferenceActivity extends PreferenceActivity {
 
 	
 	/**
-	 * ƒŠƒXƒgƒvƒŠƒtƒ@ƒŒƒ“ƒX‚ÌƒTƒ}ƒŠ[‚ğ‘I‘ğ“à—e‚ÅƒZƒbƒg‚·‚é
+	 * ãƒªã‚¹ãƒˆãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ã‚µãƒãƒªãƒ¼ã‚’é¸æŠå†…å®¹ã§ã‚»ãƒƒãƒˆã™ã‚‹
 	 * @param pref
 	 * @param values_id
 	 * @param entries_id

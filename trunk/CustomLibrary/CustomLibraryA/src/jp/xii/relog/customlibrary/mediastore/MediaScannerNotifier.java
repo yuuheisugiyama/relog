@@ -21,7 +21,7 @@ import android.media.MediaScannerConnection.MediaScannerConnectionClient;
 import android.net.Uri;
 
 /**
- * ‰¹Šy‚Æ‚©‰æ‘œ‚Æ‚©‚ğ’[––‚ÌDB‚É“o˜^‚·‚é
+ * éŸ³æ¥½ã¨ã‹ç”»åƒã¨ã‹ã‚’ç«¯æœ«ã®DBã«ç™»éŒ²ã™ã‚‹
  * @author Iori
  *
  */
