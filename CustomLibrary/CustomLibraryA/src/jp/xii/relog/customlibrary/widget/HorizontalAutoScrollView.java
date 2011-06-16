@@ -25,27 +25,27 @@ import android.widget.TextView;
 
 public class HorizontalAutoScrollView extends HorizontalScrollView {
 
-	private final static String STR_ATTR_FRAME_INTERVAL = "frameInterval";	//ƒtƒŒ[ƒ€ŠÔ‚ÌŠÔ
-	private final static String STR_ATTR_FRAME_DELTA = "frameDelta";		//ƒtƒŒ[ƒ€ŠÔ‚ÌˆÚ“®—Ê
-	private final static String STR_ATTR_LAPEL_INTERVAL = "lapelInterval";	//Ü‚è•Ô‚·‚ÌƒtƒŒ[ƒ€ŠÔŠu
-	private final static String STR_ATTR_IS_LOOP = "isLoop";				//ƒ‹[ƒv‚·‚é‚©
-	private final static String STR_ATTR_LOOP_INTERVAL = "loopInterval";	//ƒ‹[ƒv‚·‚é‚Æ‚«‚ÌƒtƒŒ[ƒ€ŠÔŠu
+	private final static String STR_ATTR_FRAME_INTERVAL = "frameInterval";	//ãƒ•ãƒ¬ãƒ¼ãƒ é–“ã®æ™‚é–“
+	private final static String STR_ATTR_FRAME_DELTA = "frameDelta";		//ãƒ•ãƒ¬ãƒ¼ãƒ é–“ã®ç§»å‹•é‡
+	private final static String STR_ATTR_LAPEL_INTERVAL = "lapelInterval";	//æŠ˜ã‚Šè¿”ã™æ™‚ã®ãƒ•ãƒ¬ãƒ¼ãƒ é–“éš”
+	private final static String STR_ATTR_IS_LOOP = "isLoop";				//ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
+	private final static String STR_ATTR_LOOP_INTERVAL = "loopInterval";	//ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã¨ãã®ãƒ•ãƒ¬ãƒ¼ãƒ é–“éš”
 
-	private Handler _handlerAnimation = null;		//ƒAƒjƒ[ƒVƒ‡ƒ“—p
-	private int _frameInterval = 100;				//ƒtƒŒ[ƒ€ŠÔ‚ÌŠÔ
-	private int _frameDelta = 2;					//ƒtƒŒ[ƒ€ŠÔ‚ÌˆÚ“®—Ê
-	private int _lapelInterval = 500;				//Ü‚è•Ô‚·‚ÌƒtƒŒ[ƒ€ŠÔŠu
-	private boolean _isDerectionLeft = true;		//¶‚Ö“®‚¢‚Ä‚¢‚é‚©
-	private int _prev_x = 0;						//‘O‰ñ‚ÌêŠ
+	private Handler _handlerAnimation = null;		//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨
+	private int _frameInterval = 100;				//ãƒ•ãƒ¬ãƒ¼ãƒ é–“ã®æ™‚é–“
+	private int _frameDelta = 2;					//ãƒ•ãƒ¬ãƒ¼ãƒ é–“ã®ç§»å‹•é‡
+	private int _lapelInterval = 500;				//æŠ˜ã‚Šè¿”ã™æ™‚ã®ãƒ•ãƒ¬ãƒ¼ãƒ é–“éš”
+	private boolean _isDerectionLeft = true;		//å·¦ã¸å‹•ã„ã¦ã„ã‚‹ã‹
+	private int _prev_x = 0;						//å‰å›ã®å ´æ‰€
 	
-	private boolean _isLoop = false;				//ƒ‹[ƒv‚·‚é‚©
-	private int _loopInterval = 500;				//ƒ‹[ƒv‚·‚é‚ÌƒtƒŒ[ƒ€ŠÔŠu
+	private boolean _isLoop = false;				//ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
+	private int _loopInterval = 500;				//ãƒ«ãƒ¼ãƒ—ã™ã‚‹æ™‚ã®ãƒ•ãƒ¬ãƒ¼ãƒ é–“éš”
 	
-	private String _innerTextBackup = "";			//Œ³X‚Ì•¶š—ñ‚ÌƒoƒbƒNƒAƒbƒv
-	private int _innerTextWidth = 0;				//Œ»İ‚Ì•¶š—ñ‚Ì’·‚³i2ŒÂ•ªj
+	private String _innerTextBackup = "";			//å…ƒã€…ã®æ–‡å­—åˆ—ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
+	private int _innerTextWidth = 0;				//ç¾åœ¨ã®æ–‡å­—åˆ—ã®é•·ã•ï¼ˆ2å€‹åˆ†ï¼‰
 	
 	/**
-	 * •`‰æƒXƒŒƒbƒh
+	 * æç”»ã‚¹ãƒ¬ãƒƒãƒ‰
 	 */
 	private final Runnable _runAnimationThread = new Runnable(){
 		public void run(){
@@ -56,7 +56,7 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 	};
 
 	/**
-	 * ƒAƒjƒ[ƒVƒ‡ƒ“—p‚Ìƒnƒ“ƒhƒ‰
+	 * ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®ãƒãƒ³ãƒ‰ãƒ©
 	 * @return
 	 */
 	private Handler getHandlerAnimation(){
@@ -67,7 +67,7 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 	}
 
 	/**
-	 * q‹Ÿ‚ÌƒeƒLƒXƒgƒrƒ…[‚ğæ“¾‚·‚é
+	 * å­ä¾›ã®ãƒ†ã‚­ã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã‚’å–å¾—ã™ã‚‹
 	 * @return
 	 */
 	private TextView getInnerTextView(){
@@ -83,7 +83,7 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 	}
 	
 	/**
-	 * ‰¡ƒXƒNƒ[ƒ‹‚·‚éƒeƒLƒXƒgƒrƒ…[‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * æ¨ªã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param attrs
 	 */
@@ -94,28 +94,28 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 		
 		String temp = null;
 		
-		//ƒtƒŒ[ƒ€ŠÔ‚ÌŠÔ
+		//ãƒ•ãƒ¬ãƒ¼ãƒ é–“ã®æ™‚é–“
 		temp = attrs.getAttributeValue(null, STR_ATTR_FRAME_INTERVAL);
 		if(temp != null){
 			_frameInterval = Integer.valueOf(temp);
 		}
-		//ƒtƒŒ[ƒ€ŠÔ‚ÌˆÚ“®—Ê
+		//ãƒ•ãƒ¬ãƒ¼ãƒ é–“ã®ç§»å‹•é‡
 		temp = attrs.getAttributeValue(null, STR_ATTR_FRAME_DELTA);
 		if(temp != null){
 			_frameDelta = Integer.valueOf(temp);
 		}
-		//Ü‚è•Ô‚µ‚ÌƒtƒŒ[ƒ€ŠÔŠu
+		//æŠ˜ã‚Šè¿”ã—æ™‚ã®ãƒ•ãƒ¬ãƒ¼ãƒ é–“éš”
 		temp = attrs.getAttributeValue(null, STR_ATTR_LAPEL_INTERVAL);
 		if(temp != null){
 			_lapelInterval = Integer.valueOf(temp);
 		}
 		
-		//ƒ‹[ƒv‚ÌƒtƒŒ[ƒ€ŠÔŠu
+		//ãƒ«ãƒ¼ãƒ—æ™‚ã®ãƒ•ãƒ¬ãƒ¼ãƒ é–“éš”
 		temp = attrs.getAttributeValue(null, STR_ATTR_LOOP_INTERVAL);
 		if(temp != null){
 			_loopInterval = Integer.valueOf(temp);
 		}
-		//ƒ‹[ƒv‚·‚é‚©
+		//ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
 		temp = attrs.getAttributeValue(null, STR_ATTR_IS_LOOP);
 		if(temp != null){
 			_isLoop = Boolean.valueOf(temp);
@@ -124,7 +124,7 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 
 	
 	/**
-	 * •\¦ó‘Ô‚ª•Ï‚í‚Á‚½
+	 * è¡¨ç¤ºçŠ¶æ…‹ãŒå¤‰ã‚ã£ãŸ
 	 */
 	@Override
 	protected void onWindowVisibilityChanged(int visibility) {
@@ -138,7 +138,7 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 	}
 
 	/**
-	 * è“®‚ÅƒXƒNƒ[ƒ‹‚Å‚«‚È‚¢‚æ‚¤‚É‚·‚é
+	 * æ‰‹å‹•ã§ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã§ããªã„ã‚ˆã†ã«ã™ã‚‹
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
@@ -146,42 +146,42 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 	}
 	
 	/**
-	 * ©“®ƒXƒNƒ[ƒ‹‚ğŠJn‚·‚é
+	 * è‡ªå‹•ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’é–‹å§‹ã™ã‚‹
 	 */
 	public void startAutoScroll(){
-		//ŠÄ‹‚ğŠJn
+		//ç›£è¦–ã‚’é–‹å§‹
 		getHandlerAnimation().postDelayed(_runAnimationThread, _frameInterval);
 	}
 	
 	/**
-	 * ©“®ƒXƒNƒ[ƒ‹‚ğ~‚ß‚é
+	 * è‡ªå‹•ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’æ­¢ã‚ã‚‹
 	 */
 	public void stopAutoScroll(){
-		//’â~‚·‚é
+		//åœæ­¢ã™ã‚‹
 		getHandlerAnimation().removeCallbacks(_runAnimationThread);
-		//ˆÊ’u‚ğ–ß‚·
+		//ä½ç½®ã‚’æˆ»ã™
 		scrollTo(0, getScrollY());
 
 	}
 	
 	/**
-	 * 1‚Â–Ú‚ÌƒeƒLƒXƒg‚Öİ’è‚·‚é
+	 * 1ã¤ç›®ã®ãƒ†ã‚­ã‚¹ãƒˆã¸è¨­å®šã™ã‚‹
 	 * @param text
 	 */
 	public void setText(String text){
 		if(getInnerTextView() == null){
-			//ƒeƒLƒXƒg‚ª‚È‚¢
+			//ãƒ†ã‚­ã‚¹ãƒˆãŒãªã„
 		}else{
 			getInnerTextView().setText(text);
 
-			//ÄƒXƒ^[ƒg
+			//å†ã‚¹ã‚¿ãƒ¼ãƒˆ
 			stopAutoScroll();
 			startAutoScroll();
 		}
 	}
 	
 	/**
-	 * 1‚Â–Ú‚ÌƒeƒLƒXƒg‚ğæ“¾‚·‚é
+	 * 1ã¤ç›®ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
 	 * @return
 	 */
 	public String getText(){
@@ -189,7 +189,7 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 	}
 
 	/**
-	 * ©“®ƒXƒNƒ[ƒ‹‚Ìó‘ÔXV
+	 * è‡ªå‹•ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã®çŠ¶æ…‹æ›´æ–°
 	 */
 	public void updateAutoScroll(){
 		int next_interval = _frameInterval;
@@ -197,8 +197,8 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 		
 		if(getChildAt(0) == null){
 		}else if(getChildAt(0).getWidth() <= getWidth()){
-			//‚Í‚İo‚Ä‚È‚¢
-			next_interval *= 2;	//ƒXƒNƒ[ƒ‹‚Ì•K—v‚ª–³‚¢‚Ì‚ÅŠÔŠu‚ğL‚°‚é
+			//ã¯ã¿å‡ºã¦ãªã„
+			next_interval *= 2;	//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã®å¿…è¦ãŒç„¡ã„ã®ã§é–“éš”ã‚’åºƒã’ã‚‹
 			
 			_isDerectionLeft = true;
 			_prev_x = 0;
@@ -207,42 +207,42 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 			_innerTextBackup = "";
 			_innerTextWidth = 0;
 		}else{
-			//‚Í‚İo‚Ä‚é
+			//ã¯ã¿å‡ºã¦ã‚‹
 			
 			if(_isLoop && getInnerTextView() != null){
-				//ƒ‹[ƒv‚Å‚©‚Â’†‚ÉƒeƒLƒXƒg‚ªŠÜ‚Ü‚ê‚é
+				//ãƒ«ãƒ¼ãƒ—ã§ã‹ã¤ä¸­ã«ãƒ†ã‚­ã‚¹ãƒˆãŒå«ã¾ã‚Œã‚‹
 
-				//“à—e‚ğ2d‚É‚·‚é
+				//å†…å®¹ã‚’2é‡ã«ã™ã‚‹
 				if(_innerTextWidth != 0){
-					//Šù‚É“à—e‚ğ2d‚É‚µ‚Ä‚ ‚é
+					//æ—¢ã«å†…å®¹ã‚’2é‡ã«ã—ã¦ã‚ã‚‹
 				}else{
-					//‰‚ß‚Ä
+					//åˆã‚ã¦
 					_innerTextBackup = (String) getInnerTextView().getText();
 					_innerTextWidth = getInnerTextView().getWidth();
 					getInnerTextView().setText(_innerTextBackup + _innerTextBackup);
 				}
 
-				//¶‚Ö
+				//å·¦ã¸
 				x += _frameDelta;
 
-				//—\’è‚Ì•“®‚¢‚½‚ç–ß‚·
+				//äºˆå®šã®å¹…å‹•ã„ãŸã‚‰æˆ»ã™
 				if(_innerTextWidth == x){
 					x = 0;
 					next_interval = _loopInterval;
 				}
 			}else{
-				//¶‰EˆÚ“®
+				//å·¦å³ç§»å‹•
 
-				//ˆÊ’u‚ğŒvZ
+				//ä½ç½®ã‚’è¨ˆç®—
 				if(_isDerectionLeft){
-					//¶‚Ö
+					//å·¦ã¸
 					x += _frameDelta;
 				}else{
-					//‰E‚Ö
+					//å³ã¸
 					x -= _frameDelta;
 				}
 
-				//Œü‚«‚ğ•Ï‚¦‚é
+				//å‘ãã‚’å¤‰ãˆã‚‹
 				if(x == _prev_x){
 					_isDerectionLeft = !_isDerectionLeft;
 					next_interval = _lapelInterval;
@@ -253,10 +253,10 @@ public class HorizontalAutoScrollView extends HorizontalScrollView {
 			
 		}
 
-		//ˆÚ“®
+		//ç§»å‹•
 		scrollTo(x, getScrollY());
 
-		//Ÿ‚ÌƒZƒbƒg
+		//æ¬¡ã®ã‚»ãƒƒãƒˆ
 		getHandlerAnimation().postDelayed(_runAnimationThread, next_interval);
 	}
 	

@@ -29,22 +29,22 @@ import android.widget.TextView;
 
 public class RangeSelectPreference extends OriginalDialogPreference {
 
-	public final static String STR_ATTR_UNIT = "unit";		//’PˆÊ
-	public final static String STR_ATTR_VALUE_FORMAT = "value_format";	//’l‚ÌƒtƒH[ƒ}ƒbƒg‘®
+	public final static String STR_ATTR_UNIT = "unit";		//å˜ä½
+	public final static String STR_ATTR_VALUE_FORMAT = "value_format";	//å€¤ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆæ›¸å¼
 	
-	private int _max = 100;		//Å‘å’l
-	private int _min = 0;		//Å¬’l
-	private int _step = 10;		//‰Â•Ï’l
+	private int _max = 100;		//æœ€å¤§å€¤
+	private int _min = 0;		//æœ€å°å€¤
+	private int _step = 10;		//å¯å¤‰å€¤
 	
-	private int _first = 40;		//Å‰‚Ì’l
-	private int _last = 80;			//ÅŒã‚Ì’l
-	private boolean _isLoop = true;		//¶‰E‚ªƒ‹[ƒv‚·‚é‚©
+	private int _first = 40;		//æœ€åˆã®å€¤
+	private int _last = 80;			//æœ€å¾Œã®å€¤
+	private boolean _isLoop = true;		//å·¦å³ãŒãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
 
-	private String _unitString = "";	//’PˆÊ‚Ì•¶š—ñiƒTƒ}ƒŠ‚Ì•\¦—pj
-	private String _valueFormatString = "";	//’l‚ÌƒtƒH[ƒ}ƒbƒg‘®w’è
+	private String _unitString = "";	//å˜ä½ã®æ–‡å­—åˆ—ï¼ˆã‚µãƒãƒªã®è¡¨ç¤ºç”¨ï¼‰
+	private String _valueFormatString = "";	//å€¤ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆæ›¸å¼æŒ‡å®š
 	
 	/**
-	 * Å‘å’l
+	 * æœ€å¤§å€¤
 	 * @param _max the _max to set
 	 */
 	public void setMax(int _max) {
@@ -54,7 +54,7 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 		this._max = _max;
 	}
 	/**
-	 * Å‘å’l
+	 * æœ€å¤§å€¤
 	 * @return the _max
 	 */
 	public int getMax() {
@@ -62,7 +62,7 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	}
 
 	/**
-	 * Å¬’l
+	 * æœ€å°å€¤
 	 * @param _min the _min to set
 	 */
 	public void setMin(int _min) {
@@ -74,7 +74,7 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 		this._min = _min;
 	}
 	/**
-	 * Å¬’l
+	 * æœ€å°å€¤
 	 * @return the _min
 	 */
 	public int getMin() {
@@ -82,14 +82,14 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	}
 		
 	/**
-	 * ‰Â•Ï’l
+	 * å¯å¤‰å€¤
 	 * @param _step the _step to set
 	 */
 	public void setStep(int _step) {
 		this._step = _step;
 	}
 	/**
-	 * ‰Â•Ï’l
+	 * å¯å¤‰å€¤
 	 * @return the _step
 	 */
 	public int getStep() {
@@ -98,42 +98,42 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	
 	
 	/**
-	 * Å‰‚Ì’l
+	 * æœ€åˆã®å€¤
 	 * @param _first the _first to set
 	 */
 	public void setFirst(int _first) {
 		this._first = _first;
 	}
 	/**
-	 * Å‰‚Ì’l
+	 * æœ€åˆã®å€¤
 	 * @return the _first
 	 */
 	public int getFirst() {
 		return _first;
 	}
 	/**
-	 * ÅŒã‚Ì’l
+	 * æœ€å¾Œã®å€¤
 	 * @param _last the _last to set
 	 */
 	public void setLast(int _last) {
 		this._last = _last;
 	}
 	/**
-	 * ÅŒã‚Ì’l
+	 * æœ€å¾Œã®å€¤
 	 * @return the _last
 	 */
 	public int getLast() {
 		return _last;
 	}
 	/**
-	 * ¶‰E‚ªƒ‹[ƒv‚·‚é‚©
+	 * å·¦å³ãŒãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
 	 * @param _isLoop the _isLoop to set
 	 */
 	public void setIsLoop(boolean _isLoop) {
 		this._isLoop = _isLoop;
 	}
 	/**
-	 * ¶‰E‚ªƒ‹[ƒv‚·‚é‚©
+	 * å·¦å³ãŒãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
 	 * @return the _isLoop
 	 */
 	public boolean isLoop() {
@@ -141,14 +141,14 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	}
 
 	/**
-	 * ’PˆÊ‚Ì•¶š—ñiƒTƒ}ƒŠ‚Ì•\¦—pj
+	 * å˜ä½ã®æ–‡å­—åˆ—ï¼ˆã‚µãƒãƒªã®è¡¨ç¤ºç”¨ï¼‰
 	 * @param _unitString the _unitString to set
 	 */
 	public void setUnitString(String _unitString) {
 		this._unitString = _unitString;
 	}
 	/**
-	 * ’PˆÊ‚Ì•¶š—ñiƒTƒ}ƒŠ‚Ì•\¦—pj
+	 * å˜ä½ã®æ–‡å­—åˆ—ï¼ˆã‚µãƒãƒªã®è¡¨ç¤ºç”¨ï¼‰
 	 * @return the _unitString
 	 */
 	public String getUnitString() {
@@ -156,14 +156,14 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	}
 	
 	/**
-	 * ’l‚ÌƒtƒH[ƒ}ƒbƒg‘®w’è
+	 * å€¤ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆæ›¸å¼æŒ‡å®š
 	 * @param _valueFormatString the _valueFormatString to set
 	 */
 	public void setValueFormatString(String _valueFormatString) {
 		this._valueFormatString = _valueFormatString;
 	}
 	/**
-	 * ’l‚ÌƒtƒH[ƒ}ƒbƒg‘®w’è
+	 * å€¤ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆæ›¸å¼æŒ‡å®š
 	 * @return the _valueFormatString
 	 */
 	public String getValueFormatString() {
@@ -172,7 +172,7 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param attrs
 	 */
@@ -181,47 +181,47 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 
 		String temp = null;
 
-		//Å‘å’l
+		//æœ€å¤§å€¤
 		temp = attrs.getAttributeValue(null, RangeSelectBar.STR_ATTR_MAX);
 		if(temp != null){
 			setMax(Integer.parseInt(temp));
 		}
-		//Å¬’l
+		//æœ€å°å€¤
 		temp = attrs.getAttributeValue(null, RangeSelectBar.STR_ATTR_MIN);
 		if(temp != null){
 			setMin(Integer.parseInt(temp));
 		}
-		//‰Â•Ï’l
+		//å¯å¤‰å€¤
 		temp = attrs.getAttributeValue(null, RangeSelectBar.STR_ATTR_STEP);
 		if(temp != null){
 			setStep(Integer.parseInt(temp));
 		}
 		
-		//Å‰‚Ì’l‚Ì‰Šú’l
+		//æœ€åˆã®å€¤ã®åˆæœŸå€¤
 		temp = attrs.getAttributeValue(null, RangeSelectBar.STR_ATTR_DEFAULT_FIRST);
 		if(temp != null){
 			setFirst(Integer.parseInt(temp));
 		}
-		//ÅŒã‚Ì’l‚Ì‰Šú’l
+		//æœ€å¾Œã®å€¤ã®åˆæœŸå€¤
 		temp = attrs.getAttributeValue(null, RangeSelectBar.STR_ATTR_DEFAULT_LAST);
 		if(temp != null){
 			setLast(Integer.parseInt(temp));
 		}
 
-		//’PˆÊ
+		//å˜ä½
 		temp = attrs.getAttributeValue(null, STR_ATTR_UNIT);
 		if(temp != null){
 			setUnitString(temp);
 		}
 		
-		//‘®w’è•¶š—ñ
+		//æ›¸å¼æŒ‡å®šæ–‡å­—åˆ—
 		temp = attrs.getAttributeValue(null, STR_ATTR_VALUE_FORMAT);
 		if(temp != null){
 			setValueFormatString(temp);
 		}
 		
 
-		//•s³‚È’l‚ğ¡‚·
+		//ä¸æ­£ãªå€¤ã‚’æ²»ã™
 		if(getFirst() < getMin()){
 			setFirst(getMin());
 		}
@@ -232,12 +232,12 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	
 
 	/**
-	 * •\¦‚µ‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚é
+	 * è¡¨ç¤ºã—ãŸã¨ãã«å‘¼ã°ã‚Œã‚‹
 	 */
 	@Override
 	protected void onBindView(View view) {
 		
-		//İ’è“Ç
+		//è¨­å®šèª­è¾¼
 		SharedPreferences pref = getSharedPreferences();
 		if(pref == null){
 		}else{
@@ -253,7 +253,7 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 			}
 		}
 		
-		//ƒTƒ}ƒŠ‚É•\¦‚·‚é
+		//ã‚µãƒãƒªã«è¡¨ç¤ºã™ã‚‹
 		String data = "";
 		try{
 			data = String.format(getValueFormatString(), getFirst())
@@ -273,13 +273,13 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	}
 
 	/**
-	 * ƒNƒŠƒbƒNƒCƒxƒ“ƒg
+	 * ã‚¯ãƒªãƒƒã‚¯ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	protected void onClick() {
 
 
-	    //inflater‚ğg‚Á‚Äxml‚ÌƒŒƒCƒAƒEƒg‚ğView‚É”½‰f‚·‚é
+	    //inflaterã‚’ä½¿ã£ã¦xmlã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’Viewã«åæ˜ ã™ã‚‹
 	    LayoutInflater inflater = (LayoutInflater)getContext()
 	                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	    View v = inflater.inflate(jp.xii.relog.customlibrary.R.layout.range_select_preference_dialog, null);
@@ -300,43 +300,43 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 		setFormatText(text_min, getMin());
 		setFormatText(text_center, (getMax() + getMin()) / 2);
 		
-		//’l•ÏX‚ÌƒCƒxƒ“ƒg
+		//å€¤å¤‰æ›´æ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆ
 		bar.setOnRangeSelectBarChangeListener(new onRangeSelectBarChangeListener() {
 			@Override
 			public void onProgressChanged(RangeSelectBar rangeSelectBar, int first,
 					int last) {
-				//ƒ_ƒCƒAƒƒO‚ÌŒ»İ‚Ì’l‚ğİ’è‚·‚é
+				//ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ç¾åœ¨ã®å€¤ã‚’è¨­å®šã™ã‚‹
 				setFormatText(text_first, first);
 				setFormatText(text_last, last);
 			}
 		});
 		
 		
-	    //ƒ_ƒCƒAƒƒO•\¦
+	    //ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤º
 		showCustumDialog(getContext()
 						, (String)getDialogTitle(), (String)getDialogMessage()
 						, v, new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				//ƒ_ƒCƒAƒƒO‚Ìƒrƒ…[‚©‚çŒ‹‰Ê‚ğæ“¾
+				//ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒ“ãƒ¥ãƒ¼ã‹ã‚‰çµæœã‚’å–å¾—
 				if(bar != null){
 					setFirst(bar.getFirst());
 					setLast(bar.getLast());
 				}
-				// İ’è•Û‘¶
+				// è¨­å®šä¿å­˜
 				SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
 				SharedPreferences.Editor editor = pref.edit();
 				editor.putString(getKey(), getFirst() + "," + getLast());
 				editor.commit();
 				
-				//•\¦‚ğXV
+				//è¡¨ç¤ºã‚’æ›´æ–°
 				notifyChanged();
 			}
 		});
 	}
 	
 	/**
-	 * ‘®w’è‚Ì•¶š—ñ‚ğƒeƒLƒXƒgƒrƒ…[‚Éw’è‚·‚é
+	 * æ›¸å¼æŒ‡å®šã®æ–‡å­—åˆ—ã‚’ãƒ†ã‚­ã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã«æŒ‡å®šã™ã‚‹
 	 * @param v
 	 * @param value
 	 */
@@ -352,7 +352,7 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	}
 
 	/**
-	 * ƒvƒŠƒtƒ@ƒŒƒ“ƒX‚É•Û‘¶‚³‚ê‚½•¶š—ñ‚©‚ç‘O‚Ì’l‚ğæ“¾‚·‚é
+	 * ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã«ä¿å­˜ã•ã‚ŒãŸæ–‡å­—åˆ—ã‹ã‚‰å‰ã®å€¤ã‚’å–å¾—ã™ã‚‹
 	 * @param value
 	 * @return
 	 */
@@ -369,7 +369,7 @@ public class RangeSelectPreference extends OriginalDialogPreference {
 	}
 
 	/**
-	 * ƒvƒŠƒtƒ@ƒŒƒ“ƒX‚É•Û‘¶‚³‚ê‚½•¶š—ñ‚©‚çŒã‚Ì’l‚ğæ“¾‚·‚é
+	 * ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã«ä¿å­˜ã•ã‚ŒãŸæ–‡å­—åˆ—ã‹ã‚‰å¾Œã®å€¤ã‚’å–å¾—ã™ã‚‹
 	 * @param value
 	 * @return
 	 */

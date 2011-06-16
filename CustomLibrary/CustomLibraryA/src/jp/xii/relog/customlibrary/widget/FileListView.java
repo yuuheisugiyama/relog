@@ -38,32 +38,32 @@ public class FileListView extends ViewGroup
 			, View.OnClickListener{
 
 	
-	//‘®«–¼
-	public final static String STR_ATTR_SELECT_DIR = "select_dir";		//ƒfƒBƒŒƒNƒgƒŠ‘I‘ğ
-	public final static String STR_ATTR_DEFAULT_DIR = "default_dir";	//‰ŠúƒfƒBƒŒƒNƒgƒŠ
-	public final static String STR_ATTR_DISPATCH_BACK_KEY = "dispatch_back";	//–ß‚éƒL[‚ğó‚¯‚é‚©
+	//å±æ€§å
+	public final static String STR_ATTR_SELECT_DIR = "select_dir";		//ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠ
+	public final static String STR_ATTR_DEFAULT_DIR = "default_dir";	//åˆæœŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+	public final static String STR_ATTR_DISPATCH_BACK_KEY = "dispatch_back";	//æˆ»ã‚‹ã‚­ãƒ¼ã‚’å—ã‘ã‚‹ã‹
 	
 	private View _mainView = null;
 	
-	private boolean _isSelectDir = false;			//ƒfƒBƒŒƒNƒgƒŠ‘I‘ğ
-	private File _currentDir = null;				//ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ
-	private ArrayList<File> _currentDirFileList = null;		//Œ»İ‚ÌƒfƒBƒŒƒNƒgƒŠ‚Ìƒtƒ@ƒCƒ‹‚Ìˆê——
-	private Stack<File> _historyFileList = null;	//‚½‚Ç‚Á‚½ƒpƒX‚ÌƒXƒ^ƒbƒN
-	private boolean _isDispatchBackKey = true;		//–ß‚éƒL[‚ğó‚¯‚é‚©
+	private boolean _isSelectDir = false;			//ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠ
+	private File _currentDir = null;				//ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+	private ArrayList<File> _currentDirFileList = null;		//ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸€è¦§
+	private Stack<File> _historyFileList = null;	//ãŸã©ã£ãŸãƒ‘ã‚¹ã®ã‚¹ã‚¿ãƒƒã‚¯
+	private boolean _isDispatchBackKey = true;		//æˆ»ã‚‹ã‚­ãƒ¼ã‚’å—ã‘ã‚‹ã‹
 	
-	private onFileListListener _listener = null;	//ƒŠƒXƒi
+	private onFileListListener _listener = null;	//ãƒªã‚¹ãƒŠ
 
 	
 	/**
-	 * ƒfƒBƒŒƒNƒgƒŠ‘I‘ğ
+	 * ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠ
 	 * @param _isSelectDir the _isSelectDir to set
-	 * Œã‚©‚ç•ÏX•s‰Â
+	 * å¾Œã‹ã‚‰å¤‰æ›´ä¸å¯
 	 */
 	private void setIsSelectDir(boolean _isSelectDir) {
 		this._isSelectDir = _isSelectDir;
 	}
 	/**
-	 * ƒfƒBƒŒƒNƒgƒŠ‘I‘ğ
+	 * ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠ
 	 * @return the _isSelectDir
 	 */
 	public boolean isSelectDir() {
@@ -72,14 +72,14 @@ public class FileListView extends ViewGroup
 
 
 	/**
-	 * ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ
+	 * ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 	 * @param _currentDir the _currentDir to set
 	 */
 	public void setCurrentDirectory(File _currentDir) {
 		this._currentDir = _currentDir;
 	}
 	/**
-	 * ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ
+	 * ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 	 * @return the _currentDir
 	 */
 	public File getCurrentDirectory() {
@@ -90,7 +90,7 @@ public class FileListView extends ViewGroup
 	}
 	
 	/**
-	 * Œ»İ‚ÌƒfƒBƒŒƒNƒgƒŠ‚Ìƒtƒ@ƒCƒ‹‚Ìˆê——
+	 * ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸€è¦§
 	 * @return
 	 */
 	public ArrayList<File> getCurrentDirFileList() {
@@ -101,7 +101,7 @@ public class FileListView extends ViewGroup
 	}
 
 	/**
-	 * ‚½‚Ç‚Á‚½ƒpƒX‚ÌƒXƒ^ƒbƒN
+	 * ãŸã©ã£ãŸãƒ‘ã‚¹ã®ã‚¹ã‚¿ãƒƒã‚¯
 	 * @return the _historyFileList
 	 */
 	public Stack<File> getHistoryFileList() {
@@ -113,14 +113,14 @@ public class FileListView extends ViewGroup
 
 	
 	/**
-	 * –ß‚éƒL[‚ğó‚¯‚é‚©
+	 * æˆ»ã‚‹ã‚­ãƒ¼ã‚’å—ã‘ã‚‹ã‹
 	 * @param _isDispatchBackKey the _isDispatchBackKey to set
 	 */
 	public void setIsDispatchBackKey(boolean _isDispatchBackKey) {
 		this._isDispatchBackKey = _isDispatchBackKey;
 	}
 	/**
-	 * –ß‚éƒL[‚ğó‚¯‚é‚©
+	 * æˆ»ã‚‹ã‚­ãƒ¼ã‚’å—ã‘ã‚‹ã‹
 	 * @return the _isDispatchBackKey
 	 */
 	public boolean isDispatchBackKey() {
@@ -128,14 +128,14 @@ public class FileListView extends ViewGroup
 	}
 	
 	/**
-	 * ƒŠƒXƒi
+	 * ãƒªã‚¹ãƒŠ
 	 * @param _listener the _listener to set
 	 */
 	public void setOnFileListListener(onFileListListener _listener) {
 		this._listener = _listener;
 	}
 	/**
-	 * ƒŠƒXƒi
+	 * ãƒªã‚¹ãƒŠ
 	 * @return the _listener
 	 */
 	public onFileListListener getOnFileListListener() {
@@ -144,7 +144,7 @@ public class FileListView extends ViewGroup
 	
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param is_select_dir
 	 */
@@ -156,7 +156,7 @@ public class FileListView extends ViewGroup
 	}
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param attrs
 	 */
@@ -167,7 +167,7 @@ public class FileListView extends ViewGroup
 	}
 	
 	/**
-	 * ‰Šú‰»
+	 * åˆæœŸåŒ–
 	 * @param attrs
 	 */
 	private void init(AttributeSet attrs){
@@ -175,21 +175,21 @@ public class FileListView extends ViewGroup
 
 		if(attrs == null){
 		}else{
-			//ƒfƒBƒŒƒNƒgƒŠ‘I‘ğ
+			//ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠ
 			setIsSelectDir(attrs.getAttributeBooleanValue(null, STR_ATTR_SELECT_DIR, false));
-			//‰ŠúƒfƒBƒŒƒNƒgƒŠ
+			//åˆæœŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 			temp = attrs.getAttributeValue(null, STR_ATTR_DEFAULT_DIR);
 			if(temp != null){
 				setCurrentDirectory(new File(temp));
 			}else{
-				//–¢w’è‚Ìê‡‚ÍmicroSD
+				//æœªæŒ‡å®šã®å ´åˆã¯microSD
 				setCurrentDirectory(new File(Utility.getSdcardPath()));
 			}
-			//–ß‚éƒL[‚ğó‚¯‚é‚©
+			//æˆ»ã‚‹ã‚­ãƒ¼ã‚’å—ã‘ã‚‹ã‹
 			setIsDispatchBackKey(attrs.getAttributeBooleanValue(null, STR_ATTR_DISPATCH_BACK_KEY, true));
 		}
 
-	    //inflater‚ğg‚Á‚Äxml‚ÌƒŒƒCƒAƒEƒg‚ğView‚É”½‰f‚·‚é
+	    //inflaterã‚’ä½¿ã£ã¦xmlã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’Viewã«åæ˜ ã™ã‚‹
 	    LayoutInflater inflater = (LayoutInflater)getContext()
 	                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	    int id = 0;
@@ -200,24 +200,24 @@ public class FileListView extends ViewGroup
 	    }
 	    _mainView = inflater.inflate(id, null);
 
-	    //ƒfƒBƒŒƒNƒgƒŠ‘I‘ğƒCƒxƒ“ƒg
+	    //ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠã‚¤ãƒ™ãƒ³ãƒˆ
 	    Button button = (Button)_mainView.findViewById(R.id.FileSelectListOK_Button);
 	    if(button != null){
 		    button.setOnClickListener(this);
 	    }
-	    //ƒŠƒXƒgƒrƒ…[‚ÌƒCƒxƒ“ƒg
+	    //ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã®ã‚¤ãƒ™ãƒ³ãƒˆ
 		ListView list = (ListView)_mainView.findViewById(R.id.FileList_ListView);
 		if(list != null){
 			list.setOnItemClickListener(this);
 		}
 		
-		//‰Šú•\¦
+		//åˆæœŸè¡¨ç¤º
 	    viewFiles(getCurrentDirectory());
 	}
 
 
 	/**
-	 * ƒŒƒCƒAƒEƒgŠm’è
+	 * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆç¢ºå®š
 	 */
 	@Override
 	protected void onLayout(boolean changed, int left, int top, int right,
@@ -229,37 +229,37 @@ public class FileListView extends ViewGroup
 	     
 	    addViewInLayout(_mainView, -1, lp);
 	 
-	    //q—v‘f‚Ì•`‰æ”ÍˆÍ‚ÅƒŒƒCƒAƒEƒg‚ğì¬‚·‚é
+	    //å­è¦ç´ ã®æç”»ç¯„å›²ã§ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ä½œæˆã™ã‚‹
 	    _mainView.layout(0, 0, _mainView.getMeasuredWidth(), _mainView.getMeasuredHeight());
 	 
 	}
 	
 	/**
-	 * ƒTƒCƒYŒv‘ª
+	 * ã‚µã‚¤ã‚ºè¨ˆæ¸¬
 	 */
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-	    //q—v‘f‚É•K—v‚È‘å‚«‚³‚ğŒv‘ª‚³‚¹‚é
+	    //å­è¦ç´ ã«å¿…è¦ãªå¤§ãã•ã‚’è¨ˆæ¸¬ã•ã›ã‚‹
 	    _mainView.measure(widthMeasureSpec, heightMeasureSpec);
 
 		int spec_width = MeasureSpec.getSize(widthMeasureSpec);
 		int spec_height = _mainView.getMeasuredHeight();
 
-		//ƒTƒCƒYİ’è
+		//ã‚µã‚¤ã‚ºè¨­å®š
 		setMeasuredDimension(spec_width, spec_height);
 	}
 
 	/**
-	 * ƒL[ƒCƒxƒ“ƒg
+	 * ã‚­ãƒ¼ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent event) {
 		boolean ret = false;
 		if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){
 			if(!isDispatchBackKey()){
-				//ƒL[‚Í–³‹
+				//ã‚­ãƒ¼ã¯ç„¡è¦–
 			}else if(event.getAction() == KeyEvent.ACTION_DOWN){
-				//–ß‚éƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+				//æˆ»ã‚‹ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 				try{
 					File dir = getHistoryFileList().pop();
 					dir = getHistoryFileList().pop();
@@ -276,7 +276,7 @@ public class FileListView extends ViewGroup
 	}
 	
 	/**
-	 * ƒtƒ@ƒCƒ‹ˆê——‚ğ“o˜^‚·‚é
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§ã‚’ç™»éŒ²ã™ã‚‹
 	 * @param path
 	 */
 	private boolean viewFiles(File dir){
@@ -284,32 +284,32 @@ public class FileListView extends ViewGroup
 		ListView list = (ListView)_mainView.findViewById(R.id.FileList_ListView);
 		if(dir == null || list == null){
 		}else if(!dir.canRead()){
-			//“Ç‚ß‚È‚¢
+			//èª­ã‚ãªã„
 		}else{
-			//ƒAƒ_ƒvƒ^ì¬
+			//ã‚¢ãƒ€ãƒ—ã‚¿ä½œæˆ
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext()
 					, android.R.layout.simple_list_item_1);
 
 			File[] file_lists = dir.listFiles();
 
-			//ƒNƒŠƒA
+			//ã‚¯ãƒªã‚¢
 			getCurrentDirFileList().clear();
-			//Œ»İ‚ÌƒfƒBƒŒƒNƒgƒŠ
+			//ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 			setCurrentDirectory(dir);
 			viewCurrentDirectory(dir);
 
 			if(file_lists == null){
 			}else{
-				//’Ç‰Á
+				//è¿½åŠ 
 				for (File file : file_lists) {
 					if(file.isDirectory()){
-						//ƒfƒBƒŒƒNƒgƒŠ‚Ìê‡
+						//ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å ´åˆ
 						adapter.add(file.getName() + "/");
 						getCurrentDirFileList().add(file);
 					}else{
-						//’Êí‚Ìƒtƒ@ƒCƒ‹
+						//é€šå¸¸ã®ãƒ•ã‚¡ã‚¤ãƒ«
 						if(isSelectDir()){
-							//ƒfƒBƒŒƒNƒgƒŠ‘I‘ğƒ‚[ƒh‚Ì‚Í‰½‚à‚µ‚È‚¢
+							//ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ä½•ã‚‚ã—ãªã„
 						}else{
 							adapter.add(file.getName());
 							getCurrentDirFileList().add(file);
@@ -317,14 +317,14 @@ public class FileListView extends ViewGroup
 					}
 				}
 			}
-			//‹ó‚Á‚Û
+			//ç©ºã£ã½
 			if(adapter.getCount() == 0){
 				adapter.add(getContext().getString(R.string.file_list_empty));
 			}
-			//—š—ğ‚É•Û‘¶
+			//å±¥æ­´ã«ä¿å­˜
 			getHistoryFileList().push(dir);
 
-			//ƒAƒ_ƒvƒ^‚ğİ’è
+			//ã‚¢ãƒ€ãƒ—ã‚¿ã‚’è¨­å®š
 			list.setAdapter(adapter);
 			
 			ret = true;
@@ -333,7 +333,7 @@ public class FileListView extends ViewGroup
 	}
 
 	/**
-	 * Œ»İ‚ÌƒpƒX‚ğ•\¦‚·‚é
+	 * ç¾åœ¨ã®ãƒ‘ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹
 	 * @param dir
 	 */
 	private void viewCurrentDirectory(File dir){
@@ -345,7 +345,7 @@ public class FileListView extends ViewGroup
 	}
 	
 	/**
-	 * ƒAƒCƒeƒ€‚Ì‘I‘ğ
+	 * ã‚¢ã‚¤ãƒ†ãƒ ã®é¸æŠ
 	 */
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -356,15 +356,15 @@ public class FileListView extends ViewGroup
 			File file = getCurrentDirFileList().get(position);
 			
 			if(file.isDirectory()){
-				//ƒfƒBƒŒƒNƒgƒŠ‚ğ‚½‚Ç‚é
+				//ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ãŸã©ã‚‹
 				if(!viewFiles(file)){
-					file = null;	//¸”s‚Ínull‚ğ’Ê’m‚·‚é
+					file = null;	//å¤±æ•—ã¯nullã‚’é€šçŸ¥ã™ã‚‹
 				}
 				if(getOnFileListListener() != null){
 					getOnFileListListener().onChangeDirectory(file);
 				}
 			}else{
-				//ƒtƒ@ƒCƒ‹‚¾‚Á‚½‚Ì‚ÅƒCƒxƒ“ƒg‚Å’Ê’m
+				//ãƒ•ã‚¡ã‚¤ãƒ«ã ã£ãŸã®ã§ã‚¤ãƒ™ãƒ³ãƒˆã§é€šçŸ¥
 				if(getOnFileListListener() != null){
 					getOnFileListListener().onSelectFile(file);
 				}
@@ -374,13 +374,13 @@ public class FileListView extends ViewGroup
 	
 	
 	/**
-	 * ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+	 * ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 	 */
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
 		case R.id.FileSelectListOK_Button:
-			//Œ»İ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğƒCƒxƒ“ƒg‚Å’Ê’m
+			//ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ã‚¤ãƒ™ãƒ³ãƒˆã§é€šçŸ¥
 			if(getOnFileListListener() != null){
 				getOnFileListListener().onSelectDirectory(getCurrentDirectory());
 			}
@@ -392,7 +392,7 @@ public class FileListView extends ViewGroup
 	
 
 	/**
-	 * ‘I‘ğ‚µ‚½‚ÌƒŠƒXƒi—pƒCƒ“ƒ^[ƒtƒF[ƒXƒNƒ‰ƒX
+	 * é¸æŠã—ãŸæ™‚ã®ãƒªã‚¹ãƒŠç”¨ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹
 	 * @author Iori
 	 *
 	 */

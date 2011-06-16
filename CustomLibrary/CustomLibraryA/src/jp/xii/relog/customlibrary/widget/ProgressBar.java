@@ -28,23 +28,23 @@ import android.util.AttributeSet;
 import android.util.Log;
 import jp.xii.relog.customlibrary.view.OriginalView;
 
-//‘½•ªì‚è‚©‚¯‚Ì•ú’u•i
+//å¤šåˆ†ä½œã‚Šã‹ã‘ã®æ”¾ç½®å“
 public class ProgressBar extends OriginalView {
 	
 
-	private int _progress = 0;		//Œ»İ‚Ìi’»
-	private int _max = 100;			//Å‘å’l
+	private int _progress = 0;		//ç¾åœ¨ã®é€²æ—
+	private int _max = 100;			//æœ€å¤§å€¤
 	
 	
 	/**
-	 * Œ»İ‚Ìi’»
+	 * ç¾åœ¨ã®é€²æ—
 	 * @param _progress the _progress to set
 	 */
 	public void setProgress(int _progress) {
 		this._progress = _progress;
 	}
 	/**
-	 * Œ»İ‚Ìi’»
+	 * ç¾åœ¨ã®é€²æ—
 	 * @return the _progress
 	 */
 	public int getProgress() {
@@ -52,14 +52,14 @@ public class ProgressBar extends OriginalView {
 	}
 	
 	/**
-	 * Å‘å’l
+	 * æœ€å¤§å€¤
 	 * @return
 	 */
 	public int getMax() {
 		return _max;
 	}
 	/**
-	 * Å‘å’l
+	 * æœ€å¤§å€¤
 	 * @param max
 	 */
 	public void setMax(int max) {
@@ -68,7 +68,7 @@ public class ProgressBar extends OriginalView {
 
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param attrs
 	 */
@@ -82,7 +82,7 @@ public class ProgressBar extends OriginalView {
 
 	
 	/**
-	 * ƒTƒCƒY‚ğŒˆ’è‚·‚é
+	 * ã‚µã‚¤ã‚ºã‚’æ±ºå®šã™ã‚‹
 	 */
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -91,7 +91,7 @@ public class ProgressBar extends OriginalView {
 
 		Log.d("mpremocon","onMeasure spec_width="+spec_width + " , spec_height=" + spec_height);
 
-		//ƒTƒCƒYİ’è
+		//ã‚µã‚¤ã‚ºè¨­å®š
 		setMeasuredDimension(spec_width, spec_height);
 
 		if(_currentDrawable != null){
@@ -100,7 +100,7 @@ public class ProgressBar extends OriginalView {
 	}
 
 	/**
-	 * ƒTƒCƒY‚ª•ÏX‚³‚ê‚½
+	 * ã‚µã‚¤ã‚ºãŒå¤‰æ›´ã•ã‚ŒãŸ
 	 */
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -115,7 +115,7 @@ public class ProgressBar extends OriginalView {
 	}
 	
 	/**
-	 * •`‰æˆ—
+	 * æç”»å‡¦ç†
 	 */
 	@Override
 	protected void onDraw(Canvas canvas) {
@@ -134,12 +134,12 @@ public class ProgressBar extends OriginalView {
 			paint.setColor(Color.WHITE);
 			
 			
-			//ƒOƒ‰ƒf‚ğİ’è
+			//ã‚°ãƒ©ãƒ‡ã‚’è¨­å®š
 			paint.setShader(shader);
-			//F‚Ì•ÏŠ·ƒ‚[ƒh‚ğw’è
+			//è‰²ã®å¤‰æ›ãƒ¢ãƒ¼ãƒ‰ã‚’æŒ‡å®š
 			//paint.setXfermode(new PorterDuffXfermode(Mode.DST_IN));
 			
-			//lŠp•`‰æ
+			//å››è§’æç”»
 			canvas.drawRoundRect(rect, 5, 5, paint);
 		}else{
 			//canvas.save();
@@ -153,7 +153,7 @@ public class ProgressBar extends OriginalView {
 	
 	private Drawable _currentDrawable = null;
 	/**
-	 * Drawable‚ğİ’è‚·‚é
+	 * Drawableã‚’è¨­å®šã™ã‚‹
 	 * @param d
 	 */
 	public void setProgressDrawable(Drawable d){
@@ -182,7 +182,7 @@ public class ProgressBar extends OriginalView {
 //			GradientDrawable background = (GradientDrawable) layer.findDrawableByLayerId(android.R.id.background);
 ////			ClipDrawable progress = (ClipDrawable) layer.findDrawableByLayerId(android.R.id.progress);
 //			
-//			//”wŒi
+//			//èƒŒæ™¯
 //			if(background != null){
 //				Log.d("mpremocon", "i=" + background.getConstantState().getClass());
 //				

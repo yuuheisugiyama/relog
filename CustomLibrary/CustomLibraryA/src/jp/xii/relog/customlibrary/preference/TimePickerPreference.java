@@ -30,23 +30,23 @@ import android.widget.TimePicker;
  */
 public class TimePickerPreference extends OriginalDialogPreference {
 
-	//’Ç‰Á‘®«‚Ì–¼Ì
+	//è¿½åŠ å±æ€§ã®åç§°
 	private final static String STR_ATTR_DEFAULT_HOUR = "defaultHour";
 	private final static String STR_ATTR_DEFAULT_MINUTE = "defaultMinute";
 	private final static String STR_ATTR_IS_24HOUR = "is24Hour";
 	
-	//ƒvƒŠƒtƒ@ƒŒƒ“ƒX•Û‘¶‚ÌƒL[–¼‚Ì’Ç‰Á•¶š—ñ
+	//ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä¿å­˜æ™‚ã®ã‚­ãƒ¼åã®è¿½åŠ æ–‡å­—åˆ—
 	private final static String STR_KEY_HOUR = "_Hour";		
 	private final static String STR_KEY_MINUTE = "_Minute";
 	
-	private int _defaultHour = 0;			//İ’è’lij
-	private int _defaultMinute = 0;			//İ’è’li•ªj
-	private boolean _is24HourView = false;	//İ’è’li‚Q‚SŠÔ•\¦j
+	private int _defaultHour = 0;			//è¨­å®šå€¤ï¼ˆæ™‚ï¼‰
+	private int _defaultMinute = 0;			//è¨­å®šå€¤ï¼ˆåˆ†ï¼‰
+	private boolean _is24HourView = false;	//è¨­å®šå€¤ï¼ˆï¼’ï¼”æ™‚é–“è¡¨ç¤ºï¼‰
 	
 	
 
 	/**
-	 * 24ŠÔ•\¦‚©
+	 * 24æ™‚é–“è¡¨ç¤ºã‹
 	 * @param _is24HourView the _is24HourView to set
 	 */
 	public void setIs24HourView(boolean _is24HourView) {
@@ -54,7 +54,7 @@ public class TimePickerPreference extends OriginalDialogPreference {
 	}
 
 	/**
-	 * 24ŠÔ•\¦‚©
+	 * 24æ™‚é–“è¡¨ç¤ºã‹
 	 * @return the _is24HourView
 	 */
 	public boolean is24HourView() {
@@ -63,7 +63,7 @@ public class TimePickerPreference extends OriginalDialogPreference {
 
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param attrs
 	 */
@@ -72,17 +72,17 @@ public class TimePickerPreference extends OriginalDialogPreference {
 
 		String temp;
 		
-		//ŠÔ‚ğæ“¾
+		//æ™‚é–“ã‚’å–å¾—
 		temp = attrs.getAttributeValue(null, STR_ATTR_DEFAULT_HOUR);
 		if(temp != null){
 			_defaultHour = Integer.valueOf(temp);
 		}
-		//•ª‚ğæ“¾
+		//åˆ†ã‚’å–å¾—
 		temp = attrs.getAttributeValue(null, STR_ATTR_DEFAULT_MINUTE);
 		if(temp != null){
 			_defaultMinute = Integer.valueOf(temp);
 		}
-		//‚Q‚SŠÔ•\¦‚ğæ“¾
+		//ï¼’ï¼”æ™‚é–“è¡¨ç¤ºã‚’å–å¾—
 		temp = attrs.getAttributeValue(null, STR_ATTR_IS_24HOUR);
 		if(temp == null){
 		}else if(temp.toLowerCase().compareTo("true") != 0){
@@ -93,11 +93,11 @@ public class TimePickerPreference extends OriginalDialogPreference {
 	}
 
 	/**
-	 * •\¦‚µ‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚é
+	 * è¡¨ç¤ºã—ãŸã¨ãã«å‘¼ã°ã‚Œã‚‹
 	 */
 	@Override
 	protected void onBindView(View view) {
-		//İ’è‚ğ“Ç‚İ‚İ
+		//è¨­å®šã‚’èª­ã¿è¾¼ã¿
 		SharedPreferences pref = getSharedPreferences();
 		if(pref == null){
 		}else{
@@ -105,7 +105,7 @@ public class TimePickerPreference extends OriginalDialogPreference {
 			_defaultMinute = pref.getInt(getKey() + STR_KEY_MINUTE, _defaultMinute);
 		}
 
-		//ƒTƒ}ƒŠ[‚ÉŒ»İ’l‚ğİ’è
+		//ã‚µãƒãƒªãƒ¼ã«ç¾åœ¨å€¤ã‚’è¨­å®š
 		String summary = "";
 		if(_is24HourView){
 			summary = String.format("%s%02d:%02d", getDefaultSummary(), _defaultHour, _defaultMinute);
@@ -120,17 +120,17 @@ public class TimePickerPreference extends OriginalDialogPreference {
 		}
 		setSummary((summary));
 
-		//‚±‚ê‚Í‚È‚º‚©ÅŒã‚¶‚á‚È‚¢‚ÆƒCƒP‚È‚¢‚ç‚µ‚¢
+		//ã“ã‚Œã¯ãªãœã‹æœ€å¾Œã˜ã‚ƒãªã„ã¨ã‚¤ã‚±ãªã„ã‚‰ã—ã„
 		super.onBindView(view);
 	}
 
 	/**
-	 * ƒvƒŠƒtƒ@ƒŒƒ“ƒX‚ÌƒNƒŠƒbƒNƒCƒxƒ“ƒg
+	 * ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ã‚¯ãƒªãƒƒã‚¯ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	protected void onClick(){
 
-		//ƒ_ƒCƒAƒƒO•\¦
+		//ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤º
 		final TimePicker picker = new TimePicker(getContext());
 		picker.setIs24HourView(_is24HourView);
 		picker.setCurrentHour(_defaultHour);
@@ -139,14 +139,14 @@ public class TimePickerPreference extends OriginalDialogPreference {
 							, picker, new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// İ’è•Û‘¶
+				// è¨­å®šä¿å­˜
 				SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
 				SharedPreferences.Editor editor = pref.edit();
 				editor.putInt(getKey() + STR_KEY_HOUR, picker.getCurrentHour());
 				editor.putInt(getKey() + STR_KEY_MINUTE, picker.getCurrentMinute());
 				editor.commit();
 				
-				//•\¦‚ğXV
+				//è¡¨ç¤ºã‚’æ›´æ–°
 				notifyChanged();
 			}
 		});

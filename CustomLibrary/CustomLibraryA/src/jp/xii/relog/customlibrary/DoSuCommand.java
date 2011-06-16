@@ -22,30 +22,30 @@ import org.apache.http.protocol.HTTP;
 
 public class DoSuCommand {
 
-	Process _process = null;				//suƒvƒƒZƒX
-	DataOutputStream _outputStream = null;	//o—ÍƒXƒgƒŠ[ƒ€
-	DataInputStream _inputStream = null;	//“ü—ÍƒXƒgƒŠ[ƒ€
+	Process _process = null;				//suãƒ—ãƒ­ã‚»ã‚¹
+	DataOutputStream _outputStream = null;	//å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ 
+	DataInputStream _inputStream = null;	//å…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ 
 	
 	
 	public boolean init(){
 		boolean ret = false;
 		
 		try {
-			//suÀs
+			//suå®Ÿè¡Œ
 			_process = Runtime.getRuntime().exec("su");
 			
-			//“üo—ÍƒXƒgƒŠ[ƒ€æ“¾
+			//å…¥å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ å–å¾—
 			_outputStream = new DataOutputStream(_process.getOutputStream());
 			_inputStream = new DataInputStream(_process.getInputStream());
 			
-			//ƒo[ƒWƒ‡ƒ“‚ğæ“¾‚·‚é
+			//ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹
 			ret = true;
 //			if(!write("su -v\n")){
 //			}else{
 //				String[] results = read().split("\n");
 //				for (String line : results) {
 //					if(line.length() > 0){
-//						//ƒo[ƒWƒ‡ƒ“‚ª‚Æ‚ê‚½‚Ì‚Å¬Œ÷
+//						//ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒã¨ã‚ŒãŸã®ã§æˆåŠŸ
 //						ret = true;
 //					}
 //				}
@@ -66,12 +66,12 @@ public class DoSuCommand {
 		if(_outputStream != null){
 			try {
 				if(_process != null){
-					//ƒvƒƒZƒX‚Æo—ÍƒXƒgƒŠ[ƒ€‚ª‚ ‚éê‡‚Í
-					//ƒVƒFƒ‹‚ğI—¹‚·‚é
+					//ãƒ—ãƒ­ã‚»ã‚¹ã¨å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ãŒã‚ã‚‹å ´åˆã¯
+					//ã‚·ã‚§ãƒ«ã‚’çµ‚äº†ã™ã‚‹
 					_outputStream.writeBytes("exit\n");
 					_outputStream.flush();
 					try {
-						//ƒVƒFƒ‹‚ÌI—¹‚ğ‘Ò‚Â
+						//ã‚·ã‚§ãƒ«ã®çµ‚äº†ã‚’å¾…ã¤
 						_process.waitFor();
 					} catch (InterruptedException e) {
 					}
@@ -91,8 +91,8 @@ public class DoSuCommand {
 	}
 	
 	/**
-	 * ƒRƒ}ƒ“ƒh‚ğsuƒVƒFƒ‹‚Ö“Š‚°‚é
-	 * ÅŒã‚É\n‚ğ•t‚¯‚é‚Ü‚ÅÀs‚³‚ê‚È‚¢
+	 * ã‚³ãƒãƒ³ãƒ‰ã‚’suã‚·ã‚§ãƒ«ã¸æŠ•ã’ã‚‹
+	 * æœ€å¾Œã«\nã‚’ä»˜ã‘ã‚‹ã¾ã§å®Ÿè¡Œã•ã‚Œãªã„
 	 * @param command
 	 */
 	public boolean write(String command){
@@ -110,12 +110,12 @@ public class DoSuCommand {
 	}
 	
 	/**
-	 * suƒVƒFƒ‹‚Ìo—Í‚ğ•¶š—ñ‚É‚·‚é
-	 * ‚©‚È‚ç‚¸Œ‹‰Ê‚ª–ß‚Á‚Ä‚­‚é‚Ég‚¤
-	 * ‚»‚êˆÈŠO‚Åg‚¤‚Æ‚à‚Ç‚Á‚Ä‚±‚È‚­‚È‚é‚Ì‚Å’ˆÓ
-	 * ‚à‚¿‚ë‚ñŒ‹‰Ê‚Í•W€o—Í‚ÅƒGƒ‰[o—Í‚Íƒ_ƒ
-	 * ƒRƒ}ƒ“ƒh‚ÌŒ‹‰Ê‚ª•¡”s‚É‚È‚éê‡‚Í
-	 * split‚È‚Ç‚ğg‚Á‚Äƒoƒ‰‚µ‚Äg‚¤
+	 * suã‚·ã‚§ãƒ«ã®å‡ºåŠ›ã‚’æ–‡å­—åˆ—ã«ã™ã‚‹
+	 * ã‹ãªã‚‰ãšçµæœãŒæˆ»ã£ã¦ãã‚‹æ™‚ã«ä½¿ã†
+	 * ãã‚Œä»¥å¤–ã§ä½¿ã†ã¨ã‚‚ã©ã£ã¦ã“ãªããªã‚‹ã®ã§æ³¨æ„
+	 * ã‚‚ã¡ã‚ã‚“çµæœã¯æ¨™æº–å‡ºåŠ›ã§ã‚¨ãƒ©ãƒ¼å‡ºåŠ›ã¯ãƒ€ãƒ¡
+	 * ã‚³ãƒãƒ³ãƒ‰ã®çµæœãŒè¤‡æ•°è¡Œã«ãªã‚‹å ´åˆã¯
+	 * splitãªã©ã‚’ä½¿ã£ã¦ãƒãƒ©ã—ã¦ä½¿ã†
 	 * @param timeout
 	 * @return
 	 */
@@ -143,7 +143,7 @@ public class DoSuCommand {
 //						}
 //					}
 //
-//					//‚È‚É‚©æ“¾‚Å‚«‚Ä‚½‚çI—¹
+//					//ãªã«ã‹å–å¾—ã§ãã¦ãŸã‚‰çµ‚äº†
 //					if(ret.length() > 0){
 //						break;
 //					}else{
@@ -153,7 +153,7 @@ public class DoSuCommand {
 //						}
 //					}
 //					
-//					//ƒ^ƒCƒ€ƒAƒEƒgŠÔ‚ª‚«‚Ä‚È‚¯‚ê‚ÎŒJ‚è•Ô‚·
+//					//ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆæ™‚é–“ãŒãã¦ãªã‘ã‚Œã°ç¹°ã‚Šè¿”ã™
 //				}while((System.currentTimeMillis() - start_time) < timeout);
 			} catch (IOException e) {
 			}

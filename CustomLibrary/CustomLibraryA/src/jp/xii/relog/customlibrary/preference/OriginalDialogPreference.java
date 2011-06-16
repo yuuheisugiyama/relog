@@ -25,10 +25,10 @@ import android.view.View;
 public class OriginalDialogPreference extends DialogPreference {
 
 
-	private String _summary = "";			//ƒTƒ}ƒŠ[‚Ì•¶š—ñ
+	private String _summary = "";			//ã‚µãƒãƒªãƒ¼ã®æ–‡å­—åˆ—
 
 	/**
-	 * ƒTƒ}ƒŠ‚Ì‰Šúó‘Ô
+	 * ã‚µãƒãƒªã®åˆæœŸçŠ¶æ…‹
 	 * @param _summary the _summary to set
 	 */
 	public void setDefaultSummary(String _summary) {
@@ -36,7 +36,7 @@ public class OriginalDialogPreference extends DialogPreference {
 	}
 
 	/**
-	 * ƒTƒ}ƒŠ‚Ì‰Šúó‘Ô
+	 * ã‚µãƒãƒªã®åˆæœŸçŠ¶æ…‹
 	 * @return the _summary
 	 */
 	public String getDefaultSummary() {
@@ -44,7 +44,7 @@ public class OriginalDialogPreference extends DialogPreference {
 	}
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param attrs
 	 */
@@ -53,7 +53,7 @@ public class OriginalDialogPreference extends DialogPreference {
 
 		String temp;
 		
-		//ƒTƒ}ƒŠ[‚Ì‰Šúó‘Ô‚ğ•Û‘¶‚µ‚Ä‚¨‚­
+		//ã‚µãƒãƒªãƒ¼ã®åˆæœŸçŠ¶æ…‹ã‚’ä¿å­˜ã—ã¦ãŠã
 		temp = (String) getSummary();
 		if(temp != null){
 			setDefaultSummary(temp);
@@ -62,10 +62,10 @@ public class OriginalDialogPreference extends DialogPreference {
 	}
 	
 	/**
-	 * ƒ_ƒCƒAƒƒO‚Ì•\¦
-	 * @param context e‚ÌƒRƒ“ƒeƒLƒXƒg
-	 * @param title ƒ_ƒCƒAƒƒO‚Ìƒ^ƒCƒgƒ‹
-	 * @param text ƒ_ƒCƒAƒƒO‚Ì–{•¶
+	 * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
+	 * @param context è¦ªã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+	 * @param title ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¿ã‚¤ãƒˆãƒ«
+	 * @param text ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®æœ¬æ–‡
 	 */
 	protected void showCustumDialog(Context context, String title, String text ,View custumItem, OnClickListener listener){
 		AlertDialog.Builder ad = new AlertDialog.Builder(context);
@@ -81,7 +81,7 @@ public class OriginalDialogPreference extends DialogPreference {
 	}
 	
 	/**
-	 * ”’l‚É•ÏŠ·‚·‚é
+	 * æ•°å€¤ã«å¤‰æ›ã™ã‚‹
 	 * @param number
 	 * @return
 	 */
@@ -98,7 +98,7 @@ public class OriginalDialogPreference extends DialogPreference {
 	}
 
 	/**
-	 * ”’l‚©Šm‚©‚ß‚é
+	 * æ•°å€¤ã‹ç¢ºã‹ã‚ã‚‹
 	 * @param number
 	 * @return
 	 */

@@ -33,13 +33,13 @@ public class IpAddressPreference extends OriginalDialogPreference
 	implements View.OnFocusChangeListener
 			, View.OnClickListener{
 
-	//ƒpƒ‰ƒ[ƒ^
+	//ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
 	LinearLayout _layoutIp = null;
 	ArrayList<EditText> _textNumbers = null;
 	String _addressNumbers[] = {"0", "0", "0", "0"};
 
 	/**
-	 * ƒŒƒCƒAƒEƒg‚ğæ“¾
+	 * ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’å–å¾—
 	 * @return
 	 */
 	public LinearLayout getLayoutIp(){
@@ -50,7 +50,7 @@ public class IpAddressPreference extends OriginalDialogPreference
 	}
 
 	/**
-	 * IPƒAƒhƒŒƒX‚Ì”’l‚Ì”z—ñ
+	 * IPã‚¢ãƒ‰ãƒ¬ã‚¹ã®æ•°å€¤ã®é…åˆ—
 	 * @return
 	 */
 	public ArrayList<EditText> getTextNumbers(){
@@ -69,7 +69,7 @@ public class IpAddressPreference extends OriginalDialogPreference
 	
 	
 	/**
-	 * IPƒAƒhƒŒƒX‚ğæ“¾‚·‚é
+	 * IPã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å–å¾—ã™ã‚‹
 	 * @return
 	 */
 	public String getIp(){
@@ -80,32 +80,32 @@ public class IpAddressPreference extends OriginalDialogPreference
 	}
 	
 	/**
-	 * IP‚ğİ’è‚·‚é
+	 * IPã‚’è¨­å®šã™ã‚‹
 	 * @param ip
 	 */
 	public void setIp(String ip){
-		//ƒsƒŠƒIƒh‚Å‚S‚Â‚É•ª‰ğ
+		//ãƒ”ãƒªã‚ªãƒ‰ã§ï¼”ã¤ã«åˆ†è§£
 		String numbers[] = ip.split("\\.");
 		if(getTextNumbers().size() != 4){
-			//ƒGƒfƒBƒbƒg‚ª—pˆÓ‚Å‚«‚Ä‚È‚¢
+			//ã‚¨ãƒ‡ã‚£ãƒƒãƒˆãŒç”¨æ„ã§ãã¦ãªã„
 		}else if(numbers.length != 4){
-			//IPƒAƒhƒŒƒX‚¶‚á‚È‚¢
+			//IPã‚¢ãƒ‰ãƒ¬ã‚¹ã˜ã‚ƒãªã„
 			ip = "0.0.0.0";
 			for (int i=0; i<4; i++) {
 				_addressNumbers[i] = "";
 			}
 		}else{
-			//ƒGƒfƒBƒbƒg‚Éƒoƒ‰‚µ‚Äİ’è
+			//ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã«ãƒãƒ©ã—ã¦è¨­å®š
 			if((numbers[0].compareTo("0") == 0)
 					&& (numbers[1].compareTo("0") == 0)
 					&& (numbers[2].compareTo("0") == 0)
 					&& (numbers[3].compareTo("0") == 0)){
-				//‘S•”‚O‚Ìê‡‚Í‹ó”’
+				//å…¨éƒ¨ï¼ã®å ´åˆã¯ç©ºç™½
 				for (int i=0; i<4; i++) {
 					_addressNumbers[i] = "";
 				}
 			}else{
-				//’Êí’Ê‚è”z’u
+				//é€šå¸¸é€šã‚Šé…ç½®
 				int i = 0;
 				for (String number : numbers) {
 					if(!isInt(number)){
@@ -120,7 +120,7 @@ public class IpAddressPreference extends OriginalDialogPreference
 	}
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param attrs
 	 */
@@ -132,14 +132,14 @@ public class IpAddressPreference extends OriginalDialogPreference
 	
 	
 	/**
-	 * •\¦‚µ‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚é
+	 * è¡¨ç¤ºã—ãŸã¨ãã«å‘¼ã°ã‚Œã‚‹
 	 */
 	@Override
 	protected void onBindView(View view) {
 
 		String ip = "0.0.0.0";
 		
-		//İ’è‚ğ“Ç‚İ‚İ
+		//è¨­å®šã‚’èª­ã¿è¾¼ã¿
 		SharedPreferences pref = getSharedPreferences();
 		if(pref == null){
 		}else{
@@ -149,24 +149,24 @@ public class IpAddressPreference extends OriginalDialogPreference
 
 		}
 
-		//ƒTƒ}ƒŠ[‚ÉŒ»İ’l‚ğİ’è
+		//ã‚µãƒãƒªãƒ¼ã«ç¾åœ¨å€¤ã‚’è¨­å®š
 		setSummary((ip));
 
-		//‚±‚ê‚Í‚È‚º‚©ÅŒã‚¶‚á‚È‚¢‚ÆƒCƒP‚È‚¢‚ç‚µ‚¢
+		//ã“ã‚Œã¯ãªãœã‹æœ€å¾Œã˜ã‚ƒãªã„ã¨ã‚¤ã‚±ãªã„ã‚‰ã—ã„
 		super.onBindView(view);
 	}
 
 	/**
-	 * ƒvƒŠƒtƒ@ƒŒƒ“ƒX‚ÌƒNƒŠƒbƒNƒCƒxƒ“ƒg
+	 * ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ã‚¯ãƒªãƒƒã‚¯ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	protected void onClick(){
 
-		//ƒŒƒCƒAƒEƒg‚ğ–ˆ‰ñ‘¢‚è’¼‚³‚È‚¢‚Æƒ_ƒ
+		//ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’æ¯å›é€ ã‚Šç›´ã•ãªã„ã¨ãƒ€ãƒ¡
 		_layoutIp = null;
 		_textNumbers = null;
 
-		//ƒŒƒCƒAƒEƒg’²ß
+		//ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆèª¿ç¯€
 		getLayoutIp().setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT
 													, LayoutParams.WRAP_CONTENT));
 		getLayoutIp().setWeightSum(1);
@@ -179,25 +179,25 @@ public class IpAddressPreference extends OriginalDialogPreference
 												, (float) 0.25));
 		}
 
-		//’l‚ğİ’è
+		//å€¤ã‚’è¨­å®š
 		for(int i=0; i<4; i++){
 			getTextNumbers().get(i).setText(_addressNumbers[i]);
 		}
 
-		//ƒ_ƒCƒAƒƒO•\¦
+		//ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤º
 		showCustumDialog(getContext(), (String)getDialogTitle(), (String)getDialogMessage()
 							, (View)getLayoutIp(), new OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// İ’è•Û‘¶
+				// è¨­å®šä¿å­˜
 				SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
 				SharedPreferences.Editor editor = pref.edit();
 				int num[] = new int[4];
 				for(int i=0; i<4; i++){
-					//”’l‚É‚¢‚Á‚½‚ñ•ÏŠ·‚·‚é
+					//æ•°å€¤ã«ã„ã£ãŸã‚“å¤‰æ›ã™ã‚‹
 					num[i] = toInt(getTextNumbers().get(i).getText().toString());
-					//”ÍˆÍŠOƒ`ƒFƒbƒN
+					//ç¯„å›²å¤–ãƒã‚§ãƒƒã‚¯
 					if(num[i] < 0){
 						num[i] = 0;
 					}
@@ -211,7 +211,7 @@ public class IpAddressPreference extends OriginalDialogPreference
 				editor.commit();
 
 
-				//•\¦‚ğXV
+				//è¡¨ç¤ºã‚’æ›´æ–°
 				notifyChanged();
 			}
 		});
@@ -219,7 +219,7 @@ public class IpAddressPreference extends OriginalDialogPreference
 	}
 
 	/**
-	 * ƒGƒfƒBƒbƒg‚ÉƒtƒH[ƒJƒX‚ª‚«‚½‚ç“à—e‚ğ‘I‘ğ‚·‚é
+	 * ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒããŸã‚‰å†…å®¹ã‚’é¸æŠã™ã‚‹
 	 */
 	@Override
 	public void onFocusChange(View v, boolean hasFocus) {
@@ -236,7 +236,7 @@ public class IpAddressPreference extends OriginalDialogPreference
 	}
 
 	/**
-	 * ƒGƒfƒBƒbƒg‚ÌƒNƒŠƒbƒNƒCƒxƒ“ƒg
+	 * ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã®ã‚¯ãƒªãƒƒã‚¯ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	public void onClick(View v) {

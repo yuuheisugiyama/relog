@@ -189,8 +189,8 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 	}
 	
 	
-	public static final int INVALID_USER_PLAYLIST_ID = -1;	//•s³‚ÈƒvƒŒƒCƒŠƒXƒgID
-	public static final int INVALID_AUDIO_ID = -1;			//•s³‚ÈƒI[ƒfƒBƒIID
+	public static final int INVALID_USER_PLAYLIST_ID = -1;	//ä¸æ­£ãªãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆID
+	public static final int INVALID_AUDIO_ID = -1;			//ä¸æ­£ãªã‚ªãƒ¼ãƒ‡ã‚£ã‚ªID
 	
 	ContentResolver _contentResolver = null;
 	
@@ -202,7 +202,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 
 	
 	/**
-	 * ƒJ[ƒ\ƒ‹‚©‚çƒI[ƒfƒBƒIî•ñ‚ğæ“¾‚·‚é
+	 * ã‚«ãƒ¼ã‚½ãƒ«ã‹ã‚‰ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªæƒ…å ±ã‚’å–å¾—ã™ã‚‹
 	 * @param cursor
 	 * @return
 	 */
@@ -273,7 +273,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 	
 	
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚ğì¬‚·‚é
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã‚’ä½œæˆã™ã‚‹
 	 * @param name
 	 * @param images_uri
 	 * @param thumb
@@ -286,14 +286,14 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 		if(_contentResolver == null){
 			//NG
 		}else if(isExistUserPlaylist(name)){
-			//‚·‚Å‚É“o˜^‚³‚ê‚Ä‚é
+			//ã™ã§ã«ç™»éŒ²ã•ã‚Œã¦ã‚‹
 			ret = getUserPlaylistId(name);
 		}else{
 			int image_index = -1;
 			if(images_uri != null){
 				image_index = (int)ContentUris.parseId(images_uri);
 			}
-			//ƒf[ƒ^ì¬
+			//ãƒ‡ãƒ¼ã‚¿ä½œæˆ
 			switch(getPhoneType()){
 			default:
 			case Standard:
@@ -309,7 +309,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 				break;
 			}
 			
-			//’Ç‰Á
+			//è¿½åŠ 
 			Uri playlist_uri = getPlaylistContentsUri(StoragePlaceType.External);
 			result_uri = _contentResolver.insert(playlist_uri, contentvalues);
 			
@@ -329,7 +329,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 	}
 	
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚Ì–¼‘O‚ğ•ÏX‚·‚é
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã®åå‰ã‚’å¤‰æ›´ã™ã‚‹
 	 * @param id
 	 * @param name
 	 * @return
@@ -340,7 +340,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 		if(_contentResolver == null){
 			//NG
 		}else if(isExistUserPlaylist(name)){
-			//‚·‚Å‚É“o˜^‚³‚ê‚Ä‚é
+			//ã™ã§ã«ç™»éŒ²ã•ã‚Œã¦ã‚‹
 			Log("already exist playlist : " + name);
 		}else{
 			Uri uri = null;
@@ -367,7 +367,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 	}
 	
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚É‹È‚ğ’Ç‰Á‚·‚é
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã«æ›²ã‚’è¿½åŠ ã™ã‚‹
 	 * @param playlist_id
 	 * @param audio_id
 	 * @return
@@ -377,7 +377,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 		
 		if(_contentResolver == null){
 		}else if(isExistItemInUserPlaylist(playlist_id, audio_id)){
-			//Šù‚É‚ ‚é
+			//æ—¢ã«ã‚ã‚‹
 			ret = true;
 		}else{
 			Uri uri = getPlaylistsMembersContentsUri(StoragePlaceType.External, playlist_id);
@@ -390,13 +390,13 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 				switch(getPhoneType()){
 				default:
 				case Standard:
-	                //SQLƒpƒ‰ƒ[ƒ^‚ğİ’è‚·‚é
+	                //SQLãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®šã™ã‚‹
 	                contentvalues.put("audio_id", Integer.valueOf(audio_id));
 					break;
 				case GalaxyS:
 					String data = "";
 					int data_hash = 0;
-					//–Ú“I‚ÌID‚Ì‹Èî•ñ‚ğæ“¾‚·‚é
+					//ç›®çš„ã®IDã®æ›²æƒ…å ±ã‚’å–å¾—ã™ã‚‹
 					Uri music_uri = getMediaContentsUri(StoragePlaceType.External);
 					String as[] = new String[2];
 					as[0] = "_data";
@@ -416,13 +416,13 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 						cursor.close();
 					}
 					
-					//SQLƒpƒ‰ƒ[ƒ^‚ğİ’è‚·‚é
+					//SQLãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®šã™ã‚‹
 					contentvalues.put("audio_data", data);
 					contentvalues.put("audio_data_hashcode", data_hash);
 					break;
 				}
 
-				//’Ç‰Á
+				//è¿½åŠ 
 				result_uri = _contentResolver.insert(uri, contentvalues);
 				if(result_uri == null){
 					//NG
@@ -443,7 +443,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 
 	
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚ğíœ‚·‚é
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã‚’å‰Šé™¤ã™ã‚‹
 	 * @param ids
 	 * @return
 	 */
@@ -462,7 +462,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 	
 
 	/**
-	 * “o˜^‚³‚ê‚Ä‚¢‚éƒAƒCƒeƒ€‚ğíœ‚·‚é
+	 * ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã‚’å‰Šé™¤ã™ã‚‹
 	 * @param uri
 	 * @param ids
 	 * @return
@@ -492,7 +492,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 	}
 	
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚Ì’†g‚ğƒNƒŠƒA‚·‚é
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã®ä¸­èº«ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
 	 * @param playlist_id
 	 */
 	public boolean clearItemsInPlaylist(int playlist_id){
@@ -511,7 +511,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 
 	
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚ª“o˜^‚³‚ê‚Ä‚¢‚é‚©Šm”F
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆãŒç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã‹ç¢ºèª
 	 * @param name
 	 * @return
 	 */
@@ -539,7 +539,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
     }
     
     /**
-     * ƒvƒŒƒCƒŠƒXƒg‚ÉŠY“–‚Ì‹È‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚©
+     * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã«è©²å½“ã®æ›²ãŒå«ã¾ã‚Œã¦ã„ã‚‹ã‹
      * @param id
      * @return
      */
@@ -559,7 +559,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 				where = "audio_id=" + audio_id;
 				break;
 			case GalaxyS:
-				//’Êí‚ÌƒŠƒXƒg‚©‚çƒnƒbƒVƒ…‚ğæ“¾‚µ‚ÄÄŒŸõ‚¶‚á‚È‚¢‚Æƒ_ƒ‚©‚ÈEEEH
+				//é€šå¸¸ã®ãƒªã‚¹ãƒˆã‹ã‚‰ãƒãƒƒã‚·ãƒ¥ã‚’å–å¾—ã—ã¦å†æ¤œç´¢ã˜ã‚ƒãªã„ã¨ãƒ€ãƒ¡ã‹ãªãƒ»ãƒ»ãƒ»ï¼Ÿ
 				as[0] = "music_audio_playlists_map._id";
 				where = "music_audio_playlists_map._id=" + audio_id;
 				break;
@@ -584,7 +584,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
     }
 
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚ÌID‚ğæ“¾‚·‚é
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã®IDã‚’å–å¾—ã™ã‚‹
 	 * @param name
 	 * @return
 	 */
@@ -603,7 +603,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 			}else{
 				if(cursor.getCount() == 0){
 				}else{
-					//–Ú“I‚ÌƒvƒŒƒCƒŠƒXƒgID‚ğŠÜ‚ŞƒJ[ƒ\ƒ‹‚ğ’T‚·
+					//ç›®çš„ã®ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆIDã‚’å«ã‚€ã‚«ãƒ¼ã‚½ãƒ«ã‚’æ¢ã™
 					cursor.moveToFirst();
 					while(!cursor.isAfterLast()){
 						
@@ -626,8 +626,8 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 	}
 
 	/**
-	 * audio_id‚ğæ“¾‚·‚é
-	 * @param path ƒtƒ‹ƒpƒX
+	 * audio_idã‚’å–å¾—ã™ã‚‹
+	 * @param path ãƒ•ãƒ«ãƒ‘ã‚¹
 	 * @return
 	 */
 	public int getAudioId(String path){
@@ -657,7 +657,7 @@ public class MediaStoreAccessAudio extends MediaStoreAccess {
 	}
 
 	/**
-	 * ƒvƒŒƒCƒŠƒXƒg‚ÌÅ‘å‚Ìplay_order‚ğæ“¾‚·‚é
+	 * ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã®æœ€å¤§ã®play_orderã‚’å–å¾—ã™ã‚‹
 	 * @param i
 	 * @return
 	 */

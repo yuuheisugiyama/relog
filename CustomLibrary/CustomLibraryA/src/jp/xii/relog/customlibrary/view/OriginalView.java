@@ -28,7 +28,7 @@ public class OriginalView extends View {
 	}
 
 	/**
-	 * 色情報を変換する
+	 * 濶ｲ諠�蝣ｱ繧貞､画鋤縺吶ｋ
 	 * @return
 	 */
 	protected int ColorToInt(String temp){
@@ -45,7 +45,7 @@ public class OriginalView extends View {
 	}
 	
 	/**
-	 * dip値を座標値に変換する
+	 * dip蛟､繧貞ｺｧ讓吝､縺ｫ螟画鋤縺吶ｋ
 	 * @param temp
 	 * @return
 	 */
@@ -73,7 +73,7 @@ public class OriginalView extends View {
 	}
 	
 	/**
-	 * dip値を座標値に変換する
+	 * dip蛟､繧貞ｺｧ讓吝､縺ｫ螟画鋤縺吶ｋ
 	 * @param temp
 	 * @return
 	 */

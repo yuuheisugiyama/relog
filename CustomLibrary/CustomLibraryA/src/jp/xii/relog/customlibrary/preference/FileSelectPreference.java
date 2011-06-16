@@ -26,27 +26,27 @@ import android.view.View;
 
 
 /**
- * ƒtƒ@ƒCƒ‹ƒŠƒXƒgƒvƒŠƒtƒ@ƒŒƒ“ƒX
+ * ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹
  * @author Iori
  *
- * Šg’£ƒpƒ‰ƒ[ƒ^
- * rootPath : •\¦ŠJn‚·‚éƒpƒXiƒtƒ‹ƒpƒXj
+ * æ‹¡å¼µãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ * rootPath : è¡¨ç¤ºé–‹å§‹ã™ã‚‹ãƒ‘ã‚¹ï¼ˆãƒ•ãƒ«ãƒ‘ã‚¹ï¼‰
  */
 public class FileSelectPreference extends DialogPreference
 	implements FileListDialog.onFileListDialogListener{
 
-	private String _rootPath = "/";			//ƒ‹[ƒgƒpƒX
-	private String _defaultPath = "";		//ƒtƒ@ƒCƒ‹ƒŠƒXƒg‚Å‘I‘ğ‚µ‚½ƒpƒX
+	private String _rootPath = "/";			//ãƒ«ãƒ¼ãƒˆãƒ‘ã‚¹
+	private String _defaultPath = "";		//ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã§é¸æŠã—ãŸãƒ‘ã‚¹
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 * @param context
 	 * @param attrs
 	 */
 	public FileSelectPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
-		//ƒfƒtƒHƒ‹ƒgƒoƒŠƒ…[æ“¾
+		//ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒãƒªãƒ¥ãƒ¼å–å¾—
 		String default_value = attrs.getAttributeValue(null, "defaultValue");
 		if(default_value == null){
 			_defaultPath = "/";
@@ -56,52 +56,52 @@ public class FileSelectPreference extends DialogPreference
 	}
 
 	/**
-	 * •\¦‚µ‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚é
+	 * è¡¨ç¤ºã—ãŸã¨ãã«å‘¼ã°ã‚Œã‚‹
 	 */
 	@Override
 	protected void onBindView(View view) {
-		//İ’è‚ğ“Ç‚İ‚İ
+		//è¨­å®šã‚’èª­ã¿è¾¼ã¿
 		SharedPreferences pref = getSharedPreferences();
 		if(pref == null){
 		}else{
 			_defaultPath = pref.getString(getKey(),  _defaultPath);
 		}
 
-		//ƒTƒ}ƒŠ[‚ÉŒ»İ’l‚ğİ’è
+		//ã‚µãƒãƒªãƒ¼ã«ç¾åœ¨å€¤ã‚’è¨­å®š
 		setSummary(_defaultPath);
 
-		//‚±‚ê‚Í‚È‚º‚©ÅŒã‚¶‚á‚È‚¢‚ÆƒCƒP‚È‚¢‚ç‚µ‚¢
+		//ã“ã‚Œã¯ãªãœã‹æœ€å¾Œã˜ã‚ƒãªã„ã¨ã‚¤ã‚±ãªã„ã‚‰ã—ã„
 		super.onBindView(view);
 	}
 
 	/**
-	 * ƒvƒŠƒtƒ@ƒŒƒ“ƒX‚ÌƒNƒŠƒbƒNƒCƒxƒ“ƒg
+	 * ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ã‚¯ãƒªãƒƒã‚¯ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	protected void onClick(){
-		//‚Ç‚±‚©‚ÌonClick‚Å‚Å‚à‚±‚ñ‚ÈŒÄ‚Ño‚µ‚ğ‚·‚é
+		//ã©ã“ã‹ã®onClickã§ã§ã‚‚ã“ã‚“ãªå‘¼ã³å‡ºã—ã‚’ã™ã‚‹
 		FileListDialog dlg = new FileListDialog(getContext());
-		//ƒŠƒXƒi[‚Ì“o˜^
+		//ãƒªã‚¹ãƒŠãƒ¼ã®ç™»éŒ²
 		dlg.setOnFileListDialogListener(this);
-		//ƒfƒBƒŒƒNƒgƒŠ‚ğ‘I‘ğ‚·‚é‚©
+		//ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’é¸æŠã™ã‚‹ã‹
 		//dlg.setDirectorySelect(true);
-		//•\¦i‚Æ‚è‚ ‚¦‚¸ƒ‹[ƒg‚©‚çj
+		//è¡¨ç¤ºï¼ˆã¨ã‚Šã‚ãˆãšãƒ«ãƒ¼ãƒˆã‹ã‚‰ï¼‰
 		dlg.show( _rootPath, _rootPath);
 		
 	}
 
 
 	/**
-	 * ƒtƒ@ƒCƒ‹‚Ì‘I‘ğŒ‹‰Ê‚ÌƒCƒxƒ“ƒg
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ã®é¸æŠçµæœã®ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	public void onClickFileList(File file) {
 		
 		if(file == null){
-			//Toast.makeText(getContext(), "ƒtƒ@ƒCƒ‹‚Ìæ“¾‚ª‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(getContext(), "ãƒ•ã‚¡ã‚¤ãƒ«ã®å–å¾—ãŒã§ãã¾ã›ã‚“ã§ã—ãŸ", Toast.LENGTH_SHORT).show();
 		}else{
-			//Šm”Fƒ_ƒCƒAƒƒO•\¦
-			setDialogTitle("Šm”F");
+			//ç¢ºèªãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤º
+			setDialogTitle("ç¢ºèª");
 			setDialogMessage(file.getAbsolutePath());
 			showDialog(null);
 		}
@@ -109,7 +109,7 @@ public class FileSelectPreference extends DialogPreference
 	
 
 	/**
-	 * Šm”Fƒ_ƒCƒAƒƒO‚ª•Â‚¶‚½‚ÌƒCƒxƒ“ƒg
+	 * ç¢ºèªãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒé–‰ã˜ãŸæ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	@Override
 	protected void onDialogClosed(boolean positiveResult) {
@@ -117,12 +117,12 @@ public class FileSelectPreference extends DialogPreference
 		
 		if(!positiveResult){
 		}else{
-			//İ’è‚ğ•Û‘¶
+			//è¨­å®šã‚’ä¿å­˜
 			SharedPreferences.Editor editor = getEditor();
 			editor.putString(getKey(), (String) getDialogMessage());
 			editor.commit();
 
-			//ƒTƒ}ƒŠ[‚ğXV
+			//ã‚µãƒãƒªãƒ¼ã‚’æ›´æ–°
 			notifyChanged();
 		}
 	}

@@ -26,21 +26,21 @@ import android.content.DialogInterface.OnClickListener;
 
 
 /**
- * ƒtƒ@ƒCƒ‹ƒŠƒXƒgƒ_ƒCƒAƒƒOƒNƒ‰ƒX
+ * ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚¯ãƒ©ã‚¹
  * @author Iori
  *
  */
 public class FileListDialog implements onFileListListener 
 	{
 
-	private Context _parent = null;							//e
-	private File _currentFile = null;						//Œ»İ‚Ì‘I‘ğ
-	private onFileListDialogListener _listener = null;		//ƒŠƒXƒi[
-	private boolean _isDirectorySelect = false;			//ƒfƒBƒŒƒNƒgƒŠ‘I‘ğ‚ğ‚·‚é‚©H
+	private Context _parent = null;							//è¦ª
+	private File _currentFile = null;						//ç¾åœ¨ã®é¸æŠ
+	private onFileListDialogListener _listener = null;		//ãƒªã‚¹ãƒŠãƒ¼
+	private boolean _isDirectorySelect = false;			//ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠã‚’ã™ã‚‹ã‹ï¼Ÿ
 	private CustomAlertDialog _dialog = null;
 
 	/**
-	 * ƒfƒBƒŒƒNƒgƒŠ‘I‘ğ‚ğ‚·‚é‚©H
+	 * ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠã‚’ã™ã‚‹ã‹ï¼Ÿ
 	 * @param is
 	 */
 	public void setDirectorySelect(boolean is){
@@ -51,7 +51,7 @@ public class FileListDialog implements onFileListListener
 	}
 	
 	/**
-	 * ‘I‘ğ‚³‚ê‚½ƒtƒ@ƒCƒ‹–¼æ“¾
+	 * é¸æŠã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
 	 * @return
 	 */
 	public String getSelectedFileName(){
@@ -63,18 +63,18 @@ public class FileListDialog implements onFileListListener
 	}
 	
 	/**
-	 * ƒtƒ@ƒCƒ‹‘I‘ğƒ_ƒCƒAƒƒO
-	 * @param context e
+	 * ãƒ•ã‚¡ã‚¤ãƒ«é¸æŠãƒ€ã‚¤ã‚¢ãƒ­ã‚°
+	 * @param context è¦ª
 	 */
 	public FileListDialog(Context context){
 		_parent = context;
 	}
 	
 	/**
-	 * ƒ_ƒCƒAƒƒO•\¦
-	 * @param context e
-	 * @param path •\¦‚µ‚½‚¢ƒfƒBƒŒƒNƒgƒŠ
-	 * @param title ƒ_ƒCƒAƒƒO‚Ìƒ^ƒCƒgƒ‹
+	 * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤º
+	 * @param context è¦ª
+	 * @param path è¡¨ç¤ºã—ãŸã„ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+	 * @param title ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¿ã‚¤ãƒˆãƒ«
 	 */
 	public void show(String path, String title){
 		
@@ -100,7 +100,7 @@ public class FileListDialog implements onFileListListener
 	}
 	
 	/**
-	 * ƒŠƒXƒi[‚ÌƒZƒbƒg
+	 * ãƒªã‚¹ãƒŠãƒ¼ã®ã‚»ãƒƒãƒˆ
 	 * @param listener
 	 */
 	public void setOnFileListDialogListener(onFileListDialogListener listener){
@@ -109,7 +109,7 @@ public class FileListDialog implements onFileListListener
 	
 
 	/**
-	 * ƒ_ƒCƒAƒƒO‚Åƒtƒ@ƒCƒ‹‚ª‘I‘ğ‚³‚ê‚½
+	 * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§ãƒ•ã‚¡ã‚¤ãƒ«ãŒé¸æŠã•ã‚ŒãŸ
 	 */
 	@Override
 	public void onSelectFile(File file) {
@@ -123,7 +123,7 @@ public class FileListDialog implements onFileListListener
 		}
 	}
 	/**
-	 * ƒ_ƒCƒAƒƒO‚ÅƒfƒBƒŒƒNƒgƒŠ‚ª‘I‘ğ‚³‚ê‚½
+	 * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒé¸æŠã•ã‚ŒãŸ
 	 */
 	@Override
 	public void onSelectDirectory(File file) {
@@ -137,7 +137,7 @@ public class FileListDialog implements onFileListListener
 		}
 	}
 	/**
-	 * ƒfƒBƒŒƒNƒgƒŠ‚ª•ÏX‚³‚ê‚½
+	 * ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå¤‰æ›´ã•ã‚ŒãŸ
 	 */
 	@Override
 	public void onChangeDirectory(File file) {
@@ -147,7 +147,7 @@ public class FileListDialog implements onFileListListener
 	
 	
 	/**
-	 * ƒNƒŠƒbƒNƒCƒxƒ“ƒg‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXƒNƒ‰ƒX
+	 * ã‚¯ãƒªãƒƒã‚¯ã‚¤ãƒ™ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹
 	 * @author Iori
 	 *
 	 */
@@ -156,7 +156,7 @@ public class FileListDialog implements onFileListListener
 	}
 	
 	/**
-	 * ƒJƒXƒ^ƒ€ƒ_ƒCƒAƒƒO
+	 * ã‚«ã‚¹ã‚¿ãƒ ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 	 * @author Iori
 	 *
 	 */
