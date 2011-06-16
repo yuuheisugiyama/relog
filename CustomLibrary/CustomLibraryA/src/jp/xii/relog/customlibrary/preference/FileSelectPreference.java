@@ -17,7 +17,7 @@ package jp.xii.relog.customlibrary.preference;
 
 import java.io.File;
 
-import jp.xii.relog.customlibrary.FileListDialog;
+import jp.xii.relog.customlibrary.app.FileListDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.DialogPreference;

@@ -69,7 +69,7 @@ public class FileListView extends ViewGroup
 	 */
 	public File getCurrentDirectory() {
 		if(_currentDir == null){
-			_currentDir = new File("/");
+			_currentDir = new File(Utility.getSdcardPath());
 		}
 		return _currentDir;
 	}
@@ -131,26 +131,48 @@ public class FileListView extends ViewGroup
 	/**
 	 * コンストラクタ
 	 * @param context
+	 * @param is_select_dir
+	 */
+	public FileListView(Context context, File default_dir, boolean is_select_dir){
+		super(context);
+		setCurrentDirectory(default_dir);
+		setIsSelectDir(is_select_dir);
+		init(null);
+	}
+	
+	/**
+	 * コンストラクタ
+	 * @param context
 	 * @param attrs
 	 */
 	public FileListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		
+	
+		init(attrs);
+	}
+	
+	/**
+	 * 初期化
+	 * @param attrs
+	 */
+	private void init(AttributeSet attrs){
 		String temp = null;
 
-		//ディレクトリ選択
-		setIsSelectDir(attrs.getAttributeBooleanValue(null, STR_ATTR_SELECT_DIR, false));
-		//初期ディレクトリ
-		temp = attrs.getAttributeValue(null, STR_ATTR_DEFAULT_DIR);
-		if(temp != null){
-			setCurrentDirectory(new File(temp));
+		if(attrs == null){
 		}else{
-			//未指定の場合はmicroSD
-			setCurrentDirectory(new File(Utility.getSdcardPath()));
+			//ディレクトリ選択
+			setIsSelectDir(attrs.getAttributeBooleanValue(null, STR_ATTR_SELECT_DIR, false));
+			//初期ディレクトリ
+			temp = attrs.getAttributeValue(null, STR_ATTR_DEFAULT_DIR);
+			if(temp != null){
+				setCurrentDirectory(new File(temp));
+			}else{
+				//未指定の場合はmicroSD
+				setCurrentDirectory(new File(Utility.getSdcardPath()));
+			}
+			//戻るキーを受けるか
+			setIsDispatchBackKey(attrs.getAttributeBooleanValue(null, STR_ATTR_DISPATCH_BACK_KEY, true));
 		}
-		//戻るキーを受けるか
-		setIsDispatchBackKey(attrs.getAttributeBooleanValue(null, STR_ATTR_DISPATCH_BACK_KEY, true));
-		
 
 	    //inflaterを使ってxmlのレイアウトをViewに反映する
 	    LayoutInflater inflater = (LayoutInflater)getContext()
