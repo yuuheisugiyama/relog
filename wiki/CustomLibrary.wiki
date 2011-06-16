@@ -12,10 +12,12 @@ CustomLibraryプロジェクトの説明
 　　一度同意すると次回以降表示しないようにしてくれます。<br>
 　　サンプルのEULA付き。<br>
 　　string_eula.xmlの内容を修正すること<br>
-- FileListDialog.java<br>
-　　ファイル選択ダイアログ<br>
 - NotifyControl.java<br>
 　　通知領域へ情報を出力します<br>
+
+== jp.xii.relog.customlibrary.app==
+- FileListDialog.java<br>
+　　ファイル選択ダイアログ<br>
 
 == jp.xii.relog.customlibrary.mediastore ==
 - MediaScannerNotifier.java<br>
@@ -43,12 +45,14 @@ CustomLibraryプロジェクトの説明
 == jp.xii.relog.customlibrary.widget == 
 - BreadCrumbList.java<br>
 　　パンくずリスト<br>
+- FileListView.java<br>
+　　ファイル選択用ビュー<br>
 - HorizontalAutoScrollTextView.java<br>
 　　横に自動スクロールするテキストビュー<br>
 - HorizontalAutoScrollView.java<br>
 　　横に自動スクロールするビュー<br>
 - ProgressBar.java<br>
-　　残骸？
+　　残骸？<br>
 - ProgressCircle.java<br>
 　　円形のプログレスバー<br>
 - RangeSelectBar.java<br>
