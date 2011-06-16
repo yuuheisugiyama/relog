@@ -13,6 +13,7 @@ CustomLibraryプロジェクトの説明
 　　サンプルのEULA付き。<br>
 　　string_eula.xmlの内容を修正すること<br>
 - FileListDialog.java<br>
+　　ファイル選択ダイアログ<br>
 - NotifyControl.java<br>
 　　通知領域へ情報を出力します<br>
 
@@ -23,9 +24,15 @@ CustomLibraryプロジェクトの説明
 
 == jp.xii.relog.customlibrary.preference ==
 - FileSelectPreference.java<br>
+　　ファイルを選択できる<br>
 - IpAddressPreference.java<br>
+　　IPアドレスを設定できる<br>
 - OriginalDialogPreference.java<br>
+　　オリジナルのプリファレンス作成時の基底クラス<br>
+- RangeSelectPreference.java<br>
+　　範囲を設定できる<br>
 - TimePickerPreference.java<br>
+　　時間を設定できる<br>
 
 == jp.xii.relog.customlibrary.view ==
 - OriginalPreferenceActivity.java<br>
@@ -41,6 +48,7 @@ CustomLibraryプロジェクトの説明
 - HorizontalAutoScrollView.java<br>
 　　横に自動スクロールするビュー<br>
 - ProgressBar.java<br>
+　　残骸？
 - ProgressCircle.java<br>
 　　円形のプログレスバー<br>
 - RangeSelectBar.java<br>
