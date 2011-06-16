@@ -26,7 +26,7 @@ public class FileListView extends ViewGroup
 	//属性名
 	public final static String STR_ATTR_SELECT_DIR = "select_dir";		//ディレクトリ選択
 	public final static String STR_ATTR_DEFAULT_DIR = "default_dir";	//初期ディレクトリ
-
+	public final static String STR_ATTR_DISPATCH_BACK_KEY = "dispatch_back";	//戻るキーを受けるか
 	
 	private View _mainView = null;
 	
@@ -34,6 +34,7 @@ public class FileListView extends ViewGroup
 	private File _currentDir = null;				//カレントディレクトリ
 	private ArrayList<File> _currentDirFileList = null;		//現在のディレクトリのファイルの一覧
 	private Stack<File> _historyFileList = null;	//たどったパスのスタック
+	private boolean _isDispatchBackKey = true;		//戻るキーを受けるか
 	
 	private onFileListListener _listener = null;	//リスナ
 
@@ -97,6 +98,21 @@ public class FileListView extends ViewGroup
 
 	
 	/**
+	 * 戻るキーを受けるか
+	 * @param _isDispatchBackKey the _isDispatchBackKey to set
+	 */
+	public void setIsDispatchBackKey(boolean _isDispatchBackKey) {
+		this._isDispatchBackKey = _isDispatchBackKey;
+	}
+	/**
+	 * 戻るキーを受けるか
+	 * @return the _isDispatchBackKey
+	 */
+	public boolean isDispatchBackKey() {
+		return _isDispatchBackKey;
+	}
+	
+	/**
 	 * リスナ
 	 * @param _listener the _listener to set
 	 */
@@ -123,12 +139,7 @@ public class FileListView extends ViewGroup
 		String temp = null;
 
 		//ディレクトリ選択
-		temp = attrs.getAttributeValue(null, STR_ATTR_SELECT_DIR);
-		if(temp != null){
-			if(temp.compareTo("true") == 0){
-				setIsSelectDir(true);
-			}
-		}
+		setIsSelectDir(attrs.getAttributeBooleanValue(null, STR_ATTR_SELECT_DIR, false));
 		//初期ディレクトリ
 		temp = attrs.getAttributeValue(null, STR_ATTR_DEFAULT_DIR);
 		if(temp != null){
@@ -137,8 +148,9 @@ public class FileListView extends ViewGroup
 			//未指定の場合はmicroSD
 			setCurrentDirectory(new File(Utility.getSdcardPath()));
 		}
-
-		Utility.setDebug(true);
+		//戻るキーを受けるか
+		setIsDispatchBackKey(attrs.getAttributeBooleanValue(null, STR_ATTR_DISPATCH_BACK_KEY, true));
+		
 
 	    //inflaterを使ってxmlのレイアウトをViewに反映する
 	    LayoutInflater inflater = (LayoutInflater)getContext()
@@ -207,7 +219,9 @@ public class FileListView extends ViewGroup
 	public boolean dispatchKeyEvent(KeyEvent event) {
 		boolean ret = false;
 		if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){
-			if(event.getAction() == KeyEvent.ACTION_DOWN){
+			if(!isDispatchBackKey()){
+				//キーは無視
+			}else if(event.getAction() == KeyEvent.ACTION_DOWN){
 				//戻るボタンが押された
 				try{
 					File dir = getHistoryFileList().pop();
