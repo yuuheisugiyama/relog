@@ -14,10 +14,8 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="jp.xii.relog.customlibrary"
-      android:versionCode="1"
-      android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="4" />
+<resources>
+	<string name="utility_attention">案内</string>
+	<string name="utility_please_download">この機能は有料版でのみ使用できます。\nダウンロードしますか？</string>
 
-</manifest> 
+</resources>
