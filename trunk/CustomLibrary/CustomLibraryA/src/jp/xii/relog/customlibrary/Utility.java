@@ -26,7 +26,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
+import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Environment;
@@ -159,6 +161,33 @@ public class Utility {
 		ad.setNegativeButton("Cancel", null);
 		ad.create();
 		ad.show();
+	}
+
+	
+	/**
+	 * フリー版のアプリだよって案内とOKしたら有料版のマーケットへジャンプ
+	 * @param activity
+	 */
+	public static void showFreeAppCautionDialog(final Activity activity, final String package_name){
+		showDialog(activity
+				, activity.getString(R.string.utility_attention)
+				, activity.getString(R.string.utility_please_download)
+				, new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						activity.setResult(Activity.RESULT_OK);
+						//OKなのでマーケットへ移動
+				    	Intent intent = new Intent(
+								Intent.ACTION_VIEW,
+								Uri.parse("market://details?id=" + package_name));
+				    	activity.startActivity(intent);
+					}
+				}
+				, new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				});
 	}
 
 	/**

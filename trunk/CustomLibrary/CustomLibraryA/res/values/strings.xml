@@ -15,6 +15,7 @@
   limitations under the License.
   -->
 <resources>
-    <string name="hello">Hello World!</string>
-    <string name="app_name">CustomLibrary</string>
+	<string name="utility_attention">Attention</string>
+	<string name="utility_please_download">You can use this function only in a pay version.\nDo you download it?</string>
+
 </resources>
