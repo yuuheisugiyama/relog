@@ -110,26 +110,26 @@ public class Utility {
 
 	/**
 	 * ダイアログの表示
-	 * @param activity
+	 * @param context
 	 * @param title
 	 * @param text
 	 */
-	public static void showDialog(final Activity activity, String title, String text, OnClickListener listener){
-		showDialog(activity, title, text, listener, null);
+	public static void showDialog(final Context context, String title, String text, OnClickListener listener){
+		showDialog(context, title, text, listener, null);
 	}
 
 	/**
 	 * ダイアログの表示
-	 * @param activity
+	 * @param context
 	 * @param title タイトル
 	 * @param text 本文
 	 * @param listener_ok OKボタンのリスナ
 	 * @param listener_cancel キャンセルのリスナ nullの時はキャンセルボタン無し
 	 */
-	public static void showDialog(final Activity activity, String title, String text
+	public static void showDialog(final Context context, String title, String text
 								, OnClickListener listener_ok
 								, OnClickListener listener_cancel){
-		AlertDialog.Builder ad = new AlertDialog.Builder(activity);
+		AlertDialog.Builder ad = new AlertDialog.Builder(context);
 		ad.setIcon(R.drawable.ic_menu_more);
 		ad.setTitle(title);
 		ad.setMessage(text);
@@ -145,12 +145,12 @@ public class Utility {
 	
 	/**
 	 * ダイアログの表示
-	 * @param activity
+	 * @param context
 	 * @param title
 	 * @param text
 	 */
-	public static void showCustumDialog(final Activity activity, String title, String text ,View custumItem, OnClickListener listener){
-		AlertDialog.Builder ad = new AlertDialog.Builder(activity);
+	public static void showCustumDialog(final Context context, String title, String text ,View custumItem, OnClickListener listener){
+		AlertDialog.Builder ad = new AlertDialog.Builder(context);
 		ad.setIcon(R.drawable.ic_menu_more);
 		ad.setTitle(title);
 		if(text != null){
