@@ -66,18 +66,6 @@ Row{
             }
         }
     }
-
-//    TextBox{
-//        id: _number
-//        width: 50
-//        text: value
-//        onTextChanged: {
-//            if(text.length === 0){
-//            }else{
-//                value = parseInt(text);
-//            }
-//        }
-//    }
     Button{
         width: buttonWidth
         height: _root.height
