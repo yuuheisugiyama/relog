@@ -33,13 +33,8 @@ Rectangle {
 //            }
 //        }
 
-        // ボタン
-        Button {
-            width: 200
-            height: 50
-            text: "デザインてすと"
-        }
 
+/*
         // グループボックス
         GroupBox{
             text: "Radio box test"
@@ -82,13 +77,19 @@ Rectangle {
                 }
             }
         }
-
+*/
+        Text{
+            text:"加速ボタンあり"
+        }
         NumberBox{
             min: -10
             max: 1010
             step: 100
             stepAccelerate: 200
             accelerate: true
+        }
+        Text{
+            text:"加速ボタンなし"
         }
         NumberBox{
             min: -10
