@@ -2,7 +2,7 @@ import QtQuick 1.0
 
 Rectangle{
     id: _root
-    width: parent.width
+//    width: parent.width
     height: (_textEdit.lineCount === undefined) ? (_textEdit.font.pixelSize + 10) : (_textEdit.font.pixelSize * _textEdit.lineCount + 10)
     color: "#dddddd"
 
