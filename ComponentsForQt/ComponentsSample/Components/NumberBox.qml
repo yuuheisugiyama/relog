@@ -2,7 +2,7 @@ import QtQuick 1.0
 
 Row{
     id: _root
-    height: 30
+    height: 20
     spacing: 3
 
     property int value: 50              // 値
@@ -13,6 +13,7 @@ Row{
     property bool accelerate: false     // 加速ボタンあり？
 
     property int buttonWidth: 50        // ボタンの横幅
+    property int textWidth: 50          // テキストの横幅
 
 
     // 値を更新する
@@ -44,20 +45,28 @@ Row{
             updateValue(-1 * step);
         }
     }
-    Text {
-        id: _number
-        width: 50
+    Rectangle{
+        width: textWidth
         height: _root.height
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        text: value
-        onTextChanged: {
-            if(text.length === 0){
-            }else{
-                value = parseInt(text);
+        border.color: "#dddddd"
+        border.width: 2
+
+        Text {
+            id: _number
+            anchors.centerIn: parent
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            text: value
+            font.pixelSize: parent.height * 0.8
+            onTextChanged: {
+                if(text.length === 0){
+                }else{
+                    value = parseInt(text);
+                }
             }
         }
     }
+
 //    TextBox{
 //        id: _number
 //        width: 50

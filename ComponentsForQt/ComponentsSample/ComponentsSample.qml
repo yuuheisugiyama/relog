@@ -81,7 +81,21 @@ Rectangle {
                                   + ", key=" + currentKey);
                 }
             }
+        }
 
+        NumberBox{
+            min: -10
+            max: 1010
+            step: 100
+            stepAccelerate: 200
+            accelerate: true
+        }
+        NumberBox{
+            min: -10
+            max: 1010
+            step: 100
+            stepAccelerate: 200
+            accelerate: false
         }
     }
 
