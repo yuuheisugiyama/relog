@@ -117,7 +117,7 @@ Rectangle {
 
         ColorPicker{
             id: _colorPicker
-            useAlpha: false
+            useAlpha: true
         }
     }
 

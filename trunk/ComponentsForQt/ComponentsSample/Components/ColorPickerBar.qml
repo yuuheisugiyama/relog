@@ -37,11 +37,9 @@ Rectangle{
     }
     // ポインタ
     Rectangle{
-        anchors.left: parent.left
-        anchors.leftMargin: parent.border.width
-        anchors.right: parent.right
-        anchors.rightMargin: parent.border.width
+        x: parent.border.width
         y: parent.height * value
+        width: parent.width - parent.border.width * 2
         height: 2
         color: "#bbbbbb"
         Rectangle{
