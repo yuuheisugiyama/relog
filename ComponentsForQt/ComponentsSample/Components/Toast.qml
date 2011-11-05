@@ -1,5 +1,4 @@
 import QtQuick 1.0
-import "../Util/Util.js" as Util
 
 Rectangle {
     id: _root

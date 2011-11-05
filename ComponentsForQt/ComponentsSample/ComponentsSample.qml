@@ -78,6 +78,8 @@ Rectangle {
             }
         }
 */
+
+/*
         Text{
             text:"加速ボタンあり"
         }
@@ -97,6 +99,25 @@ Rectangle {
             step: 100
             stepAccelerate: 200
             accelerate: false
+        }
+*/
+
+        Row{
+            Text{
+                anchors.verticalCenter: parent.verticalCenter
+                text: "色見本"
+            }
+            Rectangle{
+                width: 50
+                height: 50
+                color: _colorPicker.value
+            }
+        }
+
+
+        ColorPicker{
+            id: _colorPicker
+            useAlpha: false
         }
     }
 
