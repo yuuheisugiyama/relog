@@ -1,0 +1,32 @@
+= Introduction =
+
+Qt Quick(QML)で作ったエレメント集です。
+
+
+= Details =
+
+== Components/* ==
+
+Button.qml
+ - いわゆるボタン
+
+CheckBox.qml
+ - On/Offトグルのボックス
+
+GroupBox.qml
+ - グループ枠
+
+ImageButton.qml
+ - 画像貼り付けできるボタン
+
+ImageWithSpinner.qml
+ - URLとか指定して表示されるまでの間、ぐるぐるするバージョン。
+
+RadioBox.qml
+ - たくさんから１つ選ぶもの
+
+TextBox.qml
+ - テキスト入力ボックス
+
+Toast.qml
+ - Androidにあるトーストっぽいの
