@@ -82,6 +82,19 @@ WorkerScript {
         }
     }
 
+    // 削除する
+    function remove(index){
+        if(!isOk(true)){
+            // nop
+        }else{
+            model.remove(index);
+//            sendMessage({"model": model
+//                            , "type": "remove"
+//                            , "index": index
+//                               });
+        }
+    }
+
     // 内容を変更する
     function set(index, object){
         if(!isOk(object)){
