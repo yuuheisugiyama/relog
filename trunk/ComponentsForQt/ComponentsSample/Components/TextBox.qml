@@ -2,7 +2,7 @@ import QtQuick 1.0
 
 Rectangle{
     id: _root
-//    width: parent.width
+    width: parent.width
     height: (_textEdit.lineCount === undefined) ? (_textEdit.font.pixelSize + 10) : (_textEdit.font.pixelSize * _textEdit.lineCount + 10)
     color: "#dddddd"
 
@@ -19,6 +19,7 @@ Rectangle{
     signal enterPressed(variant event)
     signal escapePressed(variant event)
 
+    property real density: 1.0
 
     // カーソルを最初に持っていく
     function moveCursorStart(){
@@ -48,8 +49,16 @@ Rectangle{
         color: "#000000"
         wrapMode: TextEdit.WordWrap
         textFormat: TextEdit.PlainText
-        font.pixelSize: 12
+        font.pixelSize: 12 * density
         focus: true
+
+        onFocusChanged: {
+            if(focus){
+                //openSoftwareInputPanel();
+            }else{
+                closeSoftwareInputPanel();
+            }
+        }
 
         Keys.onPressed: {
             pressed(event);

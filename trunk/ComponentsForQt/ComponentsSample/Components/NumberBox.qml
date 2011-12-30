@@ -2,7 +2,7 @@ import QtQuick 1.0
 
 Row{
     id: _root
-    height: 20
+    height: _button.height
     spacing: 3
 
     property int value: 50              // 値
@@ -15,6 +15,7 @@ Row{
     property int buttonWidth: 50        // ボタンの横幅
     property int textWidth: 50          // テキストの横幅
 
+    property real density: 1.0
 
     // 値を更新する
     function updateValue(step){
@@ -29,24 +30,24 @@ Row{
     }
 
     Button{
-        width: buttonWidth
-        height: _root.height
+        width: _button.width
         text:"<<"
+        font.pointSize: 12 * _root.density
         visible: accelerate
         onClicked: {
             updateValue(-1 * stepAccelerate);
         }
     }
     Button{
-        width: buttonWidth
-        height: _root.height
-        text:"<"
+        id: _button
+        text:"  <  "
+        font.pointSize: 12 * _root.density
         onClicked: {
             updateValue(-1 * step);
         }
     }
     Rectangle{
-        width: textWidth
+        width: (_number.paintedWidth < textWidth) ? textWidth : _number.paintedWidth
         height: _root.height
         border.color: "#dddddd"
         border.width: 2
@@ -57,7 +58,7 @@ Row{
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             text: value
-            font.pixelSize: parent.height * 0.8
+            font.pixelSize: parent.height * 0.8// * _root.density
             onTextChanged: {
                 if(text.length === 0){
                 }else{
@@ -67,17 +68,16 @@ Row{
         }
     }
     Button{
-        width: buttonWidth
-        height: _root.height
-        text:">"
+        text:"  >  "
+        font.pointSize: 12 * _root.density
         onClicked: {
             updateValue(step);
         }
     }
     Button{
-        width: buttonWidth
-        height: _root.height
+        width: _button.width
         text:">>"
+        font.pointSize: 12 * _root.density
         visible: accelerate
         onClicked: {
             updateValue(stepAccelerate);

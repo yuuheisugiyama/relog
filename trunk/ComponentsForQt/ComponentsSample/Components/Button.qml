@@ -2,11 +2,13 @@ import QtQuick 1.0
 
 MouseArea {
     id: _root
-    width: 100//_label.width * 1.2
-    height: _label.font.pixelSize * 1.2
+    width: _label.paintedWidth * 1.2
+    height: _label.paintedHeight * 1.5
 
     property alias text: _label.text
     property alias font: _label.font
+
+    property real density: 1.0
 
     signal pressKey(int key)
 
@@ -41,10 +43,11 @@ MouseArea {
 
     Text {
         id: _label
-        anchors.fill: parent
+        anchors.centerIn: parent
         text: "ボタン"
         color: "white"
         font.bold: true
+        font.pointSize: 12 * density
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
