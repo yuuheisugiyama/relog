@@ -2,10 +2,11 @@ import QtQuick 1.0
 
 Rectangle {
     id: _root
-    width: _text.width + _text.font.pixelSize
-    height: _text.height + _text.font.pixelSize / 2
+    width: _text.paintedWidth * 1.2// _text.width + _text.font.pixelSize
+    height: _text.paintedHeight * 1.5//_text.height + _text.font.pixelSize / 2
     color: "#222222"
     border.color: "#ffffff"
+    border.width: 1
     opacity: 0
 
     property alias text: _text.text
@@ -42,7 +43,7 @@ Rectangle {
     //表示するテキスト
     Text {
         id: _text
-        width: _root.parent.width * 0.6 - _text.font.pixelSize
+//        width: _root.parent.width * 0.6 - _text.font.pixelSize
         anchors.centerIn: parent
         color: "#ffffff"
         text: ""

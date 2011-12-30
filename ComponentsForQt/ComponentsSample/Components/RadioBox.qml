@@ -12,6 +12,11 @@ Item {
 
     property alias model: _itemsRepeater.model
 
+    property color fontColor: "#000000"
+
+    property real density: 1.0
+
+
     // 読込み完了時の処理
     Component.onCompleted: {
         // 初期位置を設定する
@@ -61,6 +66,8 @@ Item {
                 id: _item
                 text: _text
                 property int key: _key
+                color: _root.fontColor
+                density: _root.density
 
                 onClicked: {
                     //インデックスなどを更新する
@@ -68,6 +75,12 @@ Item {
                     currentKey = key;
                     // 自分以外のチェックを外す
                     itemClicked(index);
+                }
+
+                Component.onCompleted: {
+                    if(_item.width > _items.width){
+                        _items.width = _item.width;
+                    }
                 }
             }
         }

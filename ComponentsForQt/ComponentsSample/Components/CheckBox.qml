@@ -11,6 +11,8 @@ MouseArea {
     property alias fontPointSize: _text.font.pointSize  // フォントサイズ
     property int checkSize: 20                          // チェックのサイズ
 
+    property real density: 1.0
+
     // クリックイベント
     onClicked: {
         checked = !checked;
@@ -75,6 +77,7 @@ MouseArea {
         anchors.left: _checkBase.right
         anchors.leftMargin: 5
         anchors.verticalCenter: parent.verticalCenter
+        font.pointSize: 12 * density
 
         text: "text"
     }
