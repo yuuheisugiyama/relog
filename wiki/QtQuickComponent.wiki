@@ -5,7 +5,7 @@ Qt Quick(QML)で作ったエレメント集です。
 
 = Details =
 
-== Components/* ==
+== Components ==
 
 Button.qml<br>
 - いわゆるボタン
