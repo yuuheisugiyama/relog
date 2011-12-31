@@ -7,26 +7,40 @@ Qt Quick(QML)で作ったエレメント集です。
 
 == Components/* ==
 
-Button.qml
- - いわゆるボタン
+Button.qml<br>
+- いわゆるボタン
 
-CheckBox.qml
- - On/Offトグルのボックス
+CheckBox.qml<br>
+- On/Offトグルのボックス
 
-GroupBox.qml
- - グループ枠
+ColorPicker.qml<br>
+ColorPickerBar.qml<br>
+- カラーピッカー
 
-ImageButton.qml
- - 画像貼り付けできるボタン
+GroupBox.qml<br>
+- グループ枠
 
-ImageWithSpinner.qml
- - URLとか指定して表示されるまでの間、ぐるぐるするバージョン。
+ImageButton.qml<br>
+- 画像貼り付けできるボタン
 
-RadioBox.qml
- - たくさんから１つ選ぶもの
+ImageWithSpinner.qml<br>
+- URLとか指定して表示されるまでの間、ぐるぐるするバージョン。
 
-TextBox.qml
- - テキスト入力ボックス
+ListModelManager.qml<br>
+ListModelManager.js<br>
+- ListModelのアイテム管理をスレッドから行うためのもの
 
-Toast.qml
- - Androidにあるトーストっぽいの
+ListViewBase.qml<br>
+- ListViewにスクロールバーつけたりキー操作を受け付ける機能を追加した拡張版
+
+NumberBox.qml<br>
+- 数値を選択するもの
+
+RadioBox.qml<br>
+- たくさんから１つ選ぶもの
+
+TextBox.qml<br>
+- テキスト入力ボックス
+
+Toast.qml<br>
+- Androidにあるトーストっぽいの
