@@ -7,40 +7,40 @@ Qt Quick(QML)で作ったエレメント集です。
 
 == Components ==
 
-Button.qml<br>
-- いわゆるボタン
+- Button.qml<br>
+　いわゆるボタン
 
-CheckBox.qml<br>
-- On/Offトグルのボックス
+- CheckBox.qml<br>
+　On/Offトグルのボックス
 
-ColorPicker.qml<br>
-ColorPickerBar.qml<br>
-- カラーピッカー
+- ColorPicker.qml<br>
+　ColorPickerBar.qml<br>
+　カラーピッカー
 
-GroupBox.qml<br>
-- グループ枠
+- GroupBox.qml<br>
+　ループ枠
 
-ImageButton.qml<br>
-- 画像貼り付けできるボタン
+- ImageButton.qml<br>
+　画像貼り付けできるボタン
 
-ImageWithSpinner.qml<br>
-- URLとか指定して表示されるまでの間、ぐるぐるするバージョン。
+- ImageWithSpinner.qml<br>
+　URLとか指定して表示されるまでの間、ぐるぐるするバージョン。
 
-ListModelManager.qml<br>
-ListModelManager.js<br>
-- ListModelのアイテム管理をスレッドから行うためのもの
+- ListModelManager.qml<br>
+　ListModelManager.js<br>
+　ListModelのアイテム管理をスレッドから行うためのもの
 
-ListViewBase.qml<br>
-- ListViewにスクロールバーつけたりキー操作を受け付ける機能を追加した拡張版
+- ListViewBase.qml<br>
+　ListViewにスクロールバーつけたりキー操作を受け付ける機能を追加した拡張版
 
-NumberBox.qml<br>
-- 数値を選択するもの
+- NumberBox.qml<br>
+　数値を選択するもの
 
-RadioBox.qml<br>
-- たくさんから１つ選ぶもの
+- RadioBox.qml<br>
+　たくさんから１つ選ぶもの
 
-TextBox.qml<br>
-- テキスト入力ボックス
+- TextBox.qml<br>
+　テキスト入力ボックス
 
-Toast.qml<br>
-- Androidにあるトーストっぽいの
+- Toast.qml<br>
+　Androidにあるトーストっぽいの
