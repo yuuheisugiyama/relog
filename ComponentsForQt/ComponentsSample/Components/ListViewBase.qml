@@ -65,7 +65,7 @@ ListView {
     //読込中のくるくる画像
     Image {
         anchors.centerIn: parent
-        source: "../images/spinner.png"
+        source: "./images/spinner.png"
 
         NumberAnimation on rotation {
             from: 0
