@@ -1,9 +1,10 @@
 import QtQuick 1.0
+import "../Util/Util.js" as Util
 
 Rectangle {
     id: _root
-    width: _text.paintedWidth * 1.2// _text.width + _text.font.pixelSize
-    height: _text.paintedHeight * 1.5//_text.height + _text.font.pixelSize / 2
+    width: _text.paintedWidth * 1.2
+    height: _text.paintedHeight * 1.5
     color: "#222222"
     border.color: "#ffffff"
     border.width: 1
@@ -14,6 +15,7 @@ Rectangle {
     property alias pointSize: _text.font.pointSize
     property alias interval: _viewTimer.interval
 
+    property real density: 1.0
 
     //表示する
     function show(message){
@@ -43,13 +45,12 @@ Rectangle {
     //表示するテキスト
     Text {
         id: _text
-//        width: _root.parent.width * 0.6 - _text.font.pixelSize
         anchors.centerIn: parent
         color: "#ffffff"
         text: ""
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
-        font.pointSize: 14
+        font.pointSize: 14 * _root.density
 
     }
 
