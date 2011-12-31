@@ -20,7 +20,7 @@ ListView {
 
     Rectangle {
         id: _scrollBarBase
-        width: 20 * _root.density
+        width: 25 * _root.density
         anchors.top: parent.top
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -34,8 +34,8 @@ ListView {
             id: _scrollBar
             anchors.horizontalCenter: parent.horizontalCenter
             y: parent.height * visibleArea.yPosition
-            width: parent.width * 0.2
-            radius: 2
+            width: parent.width * 0.1
+            radius: width * 0.5
             height: parent.height * visibleArea.heightRatio
             color: "#ffffff"
         }
